@@ -26,6 +26,7 @@
 .masthead img {
   width: 10%;
   height: 10%;
+  margin-left: 10px;
 }
 
 .login-or-signup {
