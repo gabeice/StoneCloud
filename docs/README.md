@@ -1,11 +1,7 @@
 # StoneCloud
 
-[Heroku link][heroku]
-
-[Trello link][trello]
-
-[heroku]:
-[trello]: https://trello.com/b/dRZt4EBE/stonecloud
+Heroku: https://stone-cloud.herokuapp.com/#/
+Trello: https://trello.com/b/dRZt4EBE/stonecloud
 
 ## Minimum Viable Product
 
