@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
+import { receiveErrors } from '../../actions/session_actions';
 
 class SessionForm extends React.Component {
 	constructor(props) {
@@ -29,16 +30,20 @@ class SessionForm extends React.Component {
     this.setState({password: e.target.value});
   }
 
+	componentWillReceiveProps(newProps) {
+		if(this.props.formType != newProps.formType) {
+			store.dispatch(receiveErrors({}));
+		}
+	}
+
   render() {
     return(
-      <div>
+      <div className="submitForm">
         <h2>{this.props.actionType}</h2>
         <form onSubmit={this.handleSubmit}>
         <input type="text" value={this.state.username} onChange={this.handleName}/>
-        <br/>
         <input type="text" value={this.state.password} onChange={this.handlePass}/>
-				<br/>
-        <input type="submit"/>
+        <input id="form-submit-button" type="submit" value="continue"/>
         </form>
         <ul>{this.props.errors.map((err, idx) => <li key={idx}>{err}</li>)}</ul>
       </div>

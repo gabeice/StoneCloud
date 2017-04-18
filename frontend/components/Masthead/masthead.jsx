@@ -18,7 +18,9 @@ class Masthead extends Component {
       return(
         <section className="masthead">
           <img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/picture/file/641/soundcloud_logo_css_by_timpietrusky.png"/>
-          <button onClick={this.clickHandler}>Log out</button>
+          <Search />
+          <span id="username">{this.props.currentUser.username}</span>
+          <button id="logout-button" onClick={this.clickHandler}>Log out</button>
         </section>
       );
     } else {
