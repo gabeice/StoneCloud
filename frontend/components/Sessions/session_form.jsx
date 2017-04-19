@@ -5,15 +5,15 @@ import { receiveErrors } from '../../actions/session_actions';
 class SessionForm extends React.Component {
 	constructor(props) {
 		super(props);
+
 		this.state = {
-			username: "Username",
-			password: "Password"
+			username: "",
+			password: ""
 		};
+
     this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleName = this.handleName.bind(this);
 		this.handlePass = this.handlePass.bind(this);
-		this.clearName = this.clearName.bind(this);
-		this.clearPass = this.clearPass.bind(this);
   }
 
   handleSubmit(e) {
@@ -23,24 +23,12 @@ class SessionForm extends React.Component {
  }
 
   handleName(e) {
-    e.preventDefault();
     this.setState({username: e.target.value});
   }
 
   handlePass(e) {
-    e.preventDefault();
     this.setState({password: e.target.value});
   }
-
-	clearName(e) {
-		e.preventDefault();
-		this.setState({username: ""});
-	}
-
-	clearPass(e) {
-		e.preventDefault();
-		this.setState({password: ""});
-	}
 
 	componentWillReceiveProps(newProps) {
 		if(this.props.formType != newProps.formType) {
@@ -53,10 +41,21 @@ class SessionForm extends React.Component {
       <div className="submitForm">
         <h2>{this.props.actionType}</h2>
         <form onSubmit={this.handleSubmit}>
-        <input type="text" value={this.state.username} onChange={this.handleName} onClick={this.clearName}/>
-        <input type="text" value={this.state.password} onChange={this.handlePass} onClick={this.clearPass}/>
-        <input id="form-submit-button" type="submit" value="continue"/>
+	        <input
+						type="text"
+						value={this.state.username}
+						onChange={this.handleName}
+						placeholder="Username"/>
+
+	        <input
+						type="password"
+						value={this.state.password}
+						onChange={this.handlePass}
+						placeholder="Password"/>
+
+	        <input id="form-submit-button" type="submit" value="continue"/>
         </form>
+
         <ul>{this.props.errors.map((err, idx) => <li key={idx}>{err}</li>)}</ul>
       </div>
     );
