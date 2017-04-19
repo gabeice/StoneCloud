@@ -18,8 +18,33 @@ users = User.create([{ username: 'mickjagger', password: 123456 },
   { username: "ianstewart", password: 123456 },
   { username: "billwyman", password: 123456 }])
 
-tracks = Track.create([{ title: "Happy", user_id: User.find_by(username: "keithrichards").id, image: File.open("app/assets/images/album_covers/Exile_on_Main_St.jpg") },
-  { title: "Midnight Rambler", user_id: User.find_by(username: "mickjagger").id, image: File.open("app/assets/images/album_covers/Let_It_Bleed.jpg") },
-  { title: "Hang Fire", user_id: User.find_by(username: "charliewatts").id, image: File.open("app/assets/images/album_covers/Tattoo_You.jpg") },
-  { title: "Gimme Shelter", user_id: User.find_by(username: "mickjagger").id, image: File.open("app/assets/images/album_covers/Let_It_Bleed.jpg") },
-  { title: "Let It Loose", user_id: User.find_by(username: "mickjagger").id, image: File.open("app/assets/images/album_covers/Exile_on_Main_St.jpg") }])
+tracks = Track.create([
+  {
+    title: "Happy",
+    user_id: User.find_by(username: "keithrichards").id,
+    image: File.open("app/assets/images/album_covers/Exile_on_Main_St.jpg")
+  },
+
+  {
+    title: "Midnight Rambler",
+    user_id: User.find_by(username: "mickjagger").id,
+    image: File.open("app/assets/images/album_covers/Let_It_Bleed.jpg")
+  },
+
+  {
+    title: "Hang Fire",
+    user_id: User.find_by(username: "charliewatts").id,
+    image: File.open("app/assets/images/album_covers/Tattoo_You.jpg")
+  },
+
+  {
+    title: "Gimme Shelter",
+    user_id: User.find_by(username: "mickjagger").id,
+    image: File.open("app/assets/images/album_covers/Let_It_Bleed.jpg")
+  },
+
+  {
+    title: "Let It Loose",
+    user_id: User.find_by(username: "mickjagger").id,
+    image: File.open("app/assets/images/album_covers/Exile_on_Main_St.jpg")
+  }])
