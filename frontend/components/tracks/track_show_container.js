@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import TrackShow from './track_show';
 
 const mapStateToProps = (state, ownProps) => ({
+  track: Object.values(state.tracks)[0],
   trackId: ownProps.location.pathname
 });
 

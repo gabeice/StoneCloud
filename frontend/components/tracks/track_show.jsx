@@ -10,11 +10,17 @@ class TrackShow extends Component {
   }
 
   render() {
-    return(
-      <div>
-        <p>Kilroy was here</p>
-      </div>
-    );
+    if(this.props.track) {
+      return(
+        <div className="track-show">
+          <img src={this.props.track.image_url}/>
+          <p>{this.props.track.title}</p>
+          <audio src={this.props.track.song_url} autoPlay="true"/>
+        </div>
+      );
+    } else {
+      return(<div/>)
+    }
   }
 }
 
