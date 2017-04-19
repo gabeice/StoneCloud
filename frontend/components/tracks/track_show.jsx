@@ -14,7 +14,8 @@ class TrackShow extends Component {
       return(
         <div className="track-show">
           <img src={this.props.track.image_url}/>
-          <p>{this.props.track.title}</p>
+          <h2>{this.props.track.title}</h2>
+          <p>{this.props.track.poster}</p>
           <audio src={this.props.track.song_url} autoPlay="true"/>
         </div>
       );
