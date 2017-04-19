@@ -3,16 +3,6 @@ import { Link } from 'react-router';
 import Search from '../search';
 
 class Navbar extends Component {
-  constructor(props) {
-    super(props);
-    this.clickHandler = this.clickHandler.bind(this);
-  }
-
-  clickHandler(e) {
-    e.preventDefault();
-    this.props.logout();
-  }
-
   render() {
     if(this.props.currentUser) {
       return(
@@ -20,7 +10,7 @@ class Navbar extends Component {
           <img src={window.images.logo}/>
           <Search />
           <span id="username">{this.props.currentUser.username}</span>
-          <button id="logout-button" onClick={this.clickHandler}>Log out</button>
+          <button id="logout-button" onClick={this.props.logout}>Log out</button>
         </section>
       );
     } else {
