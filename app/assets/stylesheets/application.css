@@ -90,6 +90,10 @@
   border-radius: 5px;
 }
 
+.submitForm ul:empty {
+  display: none;
+}
+
 .submitForm form {
   width: 80%;
   display: flex;

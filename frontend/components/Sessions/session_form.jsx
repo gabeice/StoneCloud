@@ -14,6 +14,7 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleName = this.handleName.bind(this);
 		this.handlePass = this.handlePass.bind(this);
+		this.showErrors = this.showErrors.bind(this);
   }
 
   handleSubmit(e) {
@@ -36,7 +37,15 @@ class SessionForm extends React.Component {
 		}
 	}
 
+	showErrors(field) {
+		if(this.props.errors[field]) {
+			return this.props.errors[field].map((err, idx) => <li key={idx}>{field} {err}</li>)
+		}
+	}
+
   render() {
+		let baseErrors = this.props.errors["base"] ? this.props.errors["base"] : []
+
     return(
       <div className="submitForm">
         <h2>{this.props.actionType}</h2>
@@ -47,16 +56,26 @@ class SessionForm extends React.Component {
 						onChange={this.handleName}
 						placeholder="Username"/>
 
+					<ul>
+						{this.showErrors("username")}
+					</ul>
+
 	        <input
 						type="password"
 						value={this.state.password}
 						onChange={this.handlePass}
 						placeholder="Password"/>
 
+					<ul>
+						{this.showErrors("password")}
+					</ul>
+
+					<ul>
+						{baseErrors.map((err, idx) => <li>{err}</li>)}
+					</ul>
+
 	        <input id="form-submit-button" type="submit" value="continue"/>
         </form>
-
-        <ul>{this.props.errors.map((err, idx) => <li key={idx}>{err}</li>)}</ul>
       </div>
     );
   }
