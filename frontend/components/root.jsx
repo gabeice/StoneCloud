@@ -11,12 +11,6 @@ class Root extends React.Component {
     }
   }
 
-  _redirectIfNotLoggedIn(nextState, replace) {
-    if (!store.getState().session.currentUser) {
-      replace('/');
-    }
-  }
-
   render() {
     const { store } = this.props;
     return(

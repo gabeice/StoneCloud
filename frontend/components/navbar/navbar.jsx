@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Search from '../search';
 
-class Masthead extends Component {
+class Navbar extends Component {
   constructor(props) {
     super(props);
     this.clickHandler = this.clickHandler.bind(this);
@@ -16,7 +16,7 @@ class Masthead extends Component {
   render() {
     if(this.props.currentUser) {
       return(
-        <section className="masthead">
+        <section className="navbar">
           <img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/picture/file/641/soundcloud_logo_css_by_timpietrusky.png"/>
           <Search />
           <span id="username">{this.props.currentUser.username}</span>
@@ -25,7 +25,7 @@ class Masthead extends Component {
       );
     } else {
       return(
-        <section className="masthead">
+        <section className="navbar">
           <img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/picture/file/641/soundcloud_logo_css_by_timpietrusky.png"/>
           <Search />
 
@@ -40,4 +40,4 @@ class Masthead extends Component {
   }
 }
 
-export default Masthead;
+export default Navbar;

@@ -14,7 +14,7 @@
  *= require_self
  */
 
- .masthead {
+ .navbar {
    display: flex;
    flex-direction: row;
    position: relative;
@@ -22,7 +22,7 @@
    background-color: dimgray;
  }
 
-.masthead img {
+.navbar img {
   width: 10%;
   height: 10%;
   margin-left: 15px;

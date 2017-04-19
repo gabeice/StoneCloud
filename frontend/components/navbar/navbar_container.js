@@ -1,4 +1,4 @@
-import Masthead from './masthead';
+import Navbar from './navbar';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 
@@ -17,4 +17,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Masthead);
+)(Navbar);
