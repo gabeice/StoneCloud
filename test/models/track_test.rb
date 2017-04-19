@@ -11,6 +11,10 @@
 #  image_content_type :string
 #  image_file_size    :integer
 #  image_updated_at   :datetime
+#  song_file_name     :string
+#  song_content_type  :string
+#  song_file_size     :integer
+#  song_updated_at    :datetime
 #
 
 require 'test_helper'
