@@ -18,4 +18,10 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !!current_user
   end
+
+  def ensure_login
+    unless current_user
+      render json: "Must be logged in", status: 422
+    end
+  end
 end
