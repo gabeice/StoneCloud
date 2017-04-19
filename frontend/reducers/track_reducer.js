@@ -5,7 +5,7 @@ const trackReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_TRACK:
-      const nextState = merge({}, state);
+      const nextState = {};
       nextState[action.track.id] = action.track;
       return nextState;
     case REMOVE_TRACK:

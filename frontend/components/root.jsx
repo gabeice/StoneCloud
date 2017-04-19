@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import App from './App'
 import SessionFormContainer from './Sessions/session_form_container';
+import TrackShowContainer from './tracks/track_show_container';
 
 class Root extends React.Component {
   _redirectIfLoggedIn(nextState, replace) {
@@ -19,6 +20,7 @@ class Root extends React.Component {
           <Route path="/" component={ App }>
             <Route path="/login" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn}/>
             <Route path="/signup" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn}/>
+            <Route path="/tracks/:trackId" component={ TrackShowContainer }/>
           </Route>
         </Router>
       </Provider>
