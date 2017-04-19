@@ -14,8 +14,8 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 title       | string    | not null
-author_id   | integer   | not null, foreign key (references users), indexed
-file_url    | string    | not null, unique
+user_id     | integer   | not null, foreign key (references users), indexed
+song_url    | string    | not null, unique
 
 ## comments
 column name | data type | details

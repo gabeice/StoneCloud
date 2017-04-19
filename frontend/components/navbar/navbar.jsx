@@ -17,7 +17,7 @@ class Navbar extends Component {
     if(this.props.currentUser) {
       return(
         <section className="navbar">
-          <img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/picture/file/641/soundcloud_logo_css_by_timpietrusky.png"/>
+          <img src={window.images.logo}/>
           <Search />
           <span id="username">{this.props.currentUser.username}</span>
           <button id="logout-button" onClick={this.clickHandler}>Log out</button>
@@ -26,7 +26,7 @@ class Navbar extends Component {
     } else {
       return(
         <section className="navbar">
-          <img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/picture/file/641/soundcloud_logo_css_by_timpietrusky.png"/>
+          <img src={window.images.logo}/>
           <Search />
 
           <div className="login-or-signup">

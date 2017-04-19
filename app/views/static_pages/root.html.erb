@@ -5,6 +5,9 @@
       user: current_user
     ).html_safe %>
   <% end %>
+  window.images = {
+    logo: "<%= image_path("soundcloud_logo.png") %>"
+  }
 </script>
 
 <div id="root"></div>
