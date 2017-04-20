@@ -14,12 +14,17 @@ class TrackShow extends Component {
   render() {
     if(this.props.track) {
       return(
-        <div className="track-show">
+        <section className="track-show">
+          <div id="track-controller">
+            <audio src={this.props.track.song_url} controls/>
+
+            <div id="track-info">
+              <p>{this.props.track.poster}</p>
+              <h2>{this.props.track.title}</h2>
+            </div>
+          </div>
           <img src={this.props.track.image_url}/>
-          <h2>{this.props.track.title}</h2>
-          <p>{this.props.track.poster}</p>
-          <audio src={this.props.track.song_url} controls/>
-        </div>
+        </section>
       );
     } else {
       return(<div/>)

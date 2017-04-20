@@ -61,6 +61,7 @@
  width: 100%;
  height: 25px;
  border-radius: 5px;
+ font-size: 14px;
 }
 
 .submitForm {
@@ -79,12 +80,16 @@
  display: none;
 }
 
+.submitForm h2 {
+  margin-top: 100px;
+}
+
 .submitForm form {
  width: 80%;
  display: flex;
  flex-direction: column;
  align-items: center;
- margin-bottom: 20px;
+ margin-bottom: 100px;
 }
 
 .submitForm form input {
@@ -94,6 +99,15 @@
  height: 20px;
  border-radius: 5px;
  border: 1px solid gray;
+}
+
+.submitForm ul {
+  padding-left: 0px;
+}
+
+.submitForm li {
+  list-style-type: none;
+  color: red;
 }
 
 #form-submit-button {

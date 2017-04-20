@@ -71,7 +71,7 @@ class SessionForm extends React.Component {
 					</ul>
 
 					<ul>
-						{baseErrors.map((err, idx) => <li>{err}</li>)}
+						{baseErrors.map((err, idx) => <li key={idx}>{err}</li>)}
 					</ul>
 
 	        <input id="form-submit-button" type="submit" value="continue"/>

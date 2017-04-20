@@ -2,6 +2,42 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.track-show {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: gray;
+  margin-left: 13px;
+  margin-right: 13px;
+}
+
+#track-controller {
+  display: flex;
+  flex-direction: row;
+}
+
+#track-info {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  align-items: flex-start;
+}
+
+#track-info h2 {
+  background-color: black;
+  margin: 0px 5px;
+  padding: 5px 10px;
+  font-weight: lighter;
+}
+
+#track-info p {
+  background-color: black;
+  margin: 5px;
+  padding: 5px 7px;
+  font-weight: lighter;
+}
+
 .track-show img {
   height: 300px;
+  margin: 10px;
 }
