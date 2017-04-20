@@ -41,3 +41,30 @@
   height: 300px;
   margin: 10px;
 }
+
+.track-index li {
+  list-style-type: none;
+}
+
+.track-index-item {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+  padding: 20px;
+  border-bottom: 1px solid lightgray;
+  width: 50%
+}
+
+.track-index-item img {
+  height: 100px;
+}
+
+.track-item-info p {
+  color: gray;
+  font-size: 12px;
+}
+
+#title-link {
+  text-decoration: none;
+  color: black
+}

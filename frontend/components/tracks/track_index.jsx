@@ -8,7 +8,7 @@ class TrackIndex extends Component {
 
   render() {
     return(
-      <ul>
+      <ul className="track-index">
         {this.props.tracks.map(track => <TrackIndexItem track={track} key={track.id}/>)}
       </ul>
     );
