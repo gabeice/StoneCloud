@@ -7,11 +7,9 @@ class TrackIndex extends Component {
   }
 
   render() {
-    let tracks = Object.keys(this.props.tracks).length === 0 ? [] : Object.keys(this.props.tracks);
-
     return(
       <ul>
-        {tracks.map((track) => <li key={this.props.tracks[track].id}><Link to={`/tracks/${this.props.tracks[track].id}`}>{this.props.tracks[track].title}</Link></li>)}
+        {this.props.tracks.map((track) => <li key={track.id}><Link to={`/tracks/${track.id}`}>{track.title}</Link></li>)}
       </ul>
     );
   }

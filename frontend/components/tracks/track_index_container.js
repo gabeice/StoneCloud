@@ -3,7 +3,7 @@ import TrackIndex from './track_index';
 import { fetchTracks } from '../../actions/track_actions';
 
 const mapStateToProps = state => ({
-  tracks: state.tracks
+  tracks: Object.values(state.tracks)
 });
 
 const mapDispatchToProps = dispatch => ({
