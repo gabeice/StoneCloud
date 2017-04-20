@@ -52,7 +52,7 @@
 }
 
 .search-bar {
- width: 60%;
+ width: 50%;
  display: flex;
  align-items: center;
 }
@@ -135,4 +135,19 @@
  display: flex;
  align-self: center;
  color: white;
+ border-right: 1px solid lightgray;
+ border-left: 1px solid lightgray;
+ padding: 10px 30px;
+ font-weight: lighter;
+}
+
+#post-link {
+  text-decoration: none;
+  display: flex;
+  align-self: center;
+  color: white;
+  border-left: 1px solid lightgray;
+  padding: 10px;
+  padding-left: 35px;
+  font-weight: lighter;
 }

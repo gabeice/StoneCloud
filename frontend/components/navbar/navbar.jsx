@@ -9,6 +9,7 @@ class Navbar extends Component {
         <section className="navbar">
           <img src={window.images.logo}/>
           <Search />
+          <Link id="post-link" to="/post"><span id="post-button">Upload</span></Link>
           <span id="username">{this.props.currentUser.username}</span>
           <button id="logout-button" onClick={this.props.logout}>Log out</button>
         </section>
