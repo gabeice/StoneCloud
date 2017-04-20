@@ -88,3 +88,22 @@
 #play-button:hover {
   opacity: 0.5;
 }
+
+.track-play-button {
+  margin: 5px;
+  border-radius: 50%;
+  background-color: orangered;
+  color: white;
+  width: 25px;
+  height: 25px;
+  justify-content: center;
+}
+
+.track-play-button i {
+  font-size: 1em;
+  margin: 4px 8px;
+}
+
+.track-play-button:hover {
+  opacity: 0.5;
+}

@@ -16,9 +16,13 @@ class TrackIndexItem extends Component {
     if(song.paused) {
       song.play();
       buttonImage.className = "fa fa-pause";
+      buttonImage.style.fontSize = "0.9em";
+      buttonImage.style.margin = "6px 6px";
     } else {
       song.pause();
       buttonImage.className = "fa fa-play";
+      buttonImage.style.fontSize = "1em";
+      buttonImage.style.margin = "4px 8px";
     }
   }
 
