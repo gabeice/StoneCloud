@@ -1,5 +1,5 @@
 class Api::TracksController < ApplicationController
-  before_action :ensure_login, except: [:show]
+  before_action :ensure_login, except: [:show, :index]
 
   def create
     @track = Track.new(track_params)
@@ -29,6 +29,10 @@ class Api::TracksController < ApplicationController
 
   def show
     @track = Track.find(params[:id])
+  end
+
+  def index
+    @tracks = Track.all
   end
 
   private

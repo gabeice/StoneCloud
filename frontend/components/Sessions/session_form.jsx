@@ -20,7 +20,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
    e.preventDefault();
    const user = Object.assign({}, this.state);
-   this.props.processForm(user).then(() => hashHistory.push("/"));
+   this.props.processForm(user).then(() => hashHistory.push("/tracks"));
  }
 
   handleName(e) {
