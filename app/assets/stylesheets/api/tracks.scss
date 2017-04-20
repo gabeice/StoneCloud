@@ -21,6 +21,7 @@
   flex-direction: column;
   color: white;
   align-items: flex-start;
+  margin-top: 20px;
 }
 
 #track-info h2 {
@@ -67,4 +68,23 @@
 #title-link {
   text-decoration: none;
   color: black
+}
+
+#play-button {
+  margin: 20px;
+  border-radius: 50%;
+  background-color: orangered;
+  color: white;
+  width: 75px;
+  height: 75px;
+  justify-content: center;
+}
+
+#play-button i {
+  font-size: 3em;
+  margin: 14px 23px;
+}
+
+#play-button:hover {
+  opacity: 0.5;
 }
