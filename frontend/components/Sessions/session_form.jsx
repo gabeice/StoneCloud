@@ -12,8 +12,6 @@ class SessionForm extends React.Component {
 		};
 
     this.handleSubmit = this.handleSubmit.bind(this);
-		this.handleName = this.handleName.bind(this);
-		this.handlePass = this.handlePass.bind(this);
 		this.showErrors = this.showErrors.bind(this);
   }
 
@@ -23,12 +21,8 @@ class SessionForm extends React.Component {
    this.props.processForm(user).then(() => hashHistory.push("/tracks"));
  }
 
-  handleName(e) {
-    this.setState({username: e.target.value});
-  }
-
-  handlePass(e) {
-    this.setState({password: e.target.value});
+  update(field) {
+    return e => this.setState({ [field]: e.target.value });
   }
 
 	componentWillReceiveProps(newProps) {
@@ -53,7 +47,7 @@ class SessionForm extends React.Component {
 	        <input
 						type="text"
 						value={this.state.username}
-						onChange={this.handleName}
+						onChange={this.update("username")}
 						placeholder="Username"/>
 
 					<ul>
@@ -63,7 +57,7 @@ class SessionForm extends React.Component {
 	        <input
 						type="password"
 						value={this.state.password}
-						onChange={this.handlePass}
+						onChange={this.update("password")}
 						placeholder="Password"/>
 
 					<ul>
