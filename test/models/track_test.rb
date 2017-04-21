@@ -15,6 +15,7 @@
 #  song_content_type  :string
 #  song_file_size     :integer
 #  song_updated_at    :datetime
+#  artist             :string           default("The Rolling Stones"), not null
 #
 
 require 'test_helper'

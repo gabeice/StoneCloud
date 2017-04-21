@@ -15,10 +15,12 @@
 #  song_content_type  :string
 #  song_file_size     :integer
 #  song_updated_at    :datetime
+#  artist             :string           default("The Rolling Stones"), not null
 #
 
 class Track < ApplicationRecord
   validates :title, presence: true
+  validates :artist, presence: true
 
   has_attached_file :image, default_url: "default.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/

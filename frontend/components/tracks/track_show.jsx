@@ -45,7 +45,7 @@ class TrackShow extends Component {
 
             <div id="track-info">
               <p>{this.props.track.poster}</p>
-              <h2>{this.props.track.title}</h2>
+              <h2>{this.props.track.artist} - {this.props.track.title}</h2>
             </div>
 
           </div>
