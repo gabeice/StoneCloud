@@ -20,6 +20,13 @@ class Root extends React.Component {
     }
   }
 
+  _redirectIfNotPoster(nextState, replace) {
+    if (!store.getState().session.currentUser ||
+    store.getState().session.currentUser.id != Object.values(store.getState().tracks)[0].user_id) {
+      replace('/tracks');
+    }
+  }
+
   render() {
     const { store } = this.props;
     return(
@@ -45,7 +52,7 @@ class Root extends React.Component {
             <Route
               path="/edit/:trackId"
               component={ TrackFormContainer }
-              onEnter={this._redirectIfNotLoggedIn}
+              onEnter={this._redirectIfNotPoster}
               formType={"edit"}/>
 
             <Route path="/tracks" component={ TrackIndexContainer }/>
