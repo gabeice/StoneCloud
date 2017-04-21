@@ -29,8 +29,11 @@ class TrackForm extends Component {
     formData.append("track[artist]", this.state.artist === "" ? "The Rolling Stones" : this.state.artist);
     formData.append("track[song]", this.state.songFile);
     formData.append("track[image]", this.state.imageFile);
+    if(this.state.id) {
+      formData.append("track[id]", this.state.id);
+    }
 
-    this.props.submitAction(formData)
+    this.props.submitAction(formData, this.state.id)
       .then(() => hashHistory.push(`/tracks/${Object.keys(store.getState().tracks)[0]}`));
   }
 

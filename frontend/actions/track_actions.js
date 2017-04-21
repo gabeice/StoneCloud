@@ -34,8 +34,8 @@ export const createTrack = track => dispatch => {
     .then(track => dispatch(receiveTrack(track)));
 }
 
-export const updateTrack = track => dispatch => {
-  return TrackAPIUtil.updateTrack(track)
+export const updateTrack = (track, trackId) => dispatch => {
+  return TrackAPIUtil.updateTrack(track, trackId)
     .then(track => dispatch(receiveTrack(track)));
 }
 

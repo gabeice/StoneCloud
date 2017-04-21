@@ -26,7 +26,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   let submitAction = ownProps.location.pathname.endsWith("post") ? createTrack : updateTrack;
   return {
-    submitAction: (track) => dispatch(submitAction(track))
+    submitAction: (track, trackId) => dispatch(submitAction(track, trackId))
   }
 };
 
