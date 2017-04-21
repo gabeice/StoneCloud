@@ -9,6 +9,7 @@
   background-color: gray;
   margin-left: 13px;
   margin-right: 13px;
+  margin-top: 50px;
 }
 
 #track-controller {
@@ -41,6 +42,11 @@
 .track-show img {
   height: 300px;
   margin: 10px;
+}
+
+.track-index {
+  position: relative;
+  margin-top: 75px;
 }
 
 .track-index li {

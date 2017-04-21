@@ -5,15 +5,20 @@
 .navbar {
   display: flex;
   flex-direction: row;
-  position: relative;
   justify-content: space-between;
   background-color: dimgray;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+  z-index: 3;
 }
 
 .navbar img {
- width: 10%;
- height: 10%;
+ // width: 10%;
+ // height: 10%;
  margin-left: 15px;
+ height: 50px;
 }
 
 .login-or-signup {
@@ -72,8 +77,9 @@
  display: flex;
  flex-direction: column;
  align-items: center;
- margin-top: 50px;
+ margin-top: 100px;
  border-radius: 5px;
+ position: relative;
 }
 
 .submitForm ul:empty {
@@ -98,11 +104,15 @@
 
 .submitForm form input {
  width: 90%;
- margin-top: 20px;
- margin-bottom: 20px;
+ margin-top: 15px;
+ margin-bottom: 15px;
  height: 20px;
  border-radius: 5px;
  border: 1px solid gray;
+}
+
+.submitForm form input[type="submit"] {
+  margin-top: 40px;
 }
 
 .submitForm form input[type="file"] {
