@@ -6,7 +6,14 @@ const mapStateToProps = (state, ownProps) => {
   let track;
 
   if(ownProps.location.pathname.endsWith("post")) {
-    track = {title: "", artist: "", song_url: "", image_url: "", user_id: state.session.currentUser.id}
+    track = {
+      title: "",
+      artist: "",
+      songFile: "",
+      imageFile: "",
+      imageUrl: "",
+      user_id: state.session.currentUser.id
+    }
   } else {
     track = ownProps.track;
   }

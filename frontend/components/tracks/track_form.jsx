@@ -6,6 +6,8 @@ class TrackForm extends Component {
     super(props);
     this.state = this.props.track;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateSong = this.updateSong.bind(this);
+    this.updateImage = this.updateImage.bind(this);
   }
 
   update(field) {
@@ -14,8 +16,33 @@ class TrackForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.submitAction(this.state)
+    let formData = new FormData();
+
+    formData.append("track[title]", this.state.title);
+    formData.append("track[artist]", this.state.artist === "" ? "The Rolling Stones" : this.state.artist);
+    formData.append("track[song]", this.state.songFile);
+    formData.append("track[image]", this.state.imageFile);
+
+    this.props.submitAction(formData)
       .then(() => hashHistory.push(`/tracks/${Object.keys(store.getState().tracks)[0]}`));
+  }
+
+  updateSong(e) {
+    let file = e.currentTarget.files[0];
+    this.setState({songFile: file});
+  }
+
+  updateImage(e) {
+    let file = e.currentTarget.files[0];
+    let fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({imageFile: file, imageUrl: fileReader.result});
+    }
+
+    if(file) {
+      fileReader.readAsDataURL(file);
+      $('#cover')[0].style.display = "inherit";
+    }
   }
 
   render() {
@@ -36,16 +63,16 @@ class TrackForm extends Component {
             onChange={this.update("artist")}/>
 
           <input
-            type="text"
+            type="file"
             placeholder="Song File"
-            value={this.state.song_url}
-            onChange={this.update("song_url")}/>
+            onChange={this.updateSong}/>
 
           <input
-            type="text"
+            type="file"
             placeholder="Cover Art"
-            value={this.state.image_url}
-            onChange={this.update("image_url")}/>
+            onChange={this.updateImage}/>
+
+          <img id="cover" src={this.state.imageUrl}/>
 
           <input className="form-submit-button" type="submit"/>
         </form>
