@@ -80,6 +80,10 @@
  display: none;
 }
 
+.submitForm p:empty {
+ display: none;
+}
+
 .submitForm h2 {
   margin-top: 100px;
 }
@@ -99,6 +103,21 @@
  height: 20px;
  border-radius: 5px;
  border: 1px solid gray;
+}
+
+.submitForm form input[type="file"] {
+  display: none;
+}
+
+.submitForm label {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  height: 15px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  font-size: 12px;
+  cursor: pointer;
 }
 
 .submitForm ul {

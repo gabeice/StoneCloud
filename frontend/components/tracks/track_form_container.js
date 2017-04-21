@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
       songFile: "",
       imageFile: "",
       imageUrl: "",
-      user_id: state.session.currentUser.id
+      user_id: ""
     }
   } else {
     track = ownProps.track;

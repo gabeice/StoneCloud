@@ -63,14 +63,18 @@ class TrackForm extends Component {
             onChange={this.update("artist")}/>
 
           <input
+            id="song-file"
             type="file"
-            placeholder="Song File"
             onChange={this.updateSong}/>
+          <label htmlFor="song-file">Choose a song</label>
+
+          <p>{this.state.songFile ? this.state.songFile.name : ""}</p>
 
           <input
+            id="image-file"
             type="file"
-            placeholder="Cover Art"
             onChange={this.updateImage}/>
+          <label htmlFor="image-file">Add artwork</label>
 
           <img id="cover" src={this.state.imageUrl}/>
 
