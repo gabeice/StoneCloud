@@ -94,7 +94,10 @@ class TrackForm extends Component {
             onChange={this.updateImage}/>
           <label htmlFor="image-file">Add artwork</label>
 
-          <img id="cover" src={this.state.imageUrl}/>
+          <img
+            id="cover"
+            className={this.props.header.startsWith("E") ? "" : "hidden"}
+            src={this.state.imageUrl}/>
 
           <input className="form-submit-button" type="submit"/>
         </form>
