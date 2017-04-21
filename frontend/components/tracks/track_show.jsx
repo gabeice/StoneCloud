@@ -41,6 +41,10 @@ class TrackShow extends Component {
     hashHistory.push("/tracks");
   }
 
+  toggleDropdown(e) {
+
+  }
+
   render() {
     if(this.props.track) {
       let ownSong = this.props.currentUserId === this.props.track.user_id;
@@ -61,15 +65,15 @@ class TrackShow extends Component {
             </div>
             <img src={this.props.track.image_url}/>
           </section>
-          <Link
-            id="edit-link"
-            to={`/edit/${this.props.track.id}`}
-            className={ownSong ? "" : "hidden"}>Edit</Link>
+          <section className={ownSong ? "edit-dropdown" : "hidden"}>
+            <Link
+              id="edit-link"
+              to={`/edit/${this.props.track.id}`}><i className="fa fa-pencil" aria-hidden="true"></i> Edit</Link>
 
-          <button
-            id="delete-button"
-            className={ownSong ? "" : "hidden"}
-            onClick={this.handleDelete}>Delete</button>
+            <button
+              id="delete-button"
+              onClick={this.handleDelete}><i className="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+          </section>
         </div>
       );
     } else {

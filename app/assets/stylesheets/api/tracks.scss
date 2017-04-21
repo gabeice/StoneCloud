@@ -107,3 +107,28 @@
 .track-play-button:hover {
   opacity: 0.5;
 }
+
+.edit-dropdown {
+  display: flex;
+  flex-direction: column;
+  width: 75px;
+  margin: 10px 30px;
+  margin-left: 20px;
+  border: 1px solid gray;
+}
+
+.edit-dropdown a {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+  border-bottom: 1px solid lightgray;
+  font-size: 11px;
+  width: auto;
+}
+
+.edit-dropdown button {
+  border: none;
+  padding: 10px;
+  background-color: white;
+  cursor: pointer;
+}
