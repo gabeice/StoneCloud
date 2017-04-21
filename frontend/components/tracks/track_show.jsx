@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 class TrackShow extends Component {
   constructor(props) {
@@ -36,21 +37,25 @@ class TrackShow extends Component {
   render() {
     if(this.props.track) {
       return(
-        <section className="track-show">
-          <div id="track-controller">
-            <audio id="song" src={this.props.track.song_url}/>
-            <a href="#" id="play-button" onClick={this.togglePlay}>
-              <i className="fa fa-play" aria-hidden="true"></i>
-            </a>
+        <div>
+          <section className="track-show">
+            <div id="track-controller">
+              <audio id="song" src={this.props.track.song_url}/>
+              <a href="#" id="play-button" onClick={this.togglePlay}>
+                <i className="fa fa-play" aria-hidden="true"></i>
+              </a>
 
-            <div id="track-info">
-              <p>{this.props.track.poster}</p>
-              <h2>{this.props.track.artist} - {this.props.track.title}</h2>
+              <div id="track-info">
+                <p>{this.props.track.poster}</p>
+                <h2>{this.props.track.artist} - {this.props.track.title}</h2>
+              </div>
+
             </div>
-
-          </div>
-          <img src={this.props.track.image_url}/>
-        </section>
+            <img src={this.props.track.image_url}/>
+          </section>
+          <Link to={`/edit/${this.props.track.id}`}>Edit</Link>
+          <button>Delete</button>
+        </div>
       );
     } else {
       return(<div/>)

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, hashHistory } from 'react-router';
+import { removeTrack } from '../../actions/track_actions';
 
 class TrackForm extends Component {
   constructor(props) {
@@ -9,6 +10,12 @@ class TrackForm extends Component {
     this.updateSong = this.updateSong.bind(this);
     this.updateImage = this.updateImage.bind(this);
   }
+
+  componentWillReceiveProps(newProps) {
+		if(this.props.header != newProps.header) {
+			store.dispatch(removeTrack(this.props.track));
+		}
+	}
 
   update(field) {
     return e => this.setState({ [field]: e.target.value });
@@ -48,7 +55,7 @@ class TrackForm extends Component {
   render() {
     return(
       <div className="submitForm">
-        <h2>Post a song</h2>
+        <h2>{this.props.header}</h2>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"

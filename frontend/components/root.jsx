@@ -42,6 +42,12 @@ class Root extends React.Component {
               onEnter={this._redirectIfNotLoggedIn}
               formType={"new"}/>
 
+            <Route
+              path="/edit/:trackId"
+              component={ TrackFormContainer }
+              onEnter={this._redirectIfNotLoggedIn}
+              formType={"edit"}/>
+
             <Route path="/tracks" component={ TrackIndexContainer }/>
             <Route path="/tracks/:trackId" component={ TrackShowContainer }/>
           </Route>

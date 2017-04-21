@@ -15,10 +15,11 @@ const mapStateToProps = (state, ownProps) => {
       user_id: ""
     }
   } else {
-    track = ownProps.track;
+    track = Object.values(state.tracks)[0];
   }
   return {
-    track
+    track,
+    header: ownProps.location.pathname.endsWith("post") ? "Post a song" : "Edit song"
   }
 };
 
