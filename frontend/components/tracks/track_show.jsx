@@ -36,6 +36,7 @@ class TrackShow extends Component {
 
   render() {
     if(this.props.track) {
+      let ownSong = this.props.currentUserId === this.props.track.id;
       return(
         <div>
           <section className="track-show">
@@ -53,8 +54,14 @@ class TrackShow extends Component {
             </div>
             <img src={this.props.track.image_url}/>
           </section>
-          <Link to={`/edit/${this.props.track.id}`}>Edit</Link>
-          <button>Delete</button>
+          <Link
+            id="edit-link"
+            to={`/edit/${this.props.track.id}`}
+            className={ownSong ? "" : "hidden"}>Edit</Link>
+
+          <button
+            id="delete-button"
+            className={ownSong ? "" : "hidden"}>Delete</button>
         </div>
       );
     } else {

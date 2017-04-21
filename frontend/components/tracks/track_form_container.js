@@ -16,6 +16,7 @@ const mapStateToProps = (state, ownProps) => {
     }
   } else {
     track = Object.values(state.tracks)[0];
+    track.imageUrl = track.image_url;
   }
   return {
     track,

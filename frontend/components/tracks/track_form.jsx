@@ -14,6 +14,7 @@ class TrackForm extends Component {
   componentWillReceiveProps(newProps) {
 		if(this.props.header != newProps.header) {
 			store.dispatch(removeTrack(this.props.track));
+      this.setState({title: "", artist: ""});
 		}
 	}
 
@@ -27,8 +28,15 @@ class TrackForm extends Component {
 
     formData.append("track[title]", this.state.title);
     formData.append("track[artist]", this.state.artist === "" ? "The Rolling Stones" : this.state.artist);
-    formData.append("track[song]", this.state.songFile);
-    formData.append("track[image]", this.state.imageFile);
+
+    if(this.state.songFile) {
+      formData.append("track[song]", this.state.songFile);
+    }
+
+    if(this.state.imageFile) {
+      formData.append("track[image]", this.state.imageFile);
+    }
+
     if(this.state.id) {
       formData.append("track[id]", this.state.id);
     }
