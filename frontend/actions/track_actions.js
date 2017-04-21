@@ -39,7 +39,7 @@ export const updateTrack = (track, trackId) => dispatch => {
     .then(track => dispatch(receiveTrack(track)));
 }
 
-export const deleteTrack = track => dispatch => {
-  return TrackAPIUtil.deleteTrack(track)
+export const deleteTrack = trackId => dispatch => {
+  return TrackAPIUtil.deleteTrack(trackId)
     .then(track => dispatch(removeTrack(track)));
 }

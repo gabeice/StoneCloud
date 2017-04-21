@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 
 class TrackShow extends Component {
   constructor(props) {
     super(props)
     this.togglePlay = this.togglePlay.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -34,9 +35,15 @@ class TrackShow extends Component {
     }
   }
 
+  handleDelete(e) {
+    e.preventDefault();
+    this.props.deleteTrack(this.props.track.id);
+    hashHistory.push("/tracks");
+  }
+
   render() {
     if(this.props.track) {
-      let ownSong = this.props.currentUserId === this.props.track.id;
+      let ownSong = this.props.currentUserId === this.props.track.user_id;
       return(
         <div>
           <section className="track-show">
@@ -61,7 +68,8 @@ class TrackShow extends Component {
 
           <button
             id="delete-button"
-            className={ownSong ? "" : "hidden"}>Delete</button>
+            className={ownSong ? "" : "hidden"}
+            onClick={this.handleDelete}>Delete</button>
         </div>
       );
     } else {
