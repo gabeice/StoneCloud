@@ -22,6 +22,7 @@ class Root extends React.Component {
 
   _redirectIfNotPoster(nextState, replace) {
     if (!store.getState().session.currentUser ||
+    !Object.values(store.getState().tracks)[0] ||
     store.getState().session.currentUser.id != Object.values(store.getState().tracks)[0].user_id) {
       replace('/tracks');
     }
