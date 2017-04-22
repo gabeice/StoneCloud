@@ -9,6 +9,13 @@ class TrackIndexItem extends Component {
     this.togglePlay = this.togglePlay.bind(this);
   }
 
+  componentDidMount() {
+    if($('#fa-' + this.props.track.id)[0].className === "fa fa-pause") {
+      $('#fa-' + this.props.track.id)[0].style.fontSize = "0.9em";
+      $('#fa-' + this.props.track.id)[0].style.margin = "6px 6px";
+    }
+  }
+
   togglePlay(e) {
     e.preventDefault();
 
@@ -23,21 +30,23 @@ class TrackIndexItem extends Component {
       indexStart(playbar, playButtonImage, buttonImage, prevButton);
       store.dispatch(playTrack(this.props.track));
     } else if(song.paused) {
-      indexPlay(playButtonImage, buttonImage);
+      indexPlay(buttonImage, playButtonImage);
       song.play();
     } else {
-      indexPause(playButtonImage, buttonImage);
+      indexPause(buttonImage, playButtonImage);
       song.pause();
     }
   }
 
   render() {
+    const initialState = this.props.track && this.props.track.song_url === store.getState().nowPlaying.song_url ? "fa fa-pause" : "fa fa-play";
+
     return(
       <li>
         <section className="track-index-item">
           <img src={this.props.track.image_url}/>
           <a href="#" className="track-play-button" onClick={this.togglePlay}>
-            <i id={"fa-" + this.props.track.id} className="fa fa-play" aria-hidden="true"></i>
+            <i id={"fa-" + this.props.track.id} className={initialState} aria-hidden="true"></i>
           </a>
 
           <div className="track-item-info">

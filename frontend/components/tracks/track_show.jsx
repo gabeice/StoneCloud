@@ -44,6 +44,13 @@ class TrackShow extends Component {
   }
 
   render() {
+    const initialState = this.props.track && this.props.track.song_url === store.getState().nowPlaying.song_url ? "fa fa-pause" : "fa fa-play";
+
+    if(initialState === "fa fa-pause") {
+      $('#button-image')[0].style.fontSize = "2.5em";
+      $('#button-image')[0].style.margin = "17px 20px";
+    }
+
     if(this.props.track) {
       let ownSong = this.props.currentUserId === this.props.track.user_id;
       return(
@@ -51,7 +58,7 @@ class TrackShow extends Component {
           <section className="track-show">
             <div id="track-controller">
               <a href="#" id="play-button" onClick={this.togglePlay}>
-                <i id="button-image" className="fa fa-play" aria-hidden="true"></i>
+                <i id="button-image" className={initialState} aria-hidden="true"></i>
               </a>
 
               <div id="track-info">

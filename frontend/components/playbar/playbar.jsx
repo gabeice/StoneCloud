@@ -30,7 +30,7 @@ class Playbar extends Component {
         <a href="#" id="playbar-button" onClick={this.togglePlay}>
           <i id="playbar-button-img" className="fa fa-play" aria-hidden="true"></i>
         </a>
-        <audio id="song" src={this.props.nowPlaying.song_url} autoPlay/>
+        <audio id="song" src={this.props.nowPlaying.song_url} autoPlay loop/>
       </div>
     );
   }
