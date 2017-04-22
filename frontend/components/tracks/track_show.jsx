@@ -30,7 +30,6 @@ class TrackShow extends Component {
       buttonImage.style.margin = "17px 20px";
       this.props.playTrack(this.props.track);
     } else if(song.paused) {
-      playbar.className = "";
       buttonImage.className = "fa fa-pause";
       buttonImage.style.fontSize = "2.5em";
       buttonImage.style.margin = "17px 20px";

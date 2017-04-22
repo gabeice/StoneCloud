@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import { playTrack } from '../../actions/play_actions';
 
 class TrackIndexItem extends Component {
   constructor(props) {
@@ -11,9 +12,16 @@ class TrackIndexItem extends Component {
     e.preventDefault();
 
     const id = this.props.track.id;
-    const song = $('#track-' + id)[0];
+    const playbar = $('#playbar')[0];
+    const song = $('#song')[0];
     const buttonImage = $('#fa-' + id)[0];
-    if(song.paused) {
+    if(song.src != this.props.track.song_url) {
+      playbar.className = "";
+      buttonImage.className = "fa fa-pause";
+      buttonImage.style.fontSize = "0.9em";
+      buttonImage.style.margin = "6px 6px";
+      store.dispatch(playTrack(this.props.track));
+    } else if(song.paused) {
       song.play();
       buttonImage.className = "fa fa-pause";
       buttonImage.style.fontSize = "0.9em";
@@ -31,7 +39,6 @@ class TrackIndexItem extends Component {
       <li>
         <section className="track-index-item">
           <img src={this.props.track.image_url}/>
-          <audio id={"track-" + this.props.track.id} className="track" src={this.props.track.song_url}/>
           <a href="#" className="track-play-button" onClick={this.togglePlay}>
             <i id={"fa-" + this.props.track.id} className="fa fa-play" aria-hidden="true"></i>
           </a>
