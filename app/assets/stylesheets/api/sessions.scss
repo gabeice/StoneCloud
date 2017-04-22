@@ -9,7 +9,7 @@
   margin-top: 70px;
   width: 900px;
   height: 500px;
-  background-image: url("http://www.sopitas.com/wp-content/uploads/2016/03/The-Rolling-Stones.jpg");
+  // background-image: url("http://www.sopitas.com/wp-content/uploads/2016/03/The-Rolling-Stones.jpg");
 }
 
 .navbar {
@@ -68,6 +68,11 @@
  width: 50%;
  display: flex;
  align-items: center;
+}
+
+.fa-search {
+  margin-left: -20px;
+  color: gray;
 }
 
 .search-bar input {
@@ -196,7 +201,7 @@
 
 #playbar {
   position: fixed;
-  height: 50px;
+  height: 75px;
   width: 100%;
   bottom: 0;
   left: 0;
