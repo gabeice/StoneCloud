@@ -1,61 +1,46 @@
 export const showStart = (playbar, buttonImage, playButtonImage) => {
   playbar.className = "";
-  buttonImage.className = "fa fa-pause";
-  buttonImage.style.fontSize = "2.5em";
-  buttonImage.style.margin = "17px 20px";
   playButtonImage.className = "fa fa-pause";
-  playButtonImage.style.fontSize = "1.5em";
-  playButtonImage.style.margin = "17px 20px";
+  if(buttonImage) {
+    buttonImage.className = "fa fa-pause";
+  }
 }
 
 export const showPlay = (buttonImage, playButtonImage) => {
-  buttonImage.className = "fa fa-pause";
-  buttonImage.style.fontSize = "2.5em";
-  buttonImage.style.margin = "17px 20px";
   playButtonImage.className = "fa fa-pause";
-  playButtonImage.style.fontSize = "1.5em";
-  playButtonImage.style.margin = "17px 20px";
-
+  if(buttonImage) {
+    buttonImage.className = "fa fa-pause";
+  }
 }
 
 export const showPause = (buttonImage, playButtonImage) => {
-  buttonImage.className = "fa fa-play";
-  buttonImage.style.fontSize = "3em";
-  buttonImage.style.margin = "14px 23px";
   playButtonImage.className = "fa fa-play";
-  playButtonImage.style.fontSize = "2em";
-  playButtonImage.style.margin = "14px 23px";
+  if(buttonImage) {
+    buttonImage.className = "fa fa-play";
+  }
 }
 
 export const indexStart = (playbar, playButtonImage, buttonImage, prevButton) => {
   playbar.className = "";
   playButtonImage.className = "fa fa-pause";
-  playButtonImage.style.fontSize = "1.5em";
-  playButtonImage.style.margin = "17px 20px";
-  buttonImage.className = "fa fa-pause";
-  buttonImage.style.fontSize = "0.9em";
-  buttonImage.style.margin = "6px 6px";
+  if(buttonImage) {
+    buttonImage.className = "fa fa-pause";
+  }
   if(prevButton) {
     prevButton.className = "fa fa-play";
-    prevButton.style.fontSize = "1em";
-    prevButton.style.margin = "4px 8px";
   }
 }
 
 export const indexPlay = (buttonImage, playButtonImage) => {
   playButtonImage.className = "fa fa-pause";
-  playButtonImage.style.fontSize = "1.5em";
-  playButtonImage.style.margin = "17px 20px";
-  buttonImage.className = "fa fa-pause";
-  buttonImage.style.fontSize = "0.9em";
-  buttonImage.style.margin = "6px 6px";
+  if(buttonImage) {
+    buttonImage.className = "fa fa-pause";
+  }
 }
 
 export const indexPause = (buttonImage, playButtonImage) => {
   playButtonImage.className = "fa fa-play";
-  playButtonImage.style.fontSize = "2em";
-  playButtonImage.style.margin = "14px 23px";
-  buttonImage.className = "fa fa-play";
-  buttonImage.style.fontSize = "1em";
-  buttonImage.style.margin = "4px 8px";
+  if(buttonImage) {
+    buttonImage.className = "fa fa-play";
+  }
 }

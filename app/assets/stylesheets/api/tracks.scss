@@ -12,6 +12,16 @@
   margin-top: 50px;
 }
 
+.track-show .fa-play {
+  font-size: 3em;
+  margin: 14px 23px;
+}
+
+.track-show .fa-pause {
+  font-size: 2.5em;
+  margin: 17px 20px;
+}
+
 #track-controller {
   display: flex;
   flex-direction: row;
@@ -87,11 +97,6 @@
   justify-content: center;
 }
 
-#play-button i {
-  font-size: 3em;
-  margin: 14px 23px;
-}
-
 #play-button:hover {
   opacity: 0.5;
 }
@@ -104,11 +109,6 @@
   width: 25px;
   height: 25px;
   justify-content: center;
-}
-
-.track-play-button i {
-  font-size: 1em;
-  margin: 4px 8px;
 }
 
 .track-play-button:hover {
@@ -138,4 +138,24 @@
   padding: 10px;
   background-color: white;
   cursor: pointer;
+}
+
+.track-play-button .fa-play {
+  font-size: 1em;
+  margin: 4px 8px;
+}
+
+.track-play-button .fa-pause {
+  font-size: 0.9em;
+  margin: 6px 6px;
+}
+
+#playbar-button .fa-play {
+  font-size: 2em;
+  margin: 14px 23px;
+}
+
+#playbar-button .fa-pause {
+  font-size: 1.5em;
+  margin: 17px 20px;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, hashHistory } from 'react-router';
 import { showStart, showPlay, showPause } from '../../util/play_functions';
+import Spinner from '../spinner';
 
 class TrackShow extends Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class TrackShow extends Component {
     e.preventDefault();
     const playbar = $('#playbar')[0];
     const song = $('#song')[0];
-    const buttonImage = $('#button-image')[0];
+    const buttonImage = $('#fa-' + this.props.track.id)[0];
     const playButtonImage = $('#playbar-button-img')[0];
     if(song.src != this.props.track.song_url) {
       showStart(playbar, buttonImage, playButtonImage);
@@ -44,21 +45,19 @@ class TrackShow extends Component {
   }
 
   render() {
-    const initialState = this.props.track && this.props.track.song_url === store.getState().nowPlaying.song_url ? "fa fa-pause" : "fa fa-play";
-
-    if(initialState === "fa fa-pause") {
-      $('#button-image')[0].style.fontSize = "2.5em";
-      $('#button-image')[0].style.margin = "17px 20px";
-    }
+    const initialState = (this.props.track &&
+      this.props.track.song_url === store.getState().nowPlaying.song_url &&
+      !$('#song')[0].paused) ? "fa fa-pause" : "fa fa-play";
 
     if(this.props.track) {
       let ownSong = this.props.currentUserId === this.props.track.user_id;
+
       return(
         <div>
           <section className="track-show">
             <div id="track-controller">
               <a href="#" id="play-button" onClick={this.togglePlay}>
-                <i id="button-image" className={initialState} aria-hidden="true"></i>
+                <i id={"fa-" + this.props.track.id} className={initialState} aria-hidden="true"></i>
               </a>
 
               <div id="track-info">
@@ -81,7 +80,7 @@ class TrackShow extends Component {
         </div>
       );
     } else {
-      return(<div/>)
+      return(<Spinner />)
     }
   }
 }

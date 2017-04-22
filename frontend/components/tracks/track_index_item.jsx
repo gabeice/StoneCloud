@@ -9,13 +9,6 @@ class TrackIndexItem extends Component {
     this.togglePlay = this.togglePlay.bind(this);
   }
 
-  componentDidMount() {
-    if($('#fa-' + this.props.track.id)[0].className === "fa fa-pause") {
-      $('#fa-' + this.props.track.id)[0].style.fontSize = "0.9em";
-      $('#fa-' + this.props.track.id)[0].style.margin = "6px 6px";
-    }
-  }
-
   togglePlay(e) {
     e.preventDefault();
 
@@ -39,7 +32,7 @@ class TrackIndexItem extends Component {
   }
 
   render() {
-    const initialState = this.props.track && this.props.track.song_url === store.getState().nowPlaying.song_url ? "fa fa-pause" : "fa fa-play";
+    const initialState = this.props.track && this.props.track.song_url === store.getState().nowPlaying.song_url && !$('#song')[0].paused ? "fa fa-pause" : "fa fa-play";
 
     return(
       <li>

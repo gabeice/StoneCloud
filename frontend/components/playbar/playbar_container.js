@@ -13,9 +13,9 @@ import {
 const mapStateToProps = (state, ownProps) => {
   return {
     nowPlaying: state.nowPlaying,
-    barStart: $('#fa-' + state.nowPlaying.id)[0] ? indexStart : showStart,
-    barPlay: $('#fa-' + state.nowPlaying.id)[0] ? indexPlay : showPlay,
-    barPause: $('#fa-' + state.nowPlaying.id)[0] ? indexPause : showPause
+    barStart: $('.track-index-item')[0] ? indexStart : showStart,
+    barPlay: $('.track-index-item')[0] ? indexPlay : showPlay,
+    barPause: $('.track-index-item')[0] ? indexPause : showPause
   }
 };
 

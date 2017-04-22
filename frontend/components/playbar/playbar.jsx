@@ -10,7 +10,7 @@ class Playbar extends Component {
     e.preventDefault();
     const playbar = $('#playbar')[0];
     const song = $('#song')[0];
-    const buttonImage = $('#fa-' + this.props.nowPlaying.id)[0] ? $('#fa-' + this.props.nowPlaying.id)[0] : $('#button-image')[0];
+    const buttonImage = $('#fa-' + this.props.nowPlaying.id)[0];
     const playButtonImage = $('#playbar-button-img')[0];
     if(song.src != this.props.nowPlaying.song_url) {
       this.props.barStart(playbar, buttonImage, playButtonImage);
