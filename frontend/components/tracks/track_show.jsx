@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, hashHistory } from 'react-router';
-import { showStart, showPlay, showPause } from '../../util/play_functions';
+import { startSong, playSong, pauseSong } from '../../util/play_functions';
 import Spinner from '../spinner';
 
 class TrackShow extends Component {
@@ -27,13 +27,13 @@ class TrackShow extends Component {
     const buttonImage = $('#fa-' + this.props.track.id)[0];
     const playButtonImage = $('#playbar-button-img')[0];
     if(song.src != this.props.track.song_url) {
-      showStart(playbar, buttonImage, playButtonImage);
+      startSong(playbar, buttonImage, playButtonImage);
       this.props.playTrack(this.props.track);
     } else if(song.paused) {
-      showPlay(buttonImage, playButtonImage);
+      playSong(buttonImage, playButtonImage);
       song.play();
     } else {
-      showPause(buttonImage, playButtonImage);
+      pauseSong(buttonImage, playButtonImage);
       song.pause();
     }
   }

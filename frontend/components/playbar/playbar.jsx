@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { startSong, playSong, pauseSong } from '../../util/play_functions';
 
 class Playbar extends Component {
   constructor(props) {
@@ -13,13 +14,13 @@ class Playbar extends Component {
     const buttonImage = $('#fa-' + this.props.nowPlaying.id)[0];
     const playButtonImage = $('#playbar-button-img')[0];
     if(song.src != this.props.nowPlaying.song_url) {
-      this.props.barStart(playbar, buttonImage, playButtonImage);
+      startSong(playbar, buttonImage, playButtonImage);
       this.props.playTrack(this.props.nowPlaying);
     } else if(song.paused) {
-      this.props.barPlay(buttonImage, playButtonImage);
+      playSong(buttonImage, playButtonImage);
       song.play();
     } else {
-      this.props.barPause(buttonImage, playButtonImage);
+      pauseSong(buttonImage, playButtonImage);
       song.pause();
     }
   }

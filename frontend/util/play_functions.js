@@ -1,26 +1,4 @@
-export const showStart = (playbar, buttonImage, playButtonImage) => {
-  playbar.className = "";
-  playButtonImage.className = "fa fa-pause";
-  if(buttonImage) {
-    buttonImage.className = "fa fa-pause";
-  }
-}
-
-export const showPlay = (buttonImage, playButtonImage) => {
-  playButtonImage.className = "fa fa-pause";
-  if(buttonImage) {
-    buttonImage.className = "fa fa-pause";
-  }
-}
-
-export const showPause = (buttonImage, playButtonImage) => {
-  playButtonImage.className = "fa fa-play";
-  if(buttonImage) {
-    buttonImage.className = "fa fa-play";
-  }
-}
-
-export const indexStart = (playbar, playButtonImage, buttonImage, prevButton) => {
+export const startSong = (playbar, buttonImage, playButtonImage, prevButton) => {
   playbar.className = "";
   playButtonImage.className = "fa fa-pause";
   if(buttonImage) {
@@ -31,14 +9,14 @@ export const indexStart = (playbar, playButtonImage, buttonImage, prevButton) =>
   }
 }
 
-export const indexPlay = (buttonImage, playButtonImage) => {
+export const playSong = (buttonImage, playButtonImage) => {
   playButtonImage.className = "fa fa-pause";
   if(buttonImage) {
     buttonImage.className = "fa fa-pause";
   }
 }
 
-export const indexPause = (buttonImage, playButtonImage) => {
+export const pauseSong = (buttonImage, playButtonImage) => {
   playButtonImage.className = "fa fa-play";
   if(buttonImage) {
     buttonImage.className = "fa fa-play";

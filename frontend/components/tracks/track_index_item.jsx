@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { playTrack } from '../../actions/play_actions';
-import { indexStart, indexPlay, indexPause } from '../../util/play_functions';
+import { startSong, playSong, pauseSong } from '../../util/play_functions';
 
 class TrackIndexItem extends Component {
   constructor(props) {
@@ -20,13 +20,13 @@ class TrackIndexItem extends Component {
     const playButtonImage = $('#playbar-button-img')[0];
 
     if(song.src != this.props.track.song_url) {
-      indexStart(playbar, playButtonImage, buttonImage, prevButton);
+      startSong(playbar, playButtonImage, buttonImage, prevButton);
       store.dispatch(playTrack(this.props.track));
     } else if(song.paused) {
-      indexPlay(buttonImage, playButtonImage);
+      playSong(buttonImage, playButtonImage);
       song.play();
     } else {
-      indexPause(buttonImage, playButtonImage);
+      pauseSong(buttonImage, playButtonImage);
       song.pause();
     }
   }
