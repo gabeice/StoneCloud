@@ -20,13 +20,21 @@ class TrackShow extends Component {
 
   togglePlay(e) {
     e.preventDefault();
+    const playbar = $('#playbar')[0];
     const song = $('#song')[0];
     const buttonImage = $('.fa')[0];
-    if(song.paused) {
-      song.play();
+    if(song.src != this.props.track.song_url) {
+      playbar.className = "";
       buttonImage.className = "fa fa-pause";
       buttonImage.style.fontSize = "2.5em";
       buttonImage.style.margin = "17px 20px";
+      this.props.playTrack(this.props.track);
+    } else if(song.paused) {
+      playbar.className = "";
+      buttonImage.className = "fa fa-pause";
+      buttonImage.style.fontSize = "2.5em";
+      buttonImage.style.margin = "17px 20px";
+      song.play();
     } else {
       song.pause();
       buttonImage.className = "fa fa-play";
@@ -52,7 +60,6 @@ class TrackShow extends Component {
         <div>
           <section className="track-show">
             <div id="track-controller">
-              <audio id="song" src={this.props.track.song_url}/>
               <a href="#" id="play-button" onClick={this.togglePlay}>
                 <i className="fa fa-play" aria-hidden="true"></i>
               </a>

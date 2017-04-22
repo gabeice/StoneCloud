@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, hashHistory } from 'react-router';
-import { removeTrack, fetchTrack } from '../../actions/track_actions';
+import { removeTrack } from '../../actions/track_actions';
 
 class TrackForm extends Component {
   constructor(props) {

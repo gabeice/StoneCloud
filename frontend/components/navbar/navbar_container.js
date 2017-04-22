@@ -1,6 +1,7 @@
 import Navbar from './navbar';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
+import { clearTrack } from '../../actions/play_actions';
 
 function mapStateToProps(state) {
   return {
@@ -10,7 +11,10 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    logout: () => dispatch(logout())
+    logout: () => {
+      dispatch(clearTrack());
+      dispatch(logout());
+    }
   };
 }
 

@@ -2,6 +2,28 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// #homepage {
+//   display: flex;
+//   flex-direction: column;
+// }
+//
+// #homepage img {
+//   position: relative;
+//   width: 90%;
+//   align-self: center;
+// }
+//
+
+.whitespace {
+  position: fixed;
+  top: 0;
+  margin-left: 175px;
+  margin-top: 50px;
+  width: 900px;
+  height: 500px;
+  background-image: url("http://www.sopitas.com/wp-content/uploads/2016/03/The-Rolling-Stones.jpg");
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
@@ -78,6 +100,7 @@
  margin-top: 100px;
  border-radius: 5px;
  position: relative;
+ background-color: white;
 }
 
 .submitForm ul:empty {
@@ -189,4 +212,5 @@
   width: 100%;
   bottom: 0;
   left: 0;
+  background-color: green;
 }

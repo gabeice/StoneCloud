@@ -16,6 +16,7 @@ class Navbar extends Component {
       );
     } else {
       return(
+        <div id="homepage">
         <section className="navbar">
           <img src={window.images.logo}/>
           <Search />
@@ -26,6 +27,8 @@ class Navbar extends Component {
             <span id="signup-link"><Link to="/signup" id="signup-link-text">Create account</Link></span>
           </div>
         </section>
+        <div className="whitespace"/>
+        </div>
       );
     }
   }
