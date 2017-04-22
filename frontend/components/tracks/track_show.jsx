@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, hashHistory } from 'react-router';
+import { showStart, showPlay, showPause } from '../../util/play_functions';
 
 class TrackShow extends Component {
   constructor(props) {
@@ -25,30 +26,14 @@ class TrackShow extends Component {
     const buttonImage = $('#button-image')[0];
     const playButtonImage = $('#playbar-button-img')[0];
     if(song.src != this.props.track.song_url) {
-      playbar.className = "";
-      buttonImage.className = "fa fa-pause";
-      buttonImage.style.fontSize = "2.5em";
-      buttonImage.style.margin = "17px 20px";
-      playButtonImage.className = "fa fa-pause";
-      playButtonImage.style.fontSize = "1.5em";
-      playButtonImage.style.margin = "17px 20px";
+      showStart(playbar, buttonImage, playButtonImage);
       this.props.playTrack(this.props.track);
     } else if(song.paused) {
-      buttonImage.className = "fa fa-pause";
-      buttonImage.style.fontSize = "2.5em";
-      buttonImage.style.margin = "17px 20px";
-      playButtonImage.className = "fa fa-pause";
-      playButtonImage.style.fontSize = "1.5em";
-      playButtonImage.style.margin = "17px 20px";
+      showPlay(buttonImage, playButtonImage);
       song.play();
     } else {
+      showPause(buttonImage, playButtonImage);
       song.pause();
-      buttonImage.className = "fa fa-play";
-      buttonImage.style.fontSize = "3em";
-      buttonImage.style.margin = "14px 23px";
-      playButtonImage.className = "fa fa-play";
-      playButtonImage.style.fontSize = "2em";
-      playButtonImage.style.margin = "14px 23px";
     }
   }
 
@@ -56,10 +41,6 @@ class TrackShow extends Component {
     e.preventDefault();
     this.props.deleteTrack(this.props.track.id);
     hashHistory.push("/tracks");
-  }
-
-  toggleDropdown(e) {
-
   }
 
   render() {

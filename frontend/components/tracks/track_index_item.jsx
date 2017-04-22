@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { playTrack } from '../../actions/play_actions';
+import { indexStart, indexPlay, indexPause } from '../../util/play_functions';
 
 class TrackIndexItem extends Component {
   constructor(props) {
@@ -15,32 +16,18 @@ class TrackIndexItem extends Component {
     const playbar = $('#playbar')[0];
     const song = $('#song')[0];
     const buttonImage = $('#fa-' + id)[0];
+    const prevButton = $('#fa-' + store.getState().nowPlaying.id)[0];
     const playButtonImage = $('#playbar-button-img')[0];
+
     if(song.src != this.props.track.song_url) {
-      playbar.className = "";
-      playButtonImage.className = "fa fa-pause";
-      playButtonImage.style.fontSize = "0.9em";
-      playButtonImage.style.margin = "6px 6px";
-      buttonImage.className = "fa fa-pause";
-      buttonImage.style.fontSize = "0.9em";
-      buttonImage.style.margin = "6px 6px";
+      indexStart(playbar, playButtonImage, buttonImage, prevButton);
       store.dispatch(playTrack(this.props.track));
     } else if(song.paused) {
+      indexPlay(playButtonImage, buttonImage);
       song.play();
-      playButtonImage.className = "fa fa-pause";
-      playButtonImage.style.fontSize = "0.9em";
-      playButtonImage.style.margin = "6px 6px";
-      buttonImage.className = "fa fa-pause";
-      buttonImage.style.fontSize = "0.9em";
-      buttonImage.style.margin = "6px 6px";
     } else {
+      indexPause(playButtonImage, buttonImage);
       song.pause();
-      playButtonImage.className = "fa fa-play";
-      playButtonImage.style.fontSize = "1em";
-      playButtonImage.style.margin = "4px 8px";
-      buttonImage.className = "fa fa-play";
-      buttonImage.style.fontSize = "1em";
-      buttonImage.style.margin = "4px 8px";
     }
   }
 

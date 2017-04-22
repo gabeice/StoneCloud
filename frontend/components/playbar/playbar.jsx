@@ -13,30 +13,14 @@ class Playbar extends Component {
     const buttonImage = $('#fa-' + this.props.nowPlaying.id)[0] ? $('#fa-' + this.props.nowPlaying.id)[0] : $('#button-image')[0];
     const playButtonImage = $('#playbar-button-img')[0];
     if(song.src != this.props.nowPlaying.song_url) {
-      playbar.className = "";
-      buttonImage.className = "fa fa-pause";
-      buttonImage.style.fontSize = "2.5em";
-      buttonImage.style.margin = "17px 20px";
-      playButtonImage.className = "fa fa-pause";
-      playButtonImage.style.fontSize = "1.5em";
-      playButtonImage.style.margin = "17px 20px";
+      this.props.barStart(playbar, buttonImage, playButtonImage);
       this.props.playTrack(this.props.nowPlaying);
     } else if(song.paused) {
-      buttonImage.className = "fa fa-pause";
-      buttonImage.style.fontSize = "2.5em";
-      buttonImage.style.margin = "17px 20px";
-      playButtonImage.className = "fa fa-pause";
-      playButtonImage.style.fontSize = "1.5em";
-      playButtonImage.style.margin = "17px 20px";
+      this.props.barPlay(buttonImage, playButtonImage);
       song.play();
     } else {
+      this.props.barPause(buttonImage, playButtonImage);
       song.pause();
-      buttonImage.className = "fa fa-play";
-      buttonImage.style.fontSize = "3em";
-      buttonImage.style.margin = "14px 23px";
-      playButtonImage.className = "fa fa-play";
-      playButtonImage.style.fontSize = "2em";
-      playButtonImage.style.margin = "14px 23px";
     }
   }
 
