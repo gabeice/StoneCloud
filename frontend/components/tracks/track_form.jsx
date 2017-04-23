@@ -26,7 +26,7 @@ class TrackForm extends Component {
     e.preventDefault();
     let formData = new FormData();
 
-    formData.append("track[title]", this.state.title);
+    formData.append("track[title]", this.state.title === "" ? "[Untitled]" : this.state.title);
     formData.append("track[artist]", this.state.artist === "" ? "The Rolling Stones" : this.state.artist);
 
     if(this.state.songFile) {
