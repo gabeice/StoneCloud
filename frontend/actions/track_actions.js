@@ -19,8 +19,8 @@ export const removeTrack = track => ({
   track
 });
 
-export const fetchTracks = () => dispatch => {
-  return TrackAPIUtil.fetchTracks()
+export const fetchTracks = search => dispatch => {
+  return TrackAPIUtil.fetchTracks(search)
     .then(tracks => dispatch(receiveTracks(tracks)));
 }
 

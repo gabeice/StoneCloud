@@ -2,12 +2,15 @@ import { connect } from 'react-redux';
 import TrackIndex from './track_index';
 import { fetchTracks } from '../../actions/track_actions';
 
-const mapStateToProps = state => ({
-  tracks: Object.values(state.tracks)
-});
+const mapStateToProps = (state, ownProps) => {
+  return {
+    tracks: Object.values(state.tracks),
+    search: ownProps.location.query
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
-  fetchTracks: () => dispatch(fetchTracks())
+  fetchTracks: (search) => dispatch(fetchTracks(search))
 });
 
 export default connect(

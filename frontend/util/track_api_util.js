@@ -1,7 +1,8 @@
-export const fetchTracks = () => {
+export const fetchTracks = search => {
   return $.ajax({
     method: 'GET',
-    url: 'api/tracks'
+    url: 'api/tracks',
+    data: search
   });
 };
 

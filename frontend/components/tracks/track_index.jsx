@@ -4,7 +4,13 @@ import Spinner from '../spinner';
 
 class TrackIndex extends Component {
   componentDidMount() {
-    this.props.fetchTracks();
+    this.props.fetchTracks(this.props.search);
+  }
+
+  componentWillReceiveProps(newProps) {
+    if(newProps.search != this.props.search) {
+      this.props.fetchTracks(newProps.search);
+    }
   }
 
   render() {
