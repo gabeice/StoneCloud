@@ -32,4 +32,22 @@ class Track < ApplicationRecord
     primary_key: :id,
     foreign_key: :user_id,
     class_name: 'User'
+
+  def self.search_filter(search)
+    search_start = "#{search.downcase}%"
+    search_middle = "% #{search.downcase} %"
+    search_end = "% #{search.downcase}"
+    Track.where("LOWER(tracks.title) LIKE ? OR
+      LOWER(tracks.title) LIKE ? OR
+      LOWER(tracks.title) LIKE ? OR
+      LOWER(tracks.artist) LIKE ? OR
+      LOWER(tracks.artist) LIKE ? OR
+      LOWER(tracks.artist) LIKE ?",
+      search_start,
+      search_middle,
+      search_end,
+      search_start,
+      search_middle,
+      search_end)
+  end
 end

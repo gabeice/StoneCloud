@@ -32,7 +32,11 @@ class Api::TracksController < ApplicationController
   end
 
   def index
-    @tracks = Track.all
+    if params[:search]
+      @tracks = Track.search_filter(params[:search])
+    else
+      @tracks = Track.all
+    end
   end
 
   private
