@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import Search from './search';
 
 class Navbar extends Component {
@@ -19,7 +19,7 @@ class Navbar extends Component {
     if(this.props.currentUser) {
       return(
         <section className="navbar">
-          <img src={window.images.logo}/>
+          <img src={window.images.logo} onClick={() => hashHistory.push("/tracks")}/>
           <Search />
           <Link id="post-link" to="/post"><span id="post-button">Upload</span></Link>
           <span id="username">{this.props.currentUser.username}</span>

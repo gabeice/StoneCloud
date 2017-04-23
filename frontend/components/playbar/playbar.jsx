@@ -32,6 +32,10 @@ class Playbar extends Component {
           <i id="playbar-button-img" className="fa fa-play" aria-hidden="true"></i>
         </a>
         <audio id="song" src={this.props.nowPlaying.song_url} autoPlay loop/>
+        <div id="playbar-info">
+          <p>Now Playing: </p>
+          <p>{this.props.nowPlaying.title}</p>
+        </div>
       </div>
     );
   }
