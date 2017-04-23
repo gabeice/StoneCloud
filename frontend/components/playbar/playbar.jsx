@@ -9,9 +9,14 @@ class Playbar extends Component {
   }
 
   checkTime() {
-    const song = $('#song')[0]
+    const song = $('#song')[0];
+    const progressBar = $('#progress-bar')[0];
     const time = song.currentTime;
     this.setState({time, duration: song.duration});
+    if(progressBar) {
+      progressBar.style.width = Math.floor(this.state.time) + "px";
+      $('#end-mark')[0].style.marginLeft = (178 + Math.floor(song.duration)) + "px";
+    }
     if(song.ended) {
       const buttonImage = $('#fa-' + this.props.nowPlaying.id)[0];
       const playButtonImage = $('#playbar-button-img')[0];
@@ -62,8 +67,10 @@ class Playbar extends Component {
           <p>{this.props.nowPlaying.title}</p>
         </div>
         <p id="timer">
-          {this.timeFormat(this.state.time)} / {isNaN(this.state.duration) ? "0:00" : this.timeFormat(this.state.duration)}
+          {this.timeFormat(this.state.time)} / {isNaN(this.state.duration) ? "-:--" : this.timeFormat(this.state.duration)}
         </p>
+        <div id="progress-bar"/>
+        <div id="end-mark"></div>
       </div>
     );
   }

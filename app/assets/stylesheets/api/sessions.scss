@@ -215,6 +215,21 @@
   margin-left: 75px;
 }
 
+#progress-bar {
+  background-color: gray;
+  margin-top: -30px;
+  margin-left: 178px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+#end-mark {
+  background-color: gray;
+  margin-top: -10px;
+  height: 10px;
+  width: 1px
+}
+
 #playbar-info {
   float: right;
   margin-right: 20px;
