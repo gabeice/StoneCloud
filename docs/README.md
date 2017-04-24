@@ -11,7 +11,7 @@ following criteria with smooth, bug-free navigation, adequate seed data and
 sufficient CSS styling:
 
 - [ ] Hosting on Heroku
-- [ ] New account creation, login, and guest/demo login
+- [ ] New account creation, login
 - [ ] Track pages
 - [ ] Searchable tracks
 - [ ] Track playback
