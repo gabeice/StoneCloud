@@ -8,17 +8,48 @@ class SessionForm extends React.Component {
 
 		this.state = {
 			username: "",
-			password: ""
+			password: "",
+			profilePic: "",
+			profilePicUrl: "",
 		};
 
     this.handleSubmit = this.handleSubmit.bind(this);
 		this.showErrors = this.showErrors.bind(this);
+    this.updateImage = this.updateImage.bind(this);
   }
 
-  handleSubmit(e) {
-   e.preventDefault();
-   const user = Object.assign({}, this.state);
-   this.props.processForm(user).then(() => hashHistory.push("/tracks"));
+ //  handleSubmit(e) {
+ //   e.preventDefault();
+ //   const user = Object.assign({}, this.state);
+ //   this.props.processForm(user).then(() => hashHistory.push("/tracks"));
+ // }
+
+ handleSubmit(e) {
+	 e.preventDefault();
+	 let formData = new FormData();
+
+	 formData.append("user[username]", this.state.username);
+	 formData.append("user[password]", this.state.password);
+
+	 if(this.state.profilePic) {
+		 formData.append("user[profile_picture]", this.state.profilePic);
+	 }
+
+	 this.props.processForm(formData)
+		 .then(() => hashHistory.push("/tracks"));
+ }
+
+ updateImage(e) {
+	 let file = e.currentTarget.files[0];
+	 let fileReader = new FileReader();
+	 fileReader.onloadend = () => {
+		 this.setState({profilePic: file, profilePicUrl: fileReader.result});
+	 }
+
+	 if(file) {
+		 fileReader.readAsDataURL(file);
+		 $('#profile')[0].style.display = "inherit";
+	 }
  }
 
   update(field) {
@@ -27,6 +58,13 @@ class SessionForm extends React.Component {
 
 	componentWillReceiveProps(newProps) {
 		if(this.props.formType != newProps.formType) {
+			$('#profile')[0].style.display = "none";
+			this.setState({
+				username: "",
+				password: "",
+				profilePic: "",
+				profilePicUrl: "",
+			});
 			store.dispatch(receiveErrors({}));
 		}
 	}
@@ -63,6 +101,20 @@ class SessionForm extends React.Component {
 					<ul>
 						{this.showErrors("password")}
 					</ul>
+
+					<input
+						id="image-file"
+						className = {this.props.formType.endsWith('n') ? "" : "hidden"}
+						type="file"
+						onChange={this.updateImage}/>
+					<label
+						htmlFor="image-file"
+						className = {this.props.formType.endsWith('n') ? "" : "hidden"}>Add a Profile Picture</label>
+
+					<img
+						id="profile"
+						className="hidden"
+						src={this.state.profilePicUrl}/>
 
 					<ul>
 						{baseErrors.map((err, idx) => <li key={idx}>{err}</li>)}

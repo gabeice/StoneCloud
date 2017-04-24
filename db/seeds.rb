@@ -15,9 +15,19 @@ users = User.create([
     password: 123456,
     profile_picture: File.open("app/assets/images/profile_pictures/Mick_Jagger.jpg")
   },
-  
-  { username: "keithrichards", password: 123456 },
-  { username: "charliewatts", password: 123456 },
+
+  {
+    username: "keithrichards",
+    password: 123456,
+    profile_picture: File.open("app/assets/images/profile_pictures/Keith_Richards.jpg")
+  },
+
+  {
+    username: "charliewatts",
+    password: 123456,
+    profile_picture: File.open("app/assets/images/profile_pictures/Charlie_Watts.jpg")
+  },
+
   { username: "ronniewood", password: 123456 },
   { username: "micktaylor", password: 123456 },
   { username: "brianjones", password: 123456 },
@@ -56,7 +66,7 @@ tracks = Track.create([
 
   {
     title: "Let It Loose",
-    user_id: User.find_by(username: "mickjagger").id,
+    user_id: User.find_by(username: "billwyman").id,
     image: File.open("app/assets/images/album_covers/Exile_on_Main_St.jpg"),
     song: File.open("app/assets/music/Let_It_Loose.mp3")
   }])
