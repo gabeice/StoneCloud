@@ -29,7 +29,7 @@ class TrackIndex extends Component {
         <div>
           <u><h2 className="search-results">{searchResults}</h2></u>
           <ul className="track-index">
-            {this.props.tracks.sort((a, b) => a.updated_at < b.updated_at)
+            {this.props.tracks.sort((a, b) => Date.parse(b.updated_at) - Date.parse(a.updated_at))
               .map(track => <TrackIndexItem track={track} key={track.id}/>)}
           </ul>
         </div>
