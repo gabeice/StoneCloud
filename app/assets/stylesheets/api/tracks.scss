@@ -156,6 +156,16 @@
 }
 
 #playbar-button .fa-pause {
-  font-size: 1.5em;
+  font-size: 1.2em;
   margin: 17px 20px;
+}
+
+.search-results {
+  margin-top: 80px;
+  margin-bottom: -60px;
+  margin-left: 30px;
+}
+
+.search-results:empty {
+  margin-bottom: 0px;
 }

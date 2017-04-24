@@ -15,10 +15,23 @@ class TrackIndex extends Component {
 
   render() {
     if(this.props.tracks) {
+      let searchResults;
+
+      if(!Object.keys(this.props.search)[0]) {
+        searchResults = "";
+      } else if(Object.keys(this.props.tracks)[0]) {
+        searchResults = `Search results for "${this.props.search.search}"`;
+      } else {
+        searchResults = `Sorry, no results found for "${this.props.search.search}"`;
+      }
+
       return(
-        <ul className="track-index">
-          {this.props.tracks.map(track => <TrackIndexItem track={track} key={track.id}/>)}
-        </ul>
+        <div>
+          <u><h2 className="search-results">{searchResults}</h2></u>
+          <ul className="track-index">
+            {this.props.tracks.map(track => <TrackIndexItem track={track} key={track.id}/>)}
+          </ul>
+        </div>
       );
     } else {
       return(<Spinner />);
