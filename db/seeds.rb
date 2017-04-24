@@ -69,4 +69,32 @@ tracks = Track.create([
     user_id: User.find_by(username: "billwyman").id,
     image: File.open("app/assets/images/album_covers/Exile_on_Main_St.jpg"),
     song: File.open("app/assets/music/Let_It_Loose.mp3")
+  },
+
+  {
+    title: "Heart Full of Soul",
+    user_id: User.find_by(username: "micktaylor").id,
+    image: File.open("app/assets/images/album_covers/Having_a_Rave_Up.jpeg"),
+    song: File.open("app/assets/music/Heart_Full_of_Soul.mp3")
+  },
+
+  {
+    title: "Peace Frog",
+    user_id: User.find_by(username: "ianstewart").id,
+    image: File.open("app/assets/images/album_covers/Morrison_Hotel.jpg"),
+    song: File.open("app/assets/music/Peace_Frog.mp3")
+  },
+
+  {
+    title: "(I Can't Get No) Satisfaction",
+    user_id: User.find_by(username: "billwyman").id,
+    image: File.open("app/assets/images/album_covers/Out_of_Our_Heads.jpg"),
+    song: File.open("app/assets/music/Satisfaction.mp3")
+  },
+
+  {
+    title: "Heart of Glass",
+    user_id: User.find_by(username: "charliewatts").id,
+    image: File.open("app/assets/images/album_covers/Parallel_Lines.jpg"),
+    song: File.open("app/assets/music/Heart_of_Glass.mp3")
   }])
