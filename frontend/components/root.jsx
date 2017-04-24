@@ -6,6 +6,7 @@ import SessionFormContainer from './Sessions/session_form_container';
 import TrackShowContainer from './tracks/track_show_container';
 import TrackIndexContainer from './tracks/track_index_container';
 import TrackFormContainer from './tracks/track_form_container';
+import ProfileContainer from './users/profile_container';
 
 class Root extends React.Component {
   _redirectIfLoggedIn(nextState, replace) {
@@ -55,6 +56,11 @@ class Root extends React.Component {
               component={ TrackFormContainer }
               onEnter={this._redirectIfNotPoster}
               formType={"edit"}/>
+
+            <Route
+              path="/users/:userId"
+              component={ ProfileContainer }
+              onEnter={this._redirectIfNotLoggedIn}/>
 
             <Route path="/tracks" component={ TrackIndexContainer }/>
             <Route path="/tracks/:trackId" component={ TrackShowContainer }/>
