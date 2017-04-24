@@ -24,6 +24,11 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_many :posted_songs,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: 'Track'
+
   attr_reader :password
 
   def password=(password)
