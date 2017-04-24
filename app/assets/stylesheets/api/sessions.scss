@@ -179,14 +179,21 @@
  cursor: pointer;
 }
 
-#username {
+#user-info {
  display: flex;
- align-self: center;
+ flex-direction: row;
  color: white;
  border-right: 1px solid lightgray;
  border-left: 1px solid lightgray;
- padding: 10px 30px;
+ padding: 0px 30px;
  font-weight: lighter;
+ align-items: center;
+}
+
+#user-info img {
+  height: 25px;
+  margin-right: 20px;
+  margin-left: 0px;
 }
 
 #post-link {
@@ -195,7 +202,7 @@
   align-self: center;
   color: white;
   border-left: 1px solid lightgray;
-  padding: 10px;
+  padding: 15px;
   padding-left: 35px;
   font-weight: lighter;
 }

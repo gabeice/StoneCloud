@@ -10,7 +10,12 @@ User.destroy_all
 Track.destroy_all
 
 users = User.create([
-  { username: 'mickjagger', password: 123456 },
+  {
+    username: 'mickjagger',
+    password: 123456,
+    profile_picture: File.open("app/assets/images/profile_pictures/Mick_Jagger.jpg")
+  },
+  
   { username: "keithrichards", password: 123456 },
   { username: "charliewatts", password: 123456 },
   { username: "ronniewood", password: 123456 },
