@@ -9,10 +9,9 @@ class Profile extends Component {
   render() {
     return(
       <div className="profile">
-        <div clasName="user-info">
+        <div className="user-info">
 
         </div>
-        <TrackIndexContainer />
       </div>
     );
   }

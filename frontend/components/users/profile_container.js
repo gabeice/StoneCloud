@@ -3,7 +3,7 @@ import Profile from './profile';
 import { fetchUser } from '../../actions/user_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-  userId: ownProps.location.pathname
+  userId: ownProps.params.userId
 });
 
 const mapDispatchToProps = dispatch => ({
