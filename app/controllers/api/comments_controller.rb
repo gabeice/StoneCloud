@@ -13,8 +13,9 @@ class Api::CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
+    @track = @comment.track
     @comment.destroy
-    render json: @comment
+    render template: "api/tracks/show"
   end
 
   private

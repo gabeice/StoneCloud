@@ -46,13 +46,40 @@ class TrackShow extends Component {
     hashHistory.push("/tracks");
   }
 
+  dateInterval(date) {
+    let interval = Math.floor((Date.now() - Date.parse(date))/1000);
+    if(interval < 60) {
+      interval = `${interval} seconds`;
+    } else if(interval < 3600) {
+      interval = `${Math.floor(interval/60)} minutes`;
+    } else if(interval < 86400) {
+      interval = `${Math.floor(interval/3600)} hours`;
+    } else {
+      interval = `${Math.floor(interval/86400)} days`;
+    }
+    if(interval.startsWith("1 ")) {
+      return interval.slice(0, interval.length-1);
+    } else {
+      return interval;
+    }
+  }
+
   renderComment(comment) {
     return(
       <li className="comment" key={comment.id}>
-        <img src={comment.user.profile_picture_url}/>
-        <div className="comment-info">
-          <p id="comment-poster">{comment.user.username}</p>
-          <p>{comment.body}</p>
+        <div className="left-side">
+          <img src={comment.user.profile_picture_url}/>
+          <div className="comment-info">
+            <p id="comment-poster">{comment.user.username}</p>
+            <p>{comment.body}</p>
+          </div>
+        </div>
+        <div className="right-side">
+          <p>{this.dateInterval(comment.created_at)}</p>
+          <button
+            id="comment-delete"
+            className={this.props.currentUserId === comment.user.id ? "" : "hidden"}
+            onClick={() => this.props.deleteComment(comment.id)}>Delete</button>
         </div>
       </li>
     );
@@ -69,9 +96,9 @@ class TrackShow extends Component {
       this.props.track.song_url === store.getState().nowPlaying.song_url &&
       !$('#song')[0].paused) ? "fa fa-pause" : "fa fa-play";
 
-    if(this.props.track) {
+    if(this.props.track && this.props.currentUser) {
       let ownSong = this.props.currentUserId === this.props.track.user_id;
-      let comments = this.props.comments ? this.props.comments : [];
+      let comments = this.props.comments ? this.props.comments.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at)) : [];
 
       return(
         <div>
@@ -103,7 +130,7 @@ class TrackShow extends Component {
             </section>
             <section className="comments">
               <div className="comment-box">
-                <img src={currentUser.profile_picture_url}/>
+                <img src={this.props.currentUser.profile_picture_url}/>
 
                 <form onSubmit={this.postComment}>
                   <input type="text" placeholder="Write a comment"/>
@@ -112,7 +139,7 @@ class TrackShow extends Component {
               </div>
               <h3 className="comments-header">{comments.length} comments:</h3>
               <ul>
-                {comments.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at)).map(comment => this.renderComment(comment))}
+                {comments.map(comment => this.renderComment(comment))}
               </ul>
             </section>
           </div>

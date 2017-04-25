@@ -191,9 +191,11 @@
 }
 
 #user-info img {
-  height: 25px;
+  height: 30px;
+  width: 30px;
   margin-right: 20px;
   margin-left: 0px;
+  clip-path: circle(15px at center);
 }
 
 #user-info a {

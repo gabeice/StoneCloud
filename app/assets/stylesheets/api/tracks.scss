@@ -188,6 +188,8 @@
   display: flex;
   flex-direction: row;
   margin: 10px;
+  justify-content: space-between;
+  width: 50%;
 }
 
 .comment img {
@@ -247,4 +249,34 @@
 .comment-box input {
   margin: 7px;
   width: 100%;
+}
+
+#comment-delete {
+  align-self: flex-end;
+  height: 22px;
+  opacity: 0;
+}
+
+#comment-delete:hover {
+  opacity: 1;
+  display: inherit;
+  cursor: pointer;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: row;
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.right-side p {
+  color: gray;
+  font-size: 12px;
+  margin: 0px;
+  align-self: flex-end;
 }

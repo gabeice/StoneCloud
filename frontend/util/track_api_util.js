@@ -43,7 +43,14 @@ export const deleteTrack = trackId => {
 export const postComment = comment => {
   return $.ajax({
     method: 'POST',
-    url: `api/comments`,
+    url: "api/comments",
     data: {comment}
+  });
+};
+
+export const deleteComment = commentId => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `api/comments/${commentId}`
   });
 };

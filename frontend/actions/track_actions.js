@@ -48,3 +48,8 @@ export const postComment = comment => dispatch => {
   return TrackAPIUtil.postComment(comment)
     .then(track => dispatch(receiveTrack(track)));
 }
+
+export const deleteComment = commentId => dispatch => {
+  return TrackAPIUtil.deleteComment(commentId)
+    .then(track => dispatch(receiveTrack(track)));
+}
