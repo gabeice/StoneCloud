@@ -6,7 +6,8 @@ import { playTrack } from '../../actions/play_actions';
 const mapStateToProps = (state, ownProps) => ({
   track: Object.values(state.tracks)[0],
   trackId: ownProps.location.pathname,
-  currentUserId: state.session.currentUser ? state.session.currentUser.id : null
+  currentUserId: state.session.currentUser ? state.session.currentUser.id : null,
+  comments: Object.values(state.tracks)[0] ? Object.values(state.tracks)[0].comments : []
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -125,11 +125,11 @@
 }
 
 .edit-dropdown {
+  float: right;
   display: flex;
   flex-direction: column;
   width: 75px;
-  margin: 10px 30px;
-  margin-left: 20px;
+  margin: 0px 30px;
   border: 1px solid gray;
 }
 
@@ -177,4 +177,47 @@
 
 .search-results:empty {
   margin-bottom: 0px;
+}
+
+.comments {
+  margin-left: 20px;
+}
+
+.comment {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+
+.comment img {
+  width: 60px;
+  height: 60px;
+  clip-path: circle(25px at center);
+}
+
+.comment-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.comment-info p {
+  margin: 0px;
+}
+
+#comment-poster {
+  color: gray;
+  font-size: 14px;
+}
+
+.comments-header {
+  margin-left: 30px;
+  margin-top: 30px;
+  font-weight: lighter;
+}
+
+#show-extras {
+  margin-bottom: 100px;
 }

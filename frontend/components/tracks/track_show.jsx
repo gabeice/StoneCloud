@@ -8,6 +8,7 @@ class TrackShow extends Component {
     super(props)
     this.togglePlay = this.togglePlay.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.renderComment = this.renderComment.bind(this);
   }
 
   componentDidMount() {
@@ -44,6 +45,18 @@ class TrackShow extends Component {
     hashHistory.push("/tracks");
   }
 
+  renderComment(comment) {
+    return(
+      <li className="comment" key={comment.id}>
+        <img src={comment.user.profile_picture_url}/>
+        <div className="comment-info">
+          <p id="comment-poster">{comment.user.username}</p>
+          <p>{comment.body}</p>
+        </div>
+      </li>
+    );
+  }
+
   render() {
     const initialState = (this.props.track &&
       this.props.track.song_url === store.getState().nowPlaying.song_url &&
@@ -51,6 +64,7 @@ class TrackShow extends Component {
 
     if(this.props.track) {
       let ownSong = this.props.currentUserId === this.props.track.user_id;
+      let comments = this.props.comments ? this.props.comments : [];
 
       return(
         <div>
@@ -70,15 +84,23 @@ class TrackShow extends Component {
             </div>
             <img src={this.props.track.image_url}/>
           </section>
-          <section className={ownSong ? "edit-dropdown" : "hidden"}>
-            <Link
-              id="edit-link"
-              to={`/edit/${this.props.track.id}`}><i className="fa fa-pencil" aria-hidden="true"></i> Edit</Link>
+          <div id="show-extras">
+            <section className={ownSong ? "edit-dropdown" : "hidden"}>
+              <Link
+                id="edit-link"
+                to={`/edit/${this.props.track.id}`}><i className="fa fa-pencil" aria-hidden="true"></i> Edit</Link>
 
-            <button
-              id="delete-button"
-              onClick={this.handleDelete}><i className="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
-          </section>
+              <button
+                id="delete-button"
+                onClick={this.handleDelete}><i className="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+            </section>
+            <section className="comments">
+              <h3 className="comments-header">{comments.length} comments:</h3>
+              <ul>
+                {comments.map(comment => this.renderComment(comment))}
+              </ul>
+            </section>
+          </div>
         </div>
       );
     } else {
