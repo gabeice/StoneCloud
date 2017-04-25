@@ -9,6 +9,7 @@ class TrackShow extends Component {
     this.togglePlay = this.togglePlay.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.renderComment = this.renderComment.bind(this);
+    this.postComment = this.postComment.bind(this);
   }
 
   componentDidMount() {
@@ -57,6 +58,12 @@ class TrackShow extends Component {
     );
   }
 
+  postComment(e) {
+    e.preventDefault();
+    this.props.postComment({body: e.target.children[0].value, track_id: this.props.track.id});
+    e.target.children[0].value = "";
+  }
+
   render() {
     const initialState = (this.props.track &&
       this.props.track.song_url === store.getState().nowPlaying.song_url &&
@@ -95,9 +102,17 @@ class TrackShow extends Component {
                 onClick={this.handleDelete}><i className="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
             </section>
             <section className="comments">
+              <div className="comment-box">
+                <img src={currentUser.profile_picture_url}/>
+
+                <form onSubmit={this.postComment}>
+                  <input type="text" placeholder="Write a comment"/>
+                </form>
+
+              </div>
               <h3 className="comments-header">{comments.length} comments:</h3>
               <ul>
-                {comments.map(comment => this.renderComment(comment))}
+                {comments.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at)).map(comment => this.renderComment(comment))}
               </ul>
             </section>
           </div>

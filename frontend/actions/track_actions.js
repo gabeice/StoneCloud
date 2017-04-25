@@ -43,3 +43,8 @@ export const deleteTrack = trackId => dispatch => {
   return TrackAPIUtil.deleteTrack(trackId)
     .then(track => dispatch(removeTrack(track)));
 }
+
+export const postComment = comment => dispatch => {
+  return TrackAPIUtil.postComment(comment)
+    .then(track => dispatch(receiveTrack(track)));
+}

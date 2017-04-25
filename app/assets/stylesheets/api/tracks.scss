@@ -221,3 +221,30 @@
 #show-extras {
   margin-bottom: 100px;
 }
+
+.comment-box {
+  background-color: whitesmoke;
+  width: 60%;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.comment-box img {
+  height: 40px;
+  width: 40px;
+}
+
+.comment-box form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.comment-box input {
+  margin: 7px;
+  width: 100%;
+}

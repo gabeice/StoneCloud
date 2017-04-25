@@ -4,7 +4,8 @@ class Api::CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      render json: @comment
+      @track = @comment.track
+      render template: "api/tracks/show"
     else
       render json: @comment.errors, status: 422
     end
