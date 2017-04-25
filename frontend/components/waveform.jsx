@@ -7,8 +7,6 @@ class WaveForm extends Component {
       box.push(0);
     }
     return box.map((num, idx) => <div key={idx} className="waveslice"></div>);
-    // box.forEach(slice => slice.style.height = slice.height);
-    // return box;
   };
 
   componentDidMount() {
