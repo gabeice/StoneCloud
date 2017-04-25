@@ -18,12 +18,6 @@ class SessionForm extends React.Component {
     this.updateImage = this.updateImage.bind(this);
   }
 
- //  handleSubmit(e) {
- //   e.preventDefault();
- //   const user = Object.assign({}, this.state);
- //   this.props.processForm(user).then(() => hashHistory.push("/tracks"));
- // }
-
  handleSubmit(e) {
 	 e.preventDefault();
 	 let formData = new FormData();

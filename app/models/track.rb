@@ -33,6 +33,11 @@ class Track < ApplicationRecord
     foreign_key: :user_id,
     class_name: 'User'
 
+  has_many :comments,
+    primary_key: :id,
+    foreign_key: :track_id,
+    class_name: 'Comment'
+
   def self.search_filter(search)
     search_start = "#{search.downcase}%"
     search_middle = "% #{search.downcase} %"

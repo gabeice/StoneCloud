@@ -29,6 +29,11 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: 'Track'
 
+  has_many :comments,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: 'Comment'
+
   attr_reader :password
 
   def password=(password)

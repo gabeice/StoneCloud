@@ -8,6 +8,7 @@
 
 User.destroy_all
 Track.destroy_all
+Comment.destroy_all
 
 users = User.create([
   {
@@ -101,3 +102,29 @@ tracks = Track.create([
     image: File.open("app/assets/images/album_covers/Parallel_Lines.jpg"),
     song: File.open("app/assets/music/Heart_of_Glass.mp3")
   }])
+
+  comments = Comment.create([
+    {
+      body: "Oy wheres my drumma?",
+      user_id: User.find_by(username: "mickjagger").id,
+      track_id: Track.find_by(title: "Hang Fire").id
+    },
+
+    {
+      body: "I'm not your fucking drummer you're my fucking singer",
+      user_id: User.find_by(username: "charliewatts").id,
+      track_id: Track.find_by(title: "Hang Fire").id
+    },
+
+    {
+      body: "Don't ever call me that again",
+      user_id: User.find_by(username: "charliewatts").id,
+      track_id: Track.find_by(title: "Hang Fire").id
+    },
+
+    {
+      body: "*Everybody's* got to go",
+      user_id: User.find_by(username: "billwyman").id,
+      track_id: Track.find_by(title: "Midnight Rambler").id
+    }
+  ])
