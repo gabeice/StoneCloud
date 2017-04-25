@@ -74,6 +74,7 @@ tracks = Track.create([
   {
     title: "Heart Full of Soul",
     user_id: User.find_by(username: "micktaylor").id,
+    artist: "The Yardbirds",
     image: File.open("app/assets/images/album_covers/Having_a_Rave_Up.jpeg"),
     song: File.open("app/assets/music/Heart_Full_of_Soul.mp3")
   },
@@ -81,6 +82,7 @@ tracks = Track.create([
   {
     title: "Peace Frog",
     user_id: User.find_by(username: "ianstewart").id,
+    artist: "The Doors",
     image: File.open("app/assets/images/album_covers/Morrison_Hotel.jpg"),
     song: File.open("app/assets/music/Peace_Frog.mp3")
   },
@@ -95,6 +97,7 @@ tracks = Track.create([
   {
     title: "Heart of Glass",
     user_id: User.find_by(username: "charliewatts").id,
+    artist: "Blondie",
     image: File.open("app/assets/images/album_covers/Parallel_Lines.jpg"),
     song: File.open("app/assets/music/Heart_of_Glass.mp3")
   }])

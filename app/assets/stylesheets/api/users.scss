@@ -7,6 +7,41 @@
   flex-direction: column;
   margin: 0px 100px;
   margin-top: 50px;
-  border: 1px solid black;
   width: 83%;
+}
+
+.user-info img {
+  height: 300px;
+  clip-path: circle(100px at center);
+  float: right;
+  margin: 0px 20px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: row;
+  background-color: tan;
+}
+
+.user-info h2 {
+  margin-top: 40px;
+  margin-left: -20px;
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  align-self: flex-start;
+  font-weight: lighter;
+}
+
+.user-tracks {
+  margin: 20px;
+}
+
+.user-track-index {
+  margin: 0px -30px;
+  padding: 0px;
+}
+
+.user-track-index li {
+  list-style-type: none;
 }

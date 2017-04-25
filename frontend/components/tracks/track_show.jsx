@@ -61,7 +61,9 @@ class TrackShow extends Component {
               </a>
 
               <div id="track-info">
-                <p>{this.props.track.poster}</p>
+                <Link to={`/users/${this.props.track.user_id}`}>
+                  <p>{this.props.track.poster}</p>
+                </Link>
                 <h2>{this.props.track.artist} - {this.props.track.title}</h2>
               </div>
 

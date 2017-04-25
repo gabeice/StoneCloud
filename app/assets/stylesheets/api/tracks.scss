@@ -49,6 +49,11 @@
   font-weight: lighter;
 }
 
+#track-info a {
+  text-decoration: none;
+  color: white;
+}
+
 .track-show img {
   height: 300px;
   margin: 10px;
@@ -75,6 +80,10 @@
 
 .track-index-item img {
   height: 100px;
+}
+
+.track-item-info a {
+  text-decoration: none;
 }
 
 .track-item-info p {

@@ -43,7 +43,7 @@ class TrackIndexItem extends Component {
           </a>
 
           <div className="track-item-info">
-            <p>{this.props.track.poster}</p>
+            <Link to={`/users/${this.props.track.user_id}`}><p>{this.props.track.poster}</p></Link>
             <Link to={`/tracks/${this.props.track.id}`} id="title-link">
               {this.props.track.artist} - {this.props.track.title}
             </Link>
