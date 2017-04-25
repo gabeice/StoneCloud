@@ -24,3 +24,19 @@ input {
 .hidden {
   display: none;
 }
+
+.waveform {
+  display: flex;
+  flex-direction: row;
+  width: 900px;
+  margin-top: 200px;
+  height: 150px;
+  margin-left: 20px;
+}
+
+.waveslice {
+  width: 4px;
+  border: 1px solid gray;
+  align-self: flex-end;
+  background-color: whitesmoke;
+}
