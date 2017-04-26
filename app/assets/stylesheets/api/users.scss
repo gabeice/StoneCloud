@@ -17,10 +17,30 @@
   margin: 0px 20px;
 }
 
+.user-info a {
+  align-self: flex-start;
+  width: 40px;
+  height: 20px;
+  margin-right: -50px;
+  opacity: 0;
+  border-radius: 0px;
+  background-color: white;
+  font-size: 9px;
+  text-decoration: none;
+  padding: 10px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  border: 1px solid gray;
+}
+
+.user-info a:hover {
+  opacity: 1;
+}
+
 .user-info {
   display: flex;
   flex-direction: row;
-  background-color: tan;
+  background-color: peru;
 }
 
 .user-info h2 {

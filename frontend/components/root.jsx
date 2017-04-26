@@ -7,6 +7,7 @@ import TrackShowContainer from './tracks/track_show_container';
 import TrackIndexContainer from './tracks/track_index_container';
 import TrackFormContainer from './tracks/track_form_container';
 import ProfileContainer from './users/profile_container';
+import EditUserContainer from './users/edit_user_container';
 import WaveForm from './waveform';
 
 class Root extends React.Component {
