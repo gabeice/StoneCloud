@@ -12,7 +12,7 @@
 
 .user-info img {
   height: 300px;
-  clip-path: circle(100px at center);
+  clip-path: circle(120px at center);
   float: right;
   margin: 0px 20px;
 }
@@ -55,6 +55,7 @@
 
 .user-tracks {
   margin: 20px;
+  margin-bottom: 50px;
 }
 
 .user-track-index {
@@ -71,4 +72,6 @@
   top: 0;
   left: 0;
   width: 100%;
+  margin-top: -40px;
+  z-index: 2;
 }

@@ -33,7 +33,16 @@ class EditUser extends Component {
     }
 
     this.props.updateUser(formData, this.props.user.id)
-      .then(() => hashHistory.push("/tracks"));
+      .then(() => {
+        this.props.fetchUser(this.props.user.id);
+        this.props.receiveCurrentUser(this.props.user);
+        $('#edit-user')[0].className = "hidden";
+      });
+  }
+
+  closeForm(e) {
+    e.preventDefault();
+    $('#edit-user')[0].className = "hidden";
   }
 
   render() {
@@ -46,13 +55,16 @@ class EditUser extends Component {
             id="new-profile-pic"
             type="file"
             onChange={this.updateImage}/>
-          <label htmlFor="image-file">Upload Picture</label>
+          <label htmlFor="new-profile-pic">Upload Picture</label>
 
           <img
             id="pic"
             src={this.state.imageUrl}/>
 
           <input className="form-submit-button" type="submit"/>
+          <a
+            href="#"
+            onClick={this.closeForm}>Close</a>
         </form>
       </div>
     );

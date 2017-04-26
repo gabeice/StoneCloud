@@ -14,7 +14,7 @@
  *= require_self
  */
 body {
-  font-family: sans-serif;
+  font-family: "Lucida Sans Unicode";
 }
 
 input {

@@ -29,11 +29,27 @@ users = User.create([
     profile_picture: File.open("app/assets/images/profile_pictures/Charlie_Watts.jpg")
   },
 
-  { username: "ronniewood", password: 123456 },
+  {
+    username: "ronniewood",
+    password: 123456,
+    profile_picture: File.open("app/assets/images/profile_pictures/Ronnie_Wood.jpg")
+  },
+
   { username: "micktaylor", password: 123456 },
-  { username: "brianjones", password: 123456 },
+
+  {
+    username: "brianjones",
+    password: 123456,
+    profile_picture: File.open("app/assets/images/profile_pictures/Brian_Jones.jpg")
+  },
+
   { username: "ianstewart", password: 123456 },
-  { username: "billwyman", password: 123456 }
+
+  {
+    username: "billwyman",
+    password: 123456,
+    profile_picture: File.open("app/assets/images/profile_pictures/Bill_Wyman.jpg")
+  }
 ])
 
 tracks = Track.create([

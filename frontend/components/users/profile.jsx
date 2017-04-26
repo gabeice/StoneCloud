@@ -15,6 +15,12 @@ class Profile extends Component {
     this.props.fetchUser(this.props.userId);
   }
 
+  componentWillReceiveProps(newProps) {
+    if(newProps.userId != this.props.userId) {
+      this.props.fetchUser(newProps.userId);
+    }
+  }
+
   handleEdit(e) {
     e.preventDefault();
     if(this.props.currentUser.id == this.props.userId) {
@@ -30,6 +36,7 @@ class Profile extends Component {
             <a
               href="#"
               id="edit-profile-pic"
+              className={this.props.currentUser && this.props.currentUser.id == this.props.userId ? "" : "hidden"}
               onClick={this.handleEdit}>Change</a>
 
             <img src={this.props.user.profile_picture_url}/>

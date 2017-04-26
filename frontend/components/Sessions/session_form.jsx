@@ -69,6 +69,11 @@ class SessionForm extends React.Component {
 		}
 	}
 
+	closeForm(e) {
+    e.preventDefault();
+    hashHistory.push("/");
+  }
+
   render() {
 		let baseErrors = this.props.errors["base"] ? this.props.errors["base"] : []
 
@@ -115,6 +120,10 @@ class SessionForm extends React.Component {
 					</ul>
 
 	        <input className="form-submit-button" type="submit" value="continue"/>
+
+					<a
+            href="#"
+            onClick={this.closeForm}>Close</a>
         </form>
       </div>
     );
