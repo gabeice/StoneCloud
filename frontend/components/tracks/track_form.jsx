@@ -40,7 +40,7 @@ class TrackForm extends Component {
     if(this.state.id) {
       formData.append("track[id]", this.state.id);
     }
-
+    
     this.props.submitAction(formData, this.state.id)
       .then(() => hashHistory.push(`/tracks/${Object.keys(store.getState().tracks)[0]}`));
   }

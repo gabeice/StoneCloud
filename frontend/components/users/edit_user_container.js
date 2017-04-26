@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
 import EditUser from './edit_user';
-import { updateUser } from '../../actions/user_actions';
+import { updateUser, fetchUser } from '../../actions/user_actions';
 
-const mapStateToProps = state => ({
-
+const mapStateToProps = (state, ownProps) => ({
+  userId: Object.keys(state.user)[0]
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateUser: (user) => dispatch(updateUser(user))
+  updateUser: (user, userId) => dispatch(updateUser(user, userId)),
+  fetchUser: (userId) => dispatch(fetchUser(userId))
 });
 
 export default connect(

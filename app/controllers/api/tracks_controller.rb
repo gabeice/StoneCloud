@@ -23,7 +23,7 @@ class Api::TracksController < ApplicationController
 
   def destroy
     @track = Track.find(params[:id])
-    @track.destroy
+    @track.destroy if @track.user == current_user
     render :show
   end
 

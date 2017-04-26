@@ -5,10 +5,10 @@ export const fetchUser = userId => {
   });
 };
 
-export const updateUser = user => {
+export const updateUser = (user, userId) => {
   return $.ajax({
     method: 'PATCH',
-    url: `api/users/${user.id}`,
+    url: `api/users/${userId}`,
     contentType: false,
     processData: false,
     data: user
