@@ -44,7 +44,9 @@ class Navbar extends Component {
               <span id="signup-link"><Link to="/signup" id="signup-link-text">Create account</Link></span>
             </div>
           </section>
-          <div className="whitespace"/>
+          <div className="whitespace">
+            <h1>SONGS ON THIS SITE SHOULD BE PLAYED LOUD</h1>
+          </div>
         </div>
       );
     }

@@ -5,11 +5,17 @@
 .whitespace {
   position: fixed;
   top: 0;
-  margin-left: 175px;
+  margin-left: 220px;
   margin-top: 70px;
   width: 900px;
   height: 500px;
   // background-image: url("http://www.sopitas.com/wp-content/uploads/2016/03/The-Rolling-Stones.jpg");
+}
+
+.whitespace h1 {
+  // font-family: serif;
+  font-size: 96px;
+  font-weight: 400;
 }
 
 .navbar {

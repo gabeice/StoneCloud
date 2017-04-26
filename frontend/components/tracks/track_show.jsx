@@ -13,7 +13,17 @@ class TrackShow extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchTrack(this.props.params.trackId);
+    this.props.fetchTrack(this.props.params.trackId)
+      .then(() => {
+        let box = [];
+        for(let i=0; i<200; i++) {
+          box.push(Math.random());
+        }
+        var waveform = new Waveform({
+          container: document.getElementById("waveform"),
+          data: box
+        });
+      });
   }
 
   componentDidUpdate(newProps) {
@@ -113,6 +123,7 @@ class TrackShow extends Component {
                   <p>{this.props.track.poster}</p>
                 </Link>
                 <h2>{this.props.track.artist} - {this.props.track.title}</h2>
+                <div id="waveform"></div>
               </div>
 
             </div>

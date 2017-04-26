@@ -34,6 +34,7 @@ gem 'aws-sdk', '>= 2.0'
 gem 'pg_search'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'sprockets-rails', '2.3.3'
 
 group :production do
   gem 'rails_12factor'
