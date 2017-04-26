@@ -4,7 +4,7 @@ import { hashHistory } from 'react-router';
 class EditUser extends Component {
   constructor(props) {
     super(props);
-    this.state = { imageFile: "", imageUrl: "" };
+    this.state = { imageFile: "", imageUrl: this.props.user.profile_picture_url };
     this.updateImage = this.updateImage.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -26,13 +26,13 @@ class EditUser extends Component {
     e.preventDefault();
     let formData = new FormData();
 
-    formData.append("user[id]", this.props.userId);
+    formData.append("user[id]", this.props.user.id);
 
     if(this.state.imageFile) {
       formData.append("user[profile_picture]", this.state.imageFile);
     }
-    
-    this.props.updateUser(formData, this.props.userId)
+
+    this.props.updateUser(formData, this.props.user.id)
       .then(() => hashHistory.push("/tracks"));
   }
 
@@ -50,7 +50,6 @@ class EditUser extends Component {
 
           <img
             id="pic"
-            className="hidden"
             src={this.state.imageUrl}/>
 
           <input className="form-submit-button" type="submit"/>

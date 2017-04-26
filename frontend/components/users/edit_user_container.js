@@ -3,7 +3,7 @@ import EditUser from './edit_user';
 import { updateUser, fetchUser } from '../../actions/user_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-  userId: Object.keys(state.user)[0]
+  user: Object.values(state.user)[0]
 });
 
 const mapDispatchToProps = dispatch => ({
