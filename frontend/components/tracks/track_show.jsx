@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, hashHistory } from 'react-router';
 import { startSong, playSong, pauseSong } from '../../util/play_functions';
 import Spinner from '../spinner';
+import Wavesurfer from 'react-wavesurfer';
 
 class TrackShow extends Component {
   constructor(props) {
@@ -15,14 +16,15 @@ class TrackShow extends Component {
   componentDidMount() {
     this.props.fetchTrack(this.props.params.trackId)
       .then(() => {
-        let box = [];
-        for(let i=0; i<200; i++) {
-          box.push(Math.random());
-        }
-        var waveform = new Waveform({
-          container: document.getElementById("waveform"),
-          data: box
+        var wavesurfer = WaveSurfer.create({
+            container: '#waveform',
+            waveColor: '#c0c0c0',
+            progressColor: '#00ced1',
+            height: 175
         });
+        wavesurfer.load(this.props.track.song_url)
+      }).then(() => {
+        $('wave')[0].firstChild.style.border = "none";
       });
   }
 
