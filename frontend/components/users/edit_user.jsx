@@ -38,7 +38,7 @@ class EditUser extends Component {
 
   render() {
     return(
-      <div className="edit-form">
+      <div className="submitForm">
         <form onSubmit={this.handleSubmit}>
           <h2>Change Profile Picture</h2>
 

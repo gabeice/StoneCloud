@@ -17,7 +17,7 @@ class Profile extends Component {
 
   handleEdit(e) {
     e.preventDefault();
-    if(currentUser.id == this.props.userId) {
+    if(this.props.currentUser.id == this.props.userId) {
       $('#edit-user')[0].className = "";
     }
   }
