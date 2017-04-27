@@ -40,3 +40,7 @@ input {
   align-self: flex-end;
   background-color: whitesmoke;
 }
+
+.blue {
+  color: blue;
+}
