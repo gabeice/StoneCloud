@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :tracks, only: [:create, :show, :update, :destroy, :index]
     resources :comments, only: [:create, :destroy]
+    get 'session/test', to: 'sessions#test'
   end
 end
