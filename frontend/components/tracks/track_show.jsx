@@ -22,7 +22,12 @@ class TrackShow extends Component {
             progressColor: '#00ced1',
             height: 175
         });
-        wavesurfer.load(this.props.track.song_url)
+        wavesurfer.load(this.props.track.song_url);
+        wavesurfer.on("seek", (progress) => {
+          if($('#song')[0].src === this.props.track.song_url) {
+            $('#song')[0].currentTime = progress * $('#song')[0].duration;
+          }
+        });
       }).then(() => {
         $('wave')[0].firstChild.style.border = "none";
       });
