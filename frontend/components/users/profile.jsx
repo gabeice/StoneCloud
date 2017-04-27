@@ -43,7 +43,7 @@ class Profile extends Component {
             <h2>{this.props.user.username}</h2>
           </div>
           <div className="user-tracks">
-            <h3><u>Tracks</u></h3>
+            <h2><u>Tracks</u></h2>
             <ul className="user-track-index">
               {this.props.user.posted_songs.sort((a, b) => Date.parse(b.updated_at) - Date.parse(a.updated_at))
                 .map(track => <TrackIndexItem track={track} key={track.id}/>)}

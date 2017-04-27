@@ -1,10 +1,10 @@
 export const startSong = (playbar, buttonImage, playButtonImage, prevButton) => {
-  playbar.className = "";
+  playbar.style.display = "flex";
   playButtonImage.className = "fa fa-pause";
   const prog = $('#progress-bar')[0]
   const song = $('#song')[0]
   prog.addEventListener("click", (position) => {
-    song.currentTime = (position.clientX-255)/(prog.offsetWidth/song.duration);
+    song.currentTime = (position.clientX-prog.offsetLeft)/(prog.offsetWidth/song.duration);
   })
   if(buttonImage) {
     buttonImage.className = "fa fa-pause";

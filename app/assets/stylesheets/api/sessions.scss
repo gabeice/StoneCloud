@@ -238,34 +238,56 @@
   left: 0;
   border-top: 1px solid black;
   background-color: whitesmoke;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#playbar-controls {
+  display: flex;
+  flex-direction: row;
+  width: 75%;
+  align-self: center;
+  justify-content: space-between;
 }
 
 #progress-bar {
   background-color: lightgray;
   height: 3px;
-  width: 500px;
+  width: 100%;
   border-radius: 2px;
-  margin-top: 27px;
-  margin-left: 20px;
-  margin-right: 20px;
 }
 
 #playbar-info {
-  float: right;
-  margin-right: 20px;
-  margin-bottom: 20px;
   display: flex;
   flex-direction: row;
+  align-self: center;
+  margin-right: 20px;
+}
+
+#playbuttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+  width: 15%;
+}
+
+#playbuttons a {
+  margin: 15px;
 }
 
 #progress-info {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  margin-left: 200px;
-  margin-bottom: 15px;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 75%;
+}
+
+#progress-info p {
+  padding: 20px;
+  width: 50px;
 }
 
 #time-elapsed {

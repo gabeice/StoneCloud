@@ -79,7 +79,7 @@ class Playbar extends Component {
       pauseSong(buttonImage, playButtonImage);
       this.props.clearTrack();
       this.props.clearList();
-      $('#playbar')[0].className = "hidden";
+      $('#playbar')[0].style.display = "none";
     }
   }
 
@@ -94,39 +94,46 @@ class Playbar extends Component {
       pauseSong(buttonImage, playButtonImage);
       this.props.clearTrack();
       this.props.clearList();
-      $('#playbar')[0].className = "hidden";
+      $('#playbar')[0].style.display = "none";
     }
   }
 
   render() {
     return(
       <div id="playbar" className="hidden">
-        <a href="#" className="playbar-button" onClick={this.playPrevious}>
-          <i className="fa fa-step-backward" aria-hidden="true"></i>
-        </a>
-        <a href="#" className="playbar-button" onClick={this.togglePlay}>
-          <i id="playbar-button-img" className="fa fa-play" aria-hidden="true"></i>
-        </a>
-        <a href="#" className="playbar-button" onClick={this.playNext}>
-          <i className="fa fa-step-forward" aria-hidden="true"></i>
-        </a>
+        <section id="playbar-controls">
+          <div id="playbuttons">
+            <a href="#" className="playbar-button" onClick={this.playPrevious}>
+              <i className="fa fa-step-backward" aria-hidden="true"></i>
+            </a>
+            <a href="#" className="playbar-button" onClick={this.togglePlay}>
+              <i id="playbar-button-img" className="fa fa-play" aria-hidden="true"></i>
+            </a>
+            <a href="#" className="playbar-button" onClick={this.playNext}>
+              <i className="fa fa-step-forward" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <div id="progress-info">
+            <p id="timer">
+              {this.timeFormat(this.state.time)}
+            </p>
+            <div id="progress-bar">
+              <div id="time-elapsed"/>
+            </div>
+            <p>{isNaN(this.state.duration) ? "-:--" : this.timeFormat(this.state.duration)}</p>
+          </div>
+        </section>
+
         <audio id="song" src={this.props.nowPlaying.song_url} autoPlay/>
-        <div id="playbar-info">
+
+        <section id="playbar-info">
           <img src={this.props.nowPlaying.image_url}/>
           <div id="playbar-track-info">
             <p>Now Playing: </p>
             <p>{this.props.nowPlaying.title}</p>
           </div>
-        </div>
-        <div id="progress-info">
-          <p id="timer">
-            {this.timeFormat(this.state.time)}
-          </p>
-          <div id="progress-bar">
-            <div id="time-elapsed"/>
-          </div>
-          <p>{isNaN(this.state.duration) ? "-:--" : this.timeFormat(this.state.duration)}</p>
-        </div>
+        </section>
       </div>
     );
   }
