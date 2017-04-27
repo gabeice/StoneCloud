@@ -14,10 +14,11 @@ class Playbar extends Component {
     const song = $('#song')[0];
     const timeElapsed = $('#time-elapsed')[0];
     const waveForm = $('wave')[0];
+    const prog = $('#progress-bar')[0]
     const time = song.currentTime;
     this.setState({time, duration: song.duration});
     if(timeElapsed) {
-      timeElapsed.style.width = Math.floor(500/this.state.duration * this.state.time) + "px";
+      timeElapsed.style.width = Math.floor(prog.offsetWidth/this.state.duration * this.state.time) + "px";
     }
     if(waveForm && $('#fa-' + this.props.nowPlaying.id)[0]) {
       waveForm.firstChild.style.width = Math.floor(600/this.state.duration * this.state.time) + "px";
