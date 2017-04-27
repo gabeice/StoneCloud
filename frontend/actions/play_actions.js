@@ -1,9 +1,10 @@
 export const PLAY_TRACK = 'PLAY_TRACK';
 export const CLEAR_TRACK = 'CLEAR_TRACK';
 
-export const playTrack = track => ({
+export const playTrack = (track, pos) => ({
   type: 'PLAY_TRACK',
-  track
+  track,
+  pos
 });
 
 export const clearTrack = () => ({

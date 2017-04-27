@@ -23,7 +23,14 @@ class Playbar extends Component {
     if(song.ended) {
       const buttonImage = $('#fa-' + this.props.nowPlaying.id)[0];
       const playButtonImage = $('#playbar-button-img')[0];
-      pauseSong(buttonImage, playButtonImage);
+      if(this.props.upNext) {
+        debugger
+        this.props.playTrack(this.props.upNext, this.props.nowPlaying.position + 1);
+      } else {
+        pauseSong(buttonImage, playButtonImage);
+        this.props.clearTrack();
+        $('#playbar')[0].className = "hidden";
+      }
     }
   }
 
@@ -39,7 +46,7 @@ class Playbar extends Component {
     const playButtonImage = $('#playbar-button-img')[0];
     if(song.src != this.props.nowPlaying.song_url) {
       startSong(playbar, buttonImage, playButtonImage);
-      this.props.playTrack(this.props.nowPlaying);
+      this.props.playTrack(this.props.nowPlaying, 0);
     } else if(song.paused) {
       playSong(buttonImage, playButtonImage);
       song.play();

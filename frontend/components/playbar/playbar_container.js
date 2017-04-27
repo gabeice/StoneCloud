@@ -4,12 +4,13 @@ import { playTrack, clearTrack } from '../../actions/play_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    nowPlaying: state.nowPlaying
+    nowPlaying: state.nowPlaying,
+    upNext: state.playlist[state.nowPlaying.position + 1]
   }
 };
 
 const mapDispatchToProps = dispatch => ({
-  playTrack: (track) => dispatch(playTrack(track)),
+  playTrack: (track, pos) => dispatch(playTrack(track, pos)),
   clearTrack: () => dispatch(clearTrack())
 });
 

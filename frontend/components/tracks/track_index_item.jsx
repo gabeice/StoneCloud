@@ -2,11 +2,18 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { playTrack } from '../../actions/play_actions';
 import { startSong, playSong, pauseSong } from '../../util/play_functions';
+import { addSong, clearList } from '../../actions/playlist_actions';
 
 class TrackIndexItem extends Component {
   constructor(props) {
     super(props);
     this.togglePlay = this.togglePlay.bind(this);
+    this.addToUpNext = this.addToUpNext.bind(this);
+  }
+
+  addToUpNext(e) {
+    e.preventDefault();
+    store.dispatch(addSong(this.props.track));
   }
 
   togglePlay(e) {
@@ -21,7 +28,9 @@ class TrackIndexItem extends Component {
 
     if(song.src != this.props.track.song_url) {
       startSong(playbar, playButtonImage, buttonImage, prevButton);
-      store.dispatch(playTrack(this.props.track));
+      store.dispatch(clearList());
+      store.dispatch(playTrack(this.props.track, 0));
+      store.dispatch(addSong(this.props.track));
     } else if(song.paused) {
       playSong(buttonImage, playButtonImage);
       song.play();
@@ -48,6 +57,7 @@ class TrackIndexItem extends Component {
               {this.props.track.artist} - {this.props.track.title}
             </Link>
           </div>
+          <button className="next-button" onClick={this.addToUpNext}>Play next</button>
         </section>
       </li>
     );

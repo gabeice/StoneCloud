@@ -5,7 +5,9 @@ const playReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case PLAY_TRACK:
-      return merge({}, action.track);
+      const newState = merge({}, action.track);
+      newState.position = action.pos;
+      return newState;
     case CLEAR_TRACK:
       return {};
     default:

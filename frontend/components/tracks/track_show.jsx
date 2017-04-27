@@ -47,6 +47,7 @@ class TrackShow extends Component {
     const playButtonImage = $('#playbar-button-img')[0];
     if(song.src != this.props.track.song_url) {
       startSong(playbar, buttonImage, playButtonImage);
+      this.props.clearList();
       this.props.playTrack(this.props.track);
     } else if(song.paused) {
       playSong(buttonImage, playButtonImage);

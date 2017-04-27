@@ -2,6 +2,7 @@ import { fetchTrack, deleteTrack, postComment, deleteComment } from '../../actio
 import { connect } from 'react-redux';
 import TrackShow from './track_show';
 import { playTrack } from '../../actions/play_actions';
+import { addSong, clearList } from '../../actions/playlist_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   track: Object.values(state.tracks)[0],
@@ -14,7 +15,13 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
   fetchTrack: (trackId) => dispatch(fetchTrack(trackId)),
   deleteTrack: (trackId) => dispatch(deleteTrack(trackId)),
-  playTrack: (track) => dispatch(playTrack(track)),
+
+  playTrack: (track) => {
+    dispatch(playTrack(track, 0));
+    dispatch(addSong(track));
+  },
+
+  clearList: () => dispatch(clearList()),
   postComment: (comment) => dispatch(postComment(comment)),
   deleteComment: (commentId) => dispatch(deleteComment(commentId))
 });

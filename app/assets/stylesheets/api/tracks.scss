@@ -287,3 +287,16 @@
   margin: 0px;
   align-self: flex-end;
 }
+
+.next-button {
+  align-self: flex-start;
+  opacity: 0;
+  height: 40px;
+  width: 50px;
+  margin-left: 20px;
+}
+
+.next-button:hover {
+  opacity: 1;
+  cursor: pointer;
+}
