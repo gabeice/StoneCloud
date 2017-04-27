@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
-import { receiveErrors } from '../../actions/session_actions';
+import { receiveErrors, loginGuest } from '../../actions/session_actions';
 
 class SessionForm extends React.Component {
 	constructor(props) {
@@ -31,6 +31,12 @@ class SessionForm extends React.Component {
 
 	 this.props.processForm(formData)
 		 .then(() => hashHistory.push("/tracks"));
+ }
+
+ guestLogin(e) {
+	 e.preventDefault();
+	 store.dispatch(loginGuest())
+			.then(() => hashHistory.push("/tracks"));
  }
 
  updateImage(e) {
@@ -120,6 +126,10 @@ class SessionForm extends React.Component {
 					</ul>
 
 	        <input className="form-submit-button" type="submit" value="continue"/>
+
+					<a
+						href="#"
+						onClick={this.guestLogin}>Log in as a guest</a>
 
 					<a
             href="#"

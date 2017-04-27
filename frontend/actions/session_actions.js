@@ -26,6 +26,14 @@ export const login = (user) => {
   };
 };
 
+export const loginGuest = () => {
+  return (dispatch) => {
+    return APIUtil.loginGuest()
+      .then(user => dispatch(receiveCurrentUser(user)),
+            err => dispatch(receiveErrors(err.responseJSON)));
+  };
+};
+
 export const logout = () => {
   return (dispatch) => {
     return APIUtil.logout()

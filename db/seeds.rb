@@ -49,7 +49,9 @@ users = User.create([
     username: "billwyman",
     password: 123456,
     profile_picture: File.open("app/assets/images/profile_pictures/Bill_Wyman.jpg")
-  }
+  },
+
+  { username: "guest", password: 123456 }
 ])
 
 tracks = Track.create([
