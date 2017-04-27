@@ -21,8 +21,9 @@ class TrackIndex extends Component {
     const playbar = $('#playbar')[0];
     const buttonImage = $('#fa-' + song.id)[0];
     const playButtonImage = $('#playbar-button-img')[0];
+    const prevButton = $('#fa-' + this.props.nowPlaying.id)[0];
     if(song.src != this.props.nowPlaying.song_url) {
-      startSong(playbar, buttonImage, playButtonImage);
+      startSong(playbar, buttonImage, playButtonImage, prevButton);
       this.props.playTrack(song, idx);
     }
   }
@@ -33,7 +34,12 @@ class TrackIndex extends Component {
       <li
         key={idx}
         className={color}>
-        <a href="#" onClick={(e) => this.playSong(e, idx, song)}>{song.title}</a>
+        <a
+          href="#"
+          className="tracklist-item"
+          onClick={(e) => this.playSong(e, idx, song)}>
+          {song.title}
+        </a>
       </li>
     );
   }
