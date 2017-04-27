@@ -6,6 +6,8 @@ class Playbar extends Component {
     super(props);
     this.state = ({time: 0, duration: 0})
     this.togglePlay = this.togglePlay.bind(this);
+    this.playNext = this.playNext.bind(this);
+    this.playPrevious = this.playPrevious.bind(this);
   }
 
   checkTime() {
@@ -24,7 +26,6 @@ class Playbar extends Component {
       const buttonImage = $('#fa-' + this.props.nowPlaying.id)[0];
       const playButtonImage = $('#playbar-button-img')[0];
       if(this.props.upNext) {
-        debugger
         this.props.playTrack(this.props.upNext, this.props.nowPlaying.position + 1);
       } else {
         pauseSong(buttonImage, playButtonImage);
@@ -65,11 +66,45 @@ class Playbar extends Component {
     }
   }
 
+  playPrevious(e) {
+    e.preventDefault();
+    const buttonImage = $('#fa-' + this.props.nowPlaying.id)[0];
+    const playButtonImage = $('#playbar-button-img')[0];
+    if(this.props.lastSong) {
+      this.props.playTrack(this.props.lastSong, this.props.nowPlaying.position - 1);
+    } else {
+      $('#song')[0].pause();
+      pauseSong(buttonImage, playButtonImage);
+      this.props.clearTrack();
+      $('#playbar')[0].className = "hidden";
+    }
+  }
+
+  playNext(e) {
+    e.preventDefault();
+    const buttonImage = $('#fa-' + this.props.nowPlaying.id)[0];
+    const playButtonImage = $('#playbar-button-img')[0];
+    if(this.props.upNext) {
+      this.props.playTrack(this.props.upNext, this.props.nowPlaying.position + 1);
+    } else {
+      $('#song')[0].pause();
+      pauseSong(buttonImage, playButtonImage);
+      this.props.clearTrack();
+      $('#playbar')[0].className = "hidden";
+    }
+  }
+
   render() {
     return(
       <div id="playbar" className="hidden">
-        <a href="#" id="playbar-button" onClick={this.togglePlay}>
+        <a href="#" className="playbar-button" onClick={this.playPrevious}>
+          <i className="fa fa-step-backward" aria-hidden="true"></i>
+        </a>
+        <a href="#" className="playbar-button" onClick={this.togglePlay}>
           <i id="playbar-button-img" className="fa fa-play" aria-hidden="true"></i>
+        </a>
+        <a href="#" className="playbar-button" onClick={this.playNext}>
+          <i className="fa fa-step-forward" aria-hidden="true"></i>
         </a>
         <audio id="song" src={this.props.nowPlaying.song_url} autoPlay/>
         <div id="playbar-info">

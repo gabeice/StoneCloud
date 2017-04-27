@@ -166,12 +166,22 @@
   margin: 6px 6px;
 }
 
-#playbar-button .fa-play {
+.playbar-button .fa-play {
   font-size: 2em;
   margin: 14px 22px;
 }
 
-#playbar-button .fa-pause {
+.playbar-button .fa-step-forward {
+  font-size: 1.5em;
+  margin: 14px 22px;
+}
+
+.playbar-button .fa-step-backward {
+  font-size: 1.5em;
+  margin: 14px 22px;
+}
+
+.playbar-button .fa-pause {
   font-size: 1.6em;
   margin: 17px 20px;
 }

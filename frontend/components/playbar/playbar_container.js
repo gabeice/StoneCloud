@@ -5,7 +5,8 @@ import { playTrack, clearTrack } from '../../actions/play_actions';
 const mapStateToProps = (state, ownProps) => {
   return {
     nowPlaying: state.nowPlaying,
-    upNext: state.playlist[state.nowPlaying.position + 1]
+    upNext: state.playlist[state.nowPlaying.position + 1],
+    lastSong: state.playlist[state.nowPlaying.position - 1]
   }
 };
 
