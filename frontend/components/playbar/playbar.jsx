@@ -30,6 +30,7 @@ class Playbar extends Component {
       } else {
         pauseSong(buttonImage, playButtonImage);
         this.props.clearTrack();
+        this.props.clearList();
         $('#playbar')[0].className = "hidden";
       }
     }
@@ -76,6 +77,7 @@ class Playbar extends Component {
       $('#song')[0].pause();
       pauseSong(buttonImage, playButtonImage);
       this.props.clearTrack();
+      this.props.clearList();
       $('#playbar')[0].className = "hidden";
     }
   }
@@ -90,6 +92,7 @@ class Playbar extends Component {
       $('#song')[0].pause();
       pauseSong(buttonImage, playButtonImage);
       this.props.clearTrack();
+      this.props.clearList();
       $('#playbar')[0].className = "hidden";
     }
   }

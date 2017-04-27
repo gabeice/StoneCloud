@@ -57,7 +57,7 @@ class TrackIndexItem extends Component {
               {this.props.track.artist} - {this.props.track.title}
             </Link>
           </div>
-          <button className="next-button" onClick={this.addToUpNext}>Play next</button>
+          <button className="next-button" onClick={this.addToUpNext}>Add to Up Next</button>
         </section>
       </li>
     );

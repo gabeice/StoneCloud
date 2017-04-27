@@ -44,3 +44,7 @@ input {
 .blue {
   color: blue;
 }
+
+ol {
+  padding-left: 20px;
+}
