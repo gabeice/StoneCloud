@@ -34,9 +34,6 @@ gem 'aws-sdk', '>= 2.0'
 gem 'pg_search'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-# gem 'sprockets-rails', '2.3.3'
-gem 'rails_stdout_logging'
-gem 'rails_serve_static_assets'
 
 group :production do
   gem 'rails_12factor'
