@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import TrackIndexItem from './track_index_item';
 import Spinner from '../spinner';
+import { startSong } from '../../util/play_functions';
 
 class TrackIndex extends Component {
   componentDidMount() {
     this.props.fetchTracks(this.props.search);
     this.renderNext = this.renderNext.bind(this);
+    this.playSong = this.playSong.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
@@ -14,10 +16,25 @@ class TrackIndex extends Component {
     }
   }
 
-  renderNext(song) {
+  playSong(e, idx, song) {
+    e.preventDefault();
+    const playbar = $('#playbar')[0];
+    const buttonImage = $('#fa-' + song.id)[0];
+    const playButtonImage = $('#playbar-button-img')[0];
+    if(song.src != this.props.nowPlaying.song_url) {
+      startSong(playbar, buttonImage, playButtonImage);
+      this.props.playTrack(song, idx);
+    }
+  }
+
+  renderNext(song, idx) {
     const color = song.id === this.props.nowPlaying.id ? "blue" : "";
     return(
-      <li key={song.id} className={color}>{song.title}</li>
+      <li
+        key={idx}
+        className={color}>
+        <a href="#" onClick={(e) => this.playSong(e, idx, song)}>{song.title}</a>
+      </li>
     );
   }
 
@@ -51,7 +68,7 @@ class TrackIndex extends Component {
           <div id="tracklist">
             <u><h3>Tracklist</h3></u>
             <ol className="tracklist">
-              {queue.map(song => this.renderNext(song))}
+              {queue.map((song, idx) => this.renderNext(song, idx))}
             </ol>
           </div>
         </section>

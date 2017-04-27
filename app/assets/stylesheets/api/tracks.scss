@@ -72,6 +72,10 @@
 
 .track-index li {
   list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
 }
 
 .track-index-item {
@@ -79,7 +83,6 @@
   flex-direction: row;
   margin: 20px;
   padding: 20px;
-  border-bottom: 1px solid lightgray;
 }
 
 .track-index-item img {
@@ -297,11 +300,12 @@
 }
 
 .next-button {
-  align-self: flex-start;
+  align-self: center;
   opacity: 0;
   height: 50px;
   width: 50px;
   margin-left: 20px;
+  background-color: silver;
 }
 
 .next-button:hover {

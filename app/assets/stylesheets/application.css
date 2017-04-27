@@ -48,3 +48,8 @@ input {
 ol {
   padding-left: 20px;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
