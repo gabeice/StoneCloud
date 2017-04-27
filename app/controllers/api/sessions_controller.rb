@@ -22,8 +22,4 @@ class Api::SessionsController < ApplicationController
       render json: {}, status: 404
     end
   end
-
-  def test
-    render json: ["whatup"]
-  end
 end
