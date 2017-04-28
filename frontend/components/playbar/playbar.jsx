@@ -110,6 +110,18 @@ class Playbar extends Component {
     }
   }
 
+  loop(e) {
+    e.preventDefault();
+    const song = $('#song')[0];
+    if(song.loop) {
+      song.loop = false;
+      e.target.style.color = "black";
+    } else {
+      song.loop = true;
+      e.target.style.color = "orangered";
+    }
+  }
+
   render() {
     return(
       <div id="playbar" className="hidden">
@@ -123,6 +135,9 @@ class Playbar extends Component {
             </a>
             <a href="#" className="playbar-button" onClick={this.playNext}>
               <i className="fa fa-step-forward" aria-hidden="true"></i>
+            </a>
+            <a href="#" className="playbar-button" onClick={this.loop}>
+              <i className="fa fa-undo" aria-hidden="true"></i>
             </a>
           </div>
 
@@ -142,8 +157,8 @@ class Playbar extends Component {
         <section id="playbar-info">
           <img src={this.props.nowPlaying.image_url}/>
           <div id="playbar-track-info">
-            <p>Now Playing: </p>
-            <p>{this.props.nowPlaying.title}</p>
+            <p id="pisces">Now Playing: </p>
+            <p id="capricorn">{this.props.nowPlaying.title}</p>
           </div>
         </section>
       </div>
