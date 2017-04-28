@@ -54,3 +54,11 @@ export const deleteComment = commentId => {
     url: `api/comments/${commentId}`
   });
 };
+
+export const likeSong = trackId => {
+  return $.ajax({
+    method: 'POST',
+    url: 'api/likes',
+    data: { track_id: trackId }
+  });
+}

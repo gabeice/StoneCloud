@@ -53,3 +53,8 @@ export const deleteComment = commentId => dispatch => {
   return TrackAPIUtil.deleteComment(commentId)
     .then(track => dispatch(receiveTrack(track)));
 }
+
+export const likeSong = trackId => dispatch => {
+  return TrackAPIUtil.likeSong(trackId)
+    .then(track => dispatch(receiveTrack(track)))
+}

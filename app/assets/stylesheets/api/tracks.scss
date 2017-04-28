@@ -351,3 +351,22 @@
 .remove-from-tracklist:hover {
   opacity: 1;
 }
+
+.like-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 30px;
+  width: 50px;
+  align-items: center;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.like-count {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 50px;
+  align-items: center;
+}

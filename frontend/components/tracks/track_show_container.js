@@ -1,4 +1,4 @@
-import { fetchTrack, deleteTrack, postComment, deleteComment } from '../../actions/track_actions';
+import { fetchTrack, deleteTrack, postComment, deleteComment, likeSong } from '../../actions/track_actions';
 import { connect } from 'react-redux';
 import TrackShow from './track_show';
 import { playTrack } from '../../actions/play_actions';
@@ -23,7 +23,8 @@ const mapDispatchToProps = dispatch => ({
 
   clearList: () => dispatch(clearList()),
   postComment: (comment) => dispatch(postComment(comment)),
-  deleteComment: (commentId) => dispatch(deleteComment(commentId))
+  deleteComment: (commentId) => dispatch(deleteComment(commentId)),
+  like: (trackId) => dispatch(likeSong(trackId))
 });
 
 export default connect(

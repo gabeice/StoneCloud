@@ -38,6 +38,11 @@ class Track < ApplicationRecord
     foreign_key: :track_id,
     class_name: 'Comment'
 
+  has_many :likes,
+    primary_key: :id,
+    foreign_key: :track_id,
+    class_name: 'Like'
+
   def self.search_filter(search)
     search_start = "#{search.downcase}%"
     search_middle = "% #{search.downcase} %"
@@ -54,5 +59,9 @@ class Track < ApplicationRecord
       search_start,
       search_middle,
       search_end)
+  end
+
+  def num_likes
+    self.likes.length
   end
 end

@@ -165,7 +165,16 @@ class TrackShow extends Component {
                   <input type="text" placeholder="Write a comment"/>
                 </form>
 
+                <span className="like-count">
+                  <i className="fa fa-heart" aria-hidden="true"></i>
+                  {this.props.track.num_likes}
+                </span>
               </div>
+
+              <button className="like-button" onClick={() => this.props.like(this.props.track.id)}>
+                <i className="fa fa-heart" aria-hidden="true"></i>
+                Like
+              </button>
               <h3 className="comments-header">{comments.length} comment{comments.length === 1 ? "" : "s"}:</h3>
               <ul>
                 {comments.map(comment => this.renderComment(comment))}
