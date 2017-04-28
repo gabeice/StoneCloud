@@ -11,6 +11,14 @@ const playReducer = (state = {}, action) => {
     case REMOVE_SONG:
       const newState = merge({}, state);
       delete newState[action.pos];
+      Object.keys(newState).forEach(pos => {
+        if(pos > action.pos) {
+          newState[pos-1] = newState[pos];
+        }
+      });
+      if(action.pos < Object.keys(newState).length - 1) {
+        delete newState[Object.keys(newState).length - 1];
+      }
       return newState;
     case CLEAR_LIST:
       return {};

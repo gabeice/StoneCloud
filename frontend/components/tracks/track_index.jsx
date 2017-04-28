@@ -8,6 +8,7 @@ class TrackIndex extends Component {
     this.props.fetchTracks(this.props.search);
     this.renderNext = this.renderNext.bind(this);
     this.playSong = this.playSong.bind(this);
+    this.removeSong = this.removeSong.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
@@ -28,6 +29,13 @@ class TrackIndex extends Component {
     }
   }
 
+  removeSong(e, pos, song) {
+    e.preventDefault();
+    if(song.id != this.props.nowPlaying.id) {
+      this.props.removeSong(pos);
+    }
+  }
+
   renderNext(song, idx) {
     const color = song.id === this.props.nowPlaying.id ? "blue" : "";
     return(
@@ -40,6 +48,9 @@ class TrackIndex extends Component {
           onClick={(e) => this.playSong(e, idx, song)}>
           {song.title}
         </a>
+        <button
+          className="remove-from-tracklist"
+          onClick={(e) => this.removeSong(e, idx, song)}>Remove</button>
       </li>
     );
   }

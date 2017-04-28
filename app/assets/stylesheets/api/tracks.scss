@@ -342,3 +342,12 @@
 .fa-undo {
   margin-left: 20px;
 }
+
+.remove-from-tracklist {
+  margin-left: 10px;
+  opacity: 0;
+}
+
+.remove-from-tracklist:hover {
+  opacity: 1;
+}
