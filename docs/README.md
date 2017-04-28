@@ -1,70 +1,22 @@
 # StoneCloud
 
-- Heroku: https://stone-cloud.herokuapp.com/#/
-- Trello: https://trello.com/b/dRZt4EBE/stonecloud
+[StoneCloud live][stone-cloud]
+[stone-cloud]: https://stone-cloud.herokuapp.com/#/
 
-## Minimum Viable Product
+StoneCloud is a full-stack web application inspired by SoundCloud which allows users to upload, play, edit and comment on music files. It uses a PostgreSQL database, has a backend managed by Ruby on Rails and a Redux architectural framework for the frontend.
 
-StoneCloud is a web application inspired by SoundCloud built using Ruby on Rails
-and React/Redux.  By the end of Week 9, this app will, at a minimum, satisfy the
-following criteria with smooth, bug-free navigation, adequate seed data and
-sufficient CSS styling:
+## Features & Implementation
 
-- [ ] Hosting on Heroku
-- [ ] New account creation, login
-- [ ] Track pages
-- [ ] Searchable tracks
-- [ ] Track playback
-- [ ] Comments
-- [ ] User pages
-- [ ] Infinite Scroll
-- [ ] Production README [sample](docs/production_readme.md)
+### Track Rendering, Playback and Editing
 
-## Design Docs
-* [View Wireframes][wireframes]
-* [React Components][components]
-* [API endpoints][api-endpoints]
-* [DB schema][schema]
-* [Sample State][sample-state]
+Tracks are stored in the database with column entries for title and artist, as well as image files for cover art and the audio files themselves, both of which are uploaded and handled using the Ruby 'paperclip' gem.
 
-[wireframes]: docs/wireframes
-[components]: docs/component-hierarchy.md
-[sample-state]: docs/sample-state.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
+On the frontend, tracks can be viewed on both the index page--accessed by typing a query into the search bar--and individual show pages, which display additional information such as comments on the track, likes, etc. Show pages also have waveforms plotting the audio frequency of the associated track, which show the progress of the song when it is played.
 
-## Implementation Timeline
+### Playbar
 
-### Phase 1: Backend setup and Front End User Authentication (1 day)
+Clicking on a play button on either an index item or a show page causes a playbar to appear at the bottom of the screen, with track info, progress info and play controls. It remains on the screen as long as the song is playing, irrespective of which page the user navigates to.
 
-**Objective:** Functioning rails project with front-end Authentication
+###Tracklist
 
-### Phase 2: Tracks Model, API, and components (2 days)
-
-**Objective:** Tracks can be created, read, edited and destroyed through
-the API.
-
-### Phase 3: Playback (1 day)
-
-**Objective:** Tracks can be played from their show pages.
-
-### Phase 4: Search (2 days)
-
-**Objective:** Users can search the database and play tracks from the search page.
-
-### Phase 5: Comments (1 day)
-
-**Objective:** Users can add comments to tracks, which are then visible on the track's show page.
-
-### Phase 6: User Pages (1 day, W2 Th 6pm)
-
-**Objective:** Users have profile pages with their posted tracks, listening history, etc.
-
-### Phase 7: - Pagination / infinite scroll for Tracks Search page (1 day, W2 F 6pm)
-
-**Objective:** Add infinite scroll to Tracks Search page
-
-### Bonus Features (TBD)
-- [ ] Tracks have waveforms which show playback progress
-- [ ] Users can create playlists
-- [ ] Users can 'like' tracks
+The site keeps track of a song queue that the user can manipulate by adding or removing songs, which will play in the order specified. Users can navigate the queue either by clicking on items in the tracklist or using the playbar's forward and back buttons. Tracklist clears when the final song is finished playing.

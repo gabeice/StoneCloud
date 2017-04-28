@@ -143,6 +143,11 @@ class TrackShow extends Component {
                 <div id="waveform"></div>
               </div>
 
+              <button className="like-button" onClick={() => this.props.like(this.props.track.id)}>
+                <i className="fa fa-heart" aria-hidden="true"></i>
+                Like
+              </button>
+
             </div>
             <button className="next-button" onClick={this.addToUpNext}>Add to Up Next</button>
             <img src={this.props.track.image_url}/>
@@ -170,11 +175,6 @@ class TrackShow extends Component {
                   {this.props.track.num_likes}
                 </span>
               </div>
-
-              <button className="like-button" onClick={() => this.props.like(this.props.track.id)}>
-                <i className="fa fa-heart" aria-hidden="true"></i>
-                Like
-              </button>
               <h3 className="comments-header">{comments.length} comment{comments.length === 1 ? "" : "s"}:</h3>
               <ul>
                 {comments.map(comment => this.renderComment(comment))}
