@@ -13,7 +13,9 @@ class TrackIndexItem extends Component {
 
   addToUpNext(e) {
     e.preventDefault();
-    store.dispatch(addSong(this.props.track));
+    if(!Object.values(store.getState().playlist).map(song => song.id).includes(this.props.track.id)) {
+      store.dispatch(addSong(this.props.track));
+    }
   }
 
   togglePlay(e) {

@@ -113,7 +113,9 @@ class TrackShow extends Component {
 
   addToUpNext(e) {
     e.preventDefault();
-    store.dispatch(addSong(this.props.track));
+    if(!Object.values(store.getState().playlist).map(song => song.id).includes(this.props.track.id)) {
+      store.dispatch(addSong(this.props.track));
+    }
   }
 
   render() {
@@ -164,7 +166,7 @@ class TrackShow extends Component {
                 </form>
 
               </div>
-              <h3 className="comments-header">{comments.length} comments:</h3>
+              <h3 className="comments-header">{comments.length} comment{comments.length === 1 ? "" : "s"}:</h3>
               <ul>
                 {comments.map(comment => this.renderComment(comment))}
               </ul>
