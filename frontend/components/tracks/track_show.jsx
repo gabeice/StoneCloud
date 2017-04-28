@@ -3,6 +3,7 @@ import { Link, hashHistory } from 'react-router';
 import { startSong, playSong, pauseSong } from '../../util/play_functions';
 import Spinner from '../spinner';
 import Wavesurfer from 'react-wavesurfer';
+import { addSong } from '../../actions/playlist_actions';
 
 class TrackShow extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class TrackShow extends Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.renderComment = this.renderComment.bind(this);
     this.postComment = this.postComment.bind(this);
+    this.addToUpNext = this.addToUpNext.bind(this);
   }
 
   componentDidMount() {
@@ -109,6 +111,11 @@ class TrackShow extends Component {
     e.target.children[0].value = "";
   }
 
+  addToUpNext(e) {
+    e.preventDefault();
+    store.dispatch(addSong(this.props.track));
+  }
+
   render() {
     const initialState = (this.props.track &&
       this.props.track.song_url === store.getState().nowPlaying.song_url &&
@@ -135,6 +142,7 @@ class TrackShow extends Component {
               </div>
 
             </div>
+            <button className="next-button" onClick={this.addToUpNext}>Add to Up Next</button>
             <img src={this.props.track.image_url}/>
           </section>
           <div id="show-extras">
