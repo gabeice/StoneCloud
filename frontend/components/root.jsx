@@ -9,6 +9,7 @@ import TrackFormContainer from './tracks/track_form_container';
 import ProfileContainer from './users/profile_container';
 import EditUserContainer from './users/edit_user_container';
 import WaveForm from './waveform';
+import RichardNixon from './richard_nixon';
 
 class Root extends React.Component {
   _redirectIfLoggedIn(nextState, replace) {
@@ -67,6 +68,7 @@ class Root extends React.Component {
             <Route path="/tracks" component={ TrackIndexContainer }/>
             <Route path="/tracks/:trackId" component={ TrackShowContainer }/>
             <Route path="/waveform" component={ WaveForm }/>
+            <Route path="/nixon" component={ RichardNixon }/>
           </Route>
         </Router>
       </Provider>

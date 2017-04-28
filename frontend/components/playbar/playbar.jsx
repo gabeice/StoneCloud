@@ -24,15 +24,19 @@ class Playbar extends Component {
       waveForm.firstChild.style.width = Math.floor(600/this.state.duration * this.state.time) + "px";
     }
     if(song.ended) {
-      const buttonImage = $('#fa-' + this.props.nowPlaying.id)[0];
+      const playbar = $('#playbar')[0];
       const playButtonImage = $('#playbar-button-img')[0];
+      const prevButton = $('#fa-' + store.getState().nowPlaying.id)[0];
       if(this.props.upNext) {
+        const buttonImage = $('#fa-' + this.props.upNext.id)[0];
+        startSong(playbar, buttonImage, playButtonImage, prevButton);
         this.props.playTrack(this.props.upNext, this.props.nowPlaying.position + 1);
       } else {
+        const buttonImage = $('#fa-' + this.props.nowPlaying.id)[0];
         pauseSong(buttonImage, playButtonImage);
         this.props.clearTrack();
         this.props.clearList();
-        $('#playbar')[0].className = "hidden";
+        $('#playbar')[0].style.display = "none";
       }
     }
   }
@@ -70,13 +74,17 @@ class Playbar extends Component {
 
   playPrevious(e) {
     e.preventDefault();
-    const buttonImage = $('#fa-' + this.props.nowPlaying.id)[0];
+    const playbar = $('#playbar')[0];
     const playButtonImage = $('#playbar-button-img')[0];
+    const prevButton = $('#fa-' + store.getState().nowPlaying.id)[0];
     if(this.props.lastSong) {
+      const buttonImage = $('#fa-' + this.props.lastSong.id)[0];
+      startSong(playbar, buttonImage, playButtonImage, prevButton);
       this.props.playTrack(this.props.lastSong, this.props.nowPlaying.position - 1);
     } else {
-      $('#song')[0].pause();
+      const buttonImage = $('#fa-' + this.props.nowPlaying.id)[0];
       pauseSong(buttonImage, playButtonImage);
+      $('#song')[0].pause();
       this.props.clearTrack();
       this.props.clearList();
       $('#playbar')[0].style.display = "none";
@@ -85,12 +93,16 @@ class Playbar extends Component {
 
   playNext(e) {
     e.preventDefault();
-    const buttonImage = $('#fa-' + this.props.nowPlaying.id)[0];
+    const playbar = $('#playbar')[0];
     const playButtonImage = $('#playbar-button-img')[0];
+    const prevButton = $('#fa-' + store.getState().nowPlaying.id)[0];
     if(this.props.upNext) {
+      const buttonImage = $('#fa-' + this.props.upNext.id)[0];
+      startSong(playbar, buttonImage, playButtonImage, prevButton);
       this.props.playTrack(this.props.upNext, this.props.nowPlaying.position + 1);
     } else {
       $('#song')[0].pause();
+      const buttonImage = $('#fa-' + this.props.nowPlaying.id)[0];
       pauseSong(buttonImage, playButtonImage);
       this.props.clearTrack();
       this.props.clearList();
