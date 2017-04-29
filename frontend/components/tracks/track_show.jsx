@@ -67,7 +67,7 @@ class TrackShow extends Component {
   }
 
   dateInterval(date) {
-    let interval = Math.floor((Date.now() - Date.parse(date))/1000);
+    let interval = Math.ceil((Date.now() - Date.parse(date))/1000);
     if(interval < 60) {
       interval = `${interval} seconds`;
     } else if(interval < 3600) {

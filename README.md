@@ -1,6 +1,7 @@
 # StoneCloud
 
 [StoneCloud live][stone-cloud]
+
 [stone-cloud]: https://stone-cloud.herokuapp.com/#/
 
 StoneCloud is a full-stack web application inspired by SoundCloud which allows users to upload, play, edit and comment on music files. It uses a PostgreSQL database, has a backend managed by Ruby on Rails and a Redux architectural framework for the frontend.
