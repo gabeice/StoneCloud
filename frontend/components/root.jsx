@@ -65,8 +65,16 @@ class Root extends React.Component {
               component={ ProfileContainer }
               onEnter={this._redirectIfNotLoggedIn}/>
 
-            <Route path="/tracks" component={ TrackIndexContainer }/>
-            <Route path="/tracks/:trackId" component={ TrackShowContainer }/>
+            <Route
+              path="/tracks"
+              onEnter={this._redirectIfNotLoggedIn}
+              component={ TrackIndexContainer }/>
+
+            <Route
+              path="/tracks/:trackId"
+              onEnter={this._redirectIfNotLoggedIn}
+              component={ TrackShowContainer }/>
+
             <Route path="/waveform" component={ WaveForm }/>
             <Route path="/nixon" component={ RichardNixon }/>
           </Route>

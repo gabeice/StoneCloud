@@ -128,7 +128,7 @@ class TrackShow extends Component {
       let comments = this.props.comments ? this.props.comments.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at)) : [];
 
       return(
-        <div>
+        <div id="show-page">
           <section className="track-show">
             <div id="track-controller">
               <a href="#" id="play-button" onClick={this.togglePlay}>

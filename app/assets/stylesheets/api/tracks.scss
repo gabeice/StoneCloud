@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#show-page {
+  display: flex;
+  flex-direction: column;
+}
+
 .track-show {
   display: flex;
   flex-direction: row;
@@ -9,7 +14,7 @@
   background-color: gray;
   margin-left: 13px;
   margin-right: 13px;
-  margin-top: 60px;
+  margin-top: 42px;
 }
 
 .track-show .fa-play {
@@ -137,7 +142,7 @@
   display: flex;
   flex-direction: column;
   width: 75px;
-  margin: 0px 30px;
+  margin: 15px;
   border: 1px solid gray;
 }
 
@@ -235,7 +240,10 @@
 }
 
 #show-extras {
-  margin-bottom: 150px;
+  background-color: white;
+  margin-left: 13px;
+  margin-right: 13px;
+  padding-bottom: 150px;
 }
 
 .comment-box {
@@ -313,6 +321,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  background-color: white;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 #tracklist {
