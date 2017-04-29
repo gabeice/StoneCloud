@@ -21,14 +21,16 @@ class Navbar extends Component {
         <section className="navbar">
           <img src={window.images.logo} onClick={() => hashHistory.push("/tracks")}/>
           <Search />
-          <Link id="post-link" to="/post"><span id="post-button">Upload</span></Link>
-          <div id="user-info">
-            <img src={this.props.currentUser.profile_picture_url}/>
-            <Link to={`/users/${this.props.currentUser.id}`}>
-              <span id="username">{this.props.currentUser.username}</span>
-            </Link>
+          <div id="athing">
+            <Link id="post-link" to="/post"><span id="post-button">Upload</span></Link>
+            <div id="user-info">
+              <img src={this.props.currentUser.profile_picture_url}/>
+              <Link to={`/users/${this.props.currentUser.id}`}>
+                <span id="username">{this.props.currentUser.username}</span>
+              </Link>
+            </div>
+            <button id="logout-button" onClick={this.handleLogout}>Log out</button>
           </div>
-          <button id="logout-button" onClick={this.handleLogout}>Log out</button>
         </section>
       );
     } else {

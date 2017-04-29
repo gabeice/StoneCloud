@@ -169,26 +169,22 @@
 
 .playbar-button .fa-play {
   font-size: 2em;
-  // margin: 14px 22px;
 }
 
 .playbar-button .fa-step-forward {
   font-size: 1.5em;
-  // margin: 14px 22px;
 }
 
 .playbar-button .fa-step-backward {
   font-size: 1.5em;
-  // margin: 14px 22px;
 }
 
 .playbar-button .fa-pause {
   font-size: 1.6em;
-  // margin: 17px 20px;
 }
 
 .search-results {
-  margin-top: 80px;
+  margin-top: 75px;
   margin-bottom: -20px;
   margin-left: 30px;
 }
@@ -321,7 +317,7 @@
 
 #tracklist {
   position: fixed;
-  margin-top: 100px;
+  margin-top: 85px;
   width: 30%;
   right: 0;
 }
@@ -369,4 +365,5 @@
   justify-content: space-around;
   width: 50px;
   align-items: center;
+  margin-right: 10px;
 }

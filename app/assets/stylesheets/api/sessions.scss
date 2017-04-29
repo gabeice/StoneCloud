@@ -27,11 +27,12 @@
   width: 100%;
   left: 0;
   z-index: 3;
+  height: 50px;
 }
 
 .navbar img {
  margin-left: 15px;
- height: 60px;
+ height: 50px;
  cursor: pointer;
 }
 
@@ -62,7 +63,7 @@
 .login-or-signup span {
  border: 1px solid gray;
  margin: 10px;
- padding: 5px 10px;
+ padding: 3px 10px;
  border-radius: 5px;
 }
 
@@ -83,7 +84,7 @@
 
 .search-bar input {
  width: 100%;
- height: 30px;
+ height: 25px;
  border-radius: 5px;
  font-size: 14px;
 }
@@ -179,10 +180,7 @@
 }
 
 #logout-button {
- display: flex;
- align-self: center;
- margin-right: 15px;
- padding: 10px 15px;
+ margin: 8px 10px;
  border-radius: 5px;
  color: white;
  background-color: orangered;
@@ -217,17 +215,18 @@
 #post-link {
   text-decoration: none;
   display: flex;
-  flex-direction: row;
   align-items: center;
+  justify-content: space-around;
   color: white;
   border-left: 1px solid lightgray;
   padding: 0px 30px;
-  margin-left: 10px;
   font-weight: lighter;
 }
 
-#post-button {
-  margin-right: -15px;
+#athing {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 #playbar {
@@ -255,6 +254,7 @@
   height: 3px;
   width: 100%;
   border-radius: 2px;
+  cursor: pointer;
 }
 
 #playbar-info {
