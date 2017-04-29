@@ -33,6 +33,9 @@ class TrackIndex extends Component {
     e.preventDefault();
     if(song.id != this.props.nowPlaying.id) {
       this.props.removeSong(pos);
+      if(pos < this.props.nowPlaying.position) {
+        this.props.playTrack(this.props.nowPlaying, this.props.nowPlaying.position - 1);
+      }
     }
   }
 

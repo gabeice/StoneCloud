@@ -143,13 +143,19 @@ class TrackShow extends Component {
                 <div id="waveform"></div>
               </div>
 
-              <button className="like-button" onClick={() => this.props.like(this.props.track.id)}>
+              <button
+                className="like-button"
+                onClick={() => this.props.like(this.props.track.id)}>
                 <i className="fa fa-heart" aria-hidden="true"></i>
                 Like
               </button>
 
             </div>
-            <button className="next-button" onClick={this.addToUpNext}>Add to Up Next</button>
+
+            <button
+              className="next-button"
+              onClick={this.addToUpNext}>Add to Up Next</button>
+
             <img src={this.props.track.image_url}/>
           </section>
           <div id="show-extras">

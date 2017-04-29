@@ -362,12 +362,16 @@
 .like-button {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 25px;
   width: 50px;
   align-items: center;
   margin: 20px;
   cursor: pointer;
+}
+
+.like-button .fa-heart {
+  margin-right: 5px;
 }
 
 .like-count {
