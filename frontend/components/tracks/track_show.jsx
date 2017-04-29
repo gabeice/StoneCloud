@@ -25,9 +25,10 @@ class TrackShow extends Component {
             height: 175
         });
         wavesurfer.load(this.props.track.song_url);
+        const song = $('#song')[0];
         wavesurfer.on("seek", (progress) => {
-          if($('#song')[0].src === this.props.track.song_url) {
-            $('#song')[0].currentTime = progress * $('#song')[0].duration;
+          if(song.src === this.props.track.song_url) {
+            song.currentTime = progress * song.duration;
           }
         });
       }).then(() => {
@@ -47,6 +48,7 @@ class TrackShow extends Component {
     const song = $('#song')[0];
     const buttonImage = $('#fa-' + this.props.track.id)[0];
     const playButtonImage = $('#playbar-button-img')[0];
+
     if(song.src != this.props.track.song_url) {
       startSong(playbar, buttonImage, playButtonImage);
       this.props.clearList();
@@ -68,6 +70,7 @@ class TrackShow extends Component {
 
   dateInterval(date) {
     let interval = Math.ceil((Date.now() - Date.parse(date))/1000);
+
     if(interval < 60) {
       interval = `${interval} seconds`;
     } else if(interval < 3600) {
@@ -77,6 +80,7 @@ class TrackShow extends Component {
     } else {
       interval = `${Math.floor(interval/86400)} days`;
     }
+    
     if(interval.startsWith("1 ")) {
       return interval.slice(0, interval.length-1);
     } else {
