@@ -1,7 +1,7 @@
 export const startSong = (playbar, buttonImage, playButtonImage, prevButton) => {
   playbar.style.display = "flex";
   playButtonImage.className = "fa fa-pause";
-  const prog = $('#progress-bar')[0];
+  const prog = $('#outer-bar')[0];
   const song = $('#song')[0];
   song.loop = false;
   $('.fa-undo')[0].style.color = "black";

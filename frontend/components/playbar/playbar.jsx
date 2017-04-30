@@ -145,8 +145,10 @@ class Playbar extends Component {
             <p id="timer">
               {this.timeFormat(this.state.time)}
             </p>
-            <div id="progress-bar">
-              <div id="time-elapsed"/>
+            <div id="outer-bar">
+              <div id="progress-bar">
+                <div id="time-elapsed"/>
+              </div>
             </div>
             <p>{isNaN(this.state.duration) ? "-:--" : this.timeFormat(this.state.duration)}</p>
           </div>

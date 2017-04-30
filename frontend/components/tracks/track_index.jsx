@@ -45,15 +45,17 @@ class TrackIndex extends Component {
       <li
         key={idx}
         className={color}>
-        <a
-          href="#"
-          className="tracklist-item"
-          onClick={(e) => this.playSong(e, idx, song)}>
-          {song.title}
-        </a>
-        <button
-          className="remove-from-tracklist"
-          onClick={(e) => this.removeSong(e, idx, song)}>Remove</button>
+        <span className="titem">
+          <a
+            href="#"
+            className="tracklist-item"
+            onClick={(e) => this.playSong(e, idx, song)}>
+            {song.title}
+          </a>
+          <button
+            className="remove-from-tracklist"
+            onClick={(e) => this.removeSong(e, idx, song)}>Remove</button>
+        </span>
       </li>
     );
   }

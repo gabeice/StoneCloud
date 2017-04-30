@@ -184,7 +184,7 @@
 }
 
 #logout-button {
- margin: 8px 10px;
+ margin: 10px 16px;
  border-radius: 5px;
  color: white;
  background-color: orangered;
@@ -253,12 +253,20 @@
   justify-content: space-between;
 }
 
+#outer-bar {
+  height: 15px;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 #progress-bar {
   background-color: lightgray;
   height: 3px;
   width: 100%;
   border-radius: 2px;
-  cursor: pointer;
 }
 
 #playbar-info {
