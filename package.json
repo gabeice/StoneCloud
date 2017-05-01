@@ -42,6 +42,5 @@
     "wavesurfer.js": "^1.4.0",
     "webpack": "^2.4.1"
   },
-  
   "devDependencies": {}
 }
