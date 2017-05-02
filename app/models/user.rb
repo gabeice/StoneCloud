@@ -19,7 +19,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :username, uniqueness: true
 
-  has_attached_file :profile_picture, default_url: "missing_profile.jpg"
+  has_attached_file :profile_picture, default_url: "missing_profile.jpg", styles: { original: { geometry: "2000x2000#"} }
   validates_attachment_content_type :profile_picture, content_type: /\Aimage\/.*\Z/
 
   after_initialize :ensure_session_token
