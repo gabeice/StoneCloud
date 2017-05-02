@@ -35,7 +35,7 @@ class SessionForm extends React.Component {
 
  guestLogin(e) {
 	 e.preventDefault();
-	 store.dispatch(loginGuest())
+	 this.props.loginGuest()
 			.then(() => hashHistory.push("/tracks"));
  }
 
