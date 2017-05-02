@@ -19,7 +19,9 @@ class Navbar extends Component {
     if(this.props.currentUser) {
       return(
         <section className="navbar">
-          <img src={window.images.logo} onClick={() => hashHistory.push("/tracks")}/>
+          <div id="logo">
+            <img src={window.images.logo} onClick={() => hashHistory.push("/tracks")}/>
+          </div>
           <Search />
           <div id="athing">
             <Link id="post-link" to="/post"><span id="post-button">Upload</span></Link>
@@ -37,7 +39,9 @@ class Navbar extends Component {
       return(
         <div id="homepage">
           <section className="navbar">
-            <img src={window.images.logo}/>
+            <div id="logo">
+              <img src={window.images.logo} onClick={() => hashHistory.push("/tracks")}/>
+            </div>
             <Search />
 
             <div className="login-or-signup">

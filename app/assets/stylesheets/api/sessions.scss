@@ -34,10 +34,18 @@
   height: 50px;
 }
 
-.navbar img {
+#logo {
  margin-left: 15px;
- height: 50px;
  cursor: pointer;
+ background-color: orangered;
+ width: 10%;
+ display: flex;
+ flex-direction: row;
+ justify-content: space-around;
+}
+
+#logo img {
+  height: 100%;
 }
 
 .login-or-signup {
