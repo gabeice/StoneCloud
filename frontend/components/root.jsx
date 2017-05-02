@@ -11,20 +11,20 @@ import EditUserContainer from './users/edit_user_container';
 import WaveForm from './waveform';
 import RichardNixon from './richard_nixon';
 
-class Root extends React.Component {
-  _redirectIfLoggedIn(nextState, replace) {
+const Root = ({ store }) => {
+  const _redirectIfLoggedIn = (nextState, replace) => {
     if (store.getState().session.currentUser) {
       replace('/');
     }
   }
 
-  _redirectIfNotLoggedIn(nextState, replace) {
+  const _redirectIfNotLoggedIn = (nextState, replace) => {
     if (!store.getState().session.currentUser) {
       replace('/login');
     }
   }
 
-  _redirectIfNotPoster(nextState, replace) {
+  const _redirectIfNotPoster = (nextState, replace) => {
     if (!store.getState().session.currentUser ||
     !Object.values(store.getState().tracks)[0] ||
     store.getState().session.currentUser.id != Object.values(store.getState().tracks)[0].user_id) {
@@ -32,56 +32,53 @@ class Root extends React.Component {
     }
   }
 
-  render() {
-    const { store } = this.props;
-    return(
-      <Provider store={ store }>
-        <Router history={ hashHistory }>
-          <Route path="/" component={ App }>
-            <Route
-              path="/login"
-              component={ SessionFormContainer }
-              onEnter={this._redirectIfLoggedIn}/>
+  return(
+    <Provider store={ store }>
+      <Router history={ hashHistory }>
+        <Route path="/" component={ App }>
+          <Route
+            path="/login"
+            component={ SessionFormContainer }
+            onEnter={_redirectIfLoggedIn}/>
 
-            <Route
-              path="/signup"
-              component={ SessionFormContainer }
-              onEnter={this._redirectIfLoggedIn}/>
+          <Route
+            path="/signup"
+            component={ SessionFormContainer }
+            onEnter={_redirectIfLoggedIn}/>
 
-            <Route
-              path="/post"
-              component={ TrackFormContainer }
-              onEnter={this._redirectIfNotLoggedIn}
-              formType={"new"}/>
+          <Route
+            path="/post"
+            component={ TrackFormContainer }
+            onEnter={_redirectIfNotLoggedIn}
+            formType={"new"}/>
 
-            <Route
-              path="/edit/:trackId"
-              component={ TrackFormContainer }
-              onEnter={this._redirectIfNotPoster}
-              formType={"edit"}/>
+          <Route
+            path="/edit/:trackId"
+            component={ TrackFormContainer }
+            onEnter={_redirectIfNotPoster}
+            formType={"edit"}/>
 
-            <Route
-              path="/users/:userId"
-              component={ ProfileContainer }
-              onEnter={this._redirectIfNotLoggedIn}/>
+          <Route
+            path="/users/:userId"
+            component={ ProfileContainer }
+            onEnter={_redirectIfNotLoggedIn}/>
 
-            <Route
-              path="/tracks"
-              onEnter={this._redirectIfNotLoggedIn}
-              component={ TrackIndexContainer }/>
+          <Route
+            path="/tracks"
+            onEnter={_redirectIfNotLoggedIn}
+            component={ TrackIndexContainer }/>
 
-            <Route
-              path="/tracks/:trackId"
-              onEnter={this._redirectIfNotLoggedIn}
-              component={ TrackShowContainer }/>
+          <Route
+            path="/tracks/:trackId"
+            onEnter={_redirectIfNotLoggedIn}
+            component={ TrackShowContainer }/>
 
-            <Route path="/waveform" component={ WaveForm }/>
-            <Route path="/nixon" component={ RichardNixon }/>
-          </Route>
-        </Router>
-      </Provider>
-    )
-  }
+          <Route path="/waveform" component={ WaveForm }/>
+          <Route path="/nixon" component={ RichardNixon }/>
+        </Route>
+      </Router>
+    </Provider>
+  )
 }
 
 export default Root;

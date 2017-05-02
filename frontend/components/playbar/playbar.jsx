@@ -26,7 +26,7 @@ class Playbar extends Component {
     if(song.ended) {
       const playbar = $('#playbar')[0];
       const playButtonImage = $('#playbar-button-img')[0];
-      const prevButton = $('#fa-' + store.getState().nowPlaying.id)[0];
+      const prevButton = $('#fa-' + this.props.nowPlaying.id)[0];
       if(this.props.upNext) {
         const buttonImage = $('#fa-' + this.props.upNext.id)[0];
         startSong(playbar, buttonImage, playButtonImage, prevButton);
@@ -76,7 +76,7 @@ class Playbar extends Component {
     e.preventDefault();
     const playbar = $('#playbar')[0];
     const playButtonImage = $('#playbar-button-img')[0];
-    const prevButton = $('#fa-' + store.getState().nowPlaying.id)[0];
+    const prevButton = $('#fa-' + this.props.nowPlaying.id)[0];
     if(this.props.lastSong) {
       const buttonImage = $('#fa-' + this.props.lastSong.id)[0];
       startSong(playbar, buttonImage, playButtonImage, prevButton);
@@ -95,7 +95,7 @@ class Playbar extends Component {
     e.preventDefault();
     const playbar = $('#playbar')[0];
     const playButtonImage = $('#playbar-button-img')[0];
-    const prevButton = $('#fa-' + store.getState().nowPlaying.id)[0];
+    const prevButton = $('#fa-' + this.props.nowPlaying.id)[0];
     if(this.props.upNext) {
       const buttonImage = $('#fa-' + this.props.upNext.id)[0];
       startSong(playbar, buttonImage, playButtonImage, prevButton);

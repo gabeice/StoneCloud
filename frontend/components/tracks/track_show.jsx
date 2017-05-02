@@ -80,7 +80,7 @@ class TrackShow extends Component {
     } else {
       interval = `${Math.floor(interval/86400)} days`;
     }
-    
+
     if(interval.startsWith("1 ")) {
       return interval.slice(0, interval.length-1);
     } else {
@@ -117,14 +117,14 @@ class TrackShow extends Component {
 
   addToUpNext(e) {
     e.preventDefault();
-    if(!Object.values(store.getState().playlist).map(song => song.id).includes(this.props.track.id)) {
-      store.dispatch(addSong(this.props.track));
+    if(!Object.values(this.props.playlist).map(song => song.id).includes(this.props.track.id)) {
+      this.props.addSong(this.props.track);
     }
   }
 
   render() {
     const initialState = (this.props.track &&
-      this.props.track.song_url === store.getState().nowPlaying.song_url &&
+      this.props.track.song_url === this.props.nowPlaying.song_url &&
       !$('#song')[0].paused) ? "fa fa-pause" : "fa fa-play";
 
     if(this.props.track && this.props.currentUser) {

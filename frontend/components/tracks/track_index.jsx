@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TrackIndexItem from './track_index_item';
+import TrackIndexItemContainer from './index_item_container';
 import Spinner from '../spinner';
 import { startSong } from '../../util/play_functions';
 
@@ -83,7 +83,7 @@ class TrackIndex extends Component {
             <u><h2 className="search-results">{searchResults}</h2></u>
             <ul className="track-index">
               {this.props.tracks.sort((a, b) => Date.parse(b.updated_at) - Date.parse(a.updated_at))
-                .map(track => <TrackIndexItem track={track} key={track.id}/>)}
+                .map(track => <TrackIndexItemContainer track={track} key={track.id}/>)}
             </ul>
           </div>
 

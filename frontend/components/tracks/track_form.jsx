@@ -13,7 +13,7 @@ class TrackForm extends Component {
 
   componentWillReceiveProps(newProps) {
 		if(this.props.header != newProps.header) {
-			store.dispatch(removeTrack(this.props.track));
+			this.props.removeTrack(this.props.track);
       this.setState({title: "", artist: ""});
 		}
 	}
@@ -40,9 +40,9 @@ class TrackForm extends Component {
     if(this.state.id) {
       formData.append("track[id]", this.state.id);
     }
-    
+
     this.props.submitAction(formData, this.state.id)
-      .then(() => hashHistory.push(`/tracks/${Object.keys(store.getState().tracks)[0]}`));
+      .then(() => hashHistory.push(`/tracks/${Object.keys(this.props.tracks)[0]}`));
   }
 
   updateSong(e) {

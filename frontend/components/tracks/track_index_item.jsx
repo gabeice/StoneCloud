@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { playTrack } from '../../actions/play_actions';
 import { startSong, playSong, pauseSong } from '../../util/play_functions';
-import { addSong, clearList } from '../../actions/playlist_actions';
 
 class TrackIndexItem extends Component {
   constructor(props) {
@@ -13,8 +11,8 @@ class TrackIndexItem extends Component {
 
   addToUpNext(e) {
     e.preventDefault();
-    if(!Object.values(store.getState().playlist).map(song => song.id).includes(this.props.track.id)) {
-      store.dispatch(addSong(this.props.track));
+    if(!Object.values(this.props.playlist).map(song => song.id).includes(this.props.track.id)) {
+      this.props.addSong(this.props.track);
     }
   }
 
@@ -25,14 +23,14 @@ class TrackIndexItem extends Component {
     const playbar = $('#playbar')[0];
     const song = $('#song')[0];
     const buttonImage = $('#fa-' + id)[0];
-    const prevButton = $('#fa-' + store.getState().nowPlaying.id)[0];
+    const prevButton = $('#fa-' + this.props.nowPlaying.id)[0];
     const playButtonImage = $('#playbar-button-img')[0];
 
     if(song.src != this.props.track.song_url) {
       startSong(playbar, playButtonImage, buttonImage, prevButton);
-      store.dispatch(clearList());
-      store.dispatch(playTrack(this.props.track, 0));
-      store.dispatch(addSong(this.props.track));
+      this.props.clearList();
+      this.props.playTrack(this.props.track, 0);
+      this.props.addSong(this.props.track);
     } else if(song.paused) {
       playSong(buttonImage, playButtonImage);
       song.play();
@@ -43,7 +41,7 @@ class TrackIndexItem extends Component {
   }
 
   render() {
-    const initialState = this.props.track && this.props.track.song_url === store.getState().nowPlaying.song_url && !$('#song')[0].paused ? "fa fa-pause" : "fa fa-play";
+    const initialState = this.props.track && this.props.track.song_url === this.props.nowPlaying.song_url && !$('#song')[0].paused ? "fa fa-pause" : "fa fa-play";
 
     return(
       <li>

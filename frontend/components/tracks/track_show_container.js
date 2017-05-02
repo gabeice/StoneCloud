@@ -9,7 +9,9 @@ const mapStateToProps = (state, ownProps) => ({
   trackId: ownProps.location.pathname,
   currentUserId: state.session.currentUser ? state.session.currentUser.id : null,
   comments: Object.values(state.tracks)[0] ? Object.values(state.tracks)[0].comments : [],
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  playlist: state.playlist,
+  nowPlaying: state.nowPlaying
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -24,7 +26,8 @@ const mapDispatchToProps = dispatch => ({
   clearList: () => dispatch(clearList()),
   postComment: (comment) => dispatch(postComment(comment)),
   deleteComment: (commentId) => dispatch(deleteComment(commentId)),
-  like: (trackId) => dispatch(likeSong(trackId))
+  like: (trackId) => dispatch(likeSong(trackId)),
+  addSong: (track) => dispatch(addSong(track))
 });
 
 export default connect(

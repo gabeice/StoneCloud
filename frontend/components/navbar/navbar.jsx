@@ -11,7 +11,7 @@ class Navbar extends Component {
   handleLogout(e) {
     e.preventDefault();
     $('#song')[0].pause();
-    $('#playbar')[0].className = "hidden";
+    $('#playbar')[0].style.display = "none";
     this.props.logout();
   }
 
