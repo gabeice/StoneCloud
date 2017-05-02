@@ -18,6 +18,11 @@ class TrackForm extends Component {
 		}
 	}
 
+  closeForm(e) {
+    e.preventDefault();
+    hashHistory.goBack();
+  }
+
   update(field) {
     return e => this.setState({ [field]: e.target.value });
   }
@@ -94,12 +99,13 @@ class TrackForm extends Component {
             onChange={this.updateImage}/>
           <label htmlFor="image-file">Add artwork</label>
 
-          <img
-            id="cover"
-            className={this.props.header.startsWith("E") ? "" : "hidden"}
-            src={this.state.imageUrl}/>
+          <img id="cover" src={this.state.imageUrl}/>
 
           <input className="form-submit-button" type="submit"/>
+
+          <a
+            href="#"
+            onClick={this.closeForm}>Close</a>
         </form>
       </div>
     );

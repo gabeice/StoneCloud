@@ -36,7 +36,6 @@
 
 #logo {
  margin-left: 15px;
- cursor: pointer;
  background-color: orangered;
  width: 10%;
  display: flex;
@@ -46,6 +45,7 @@
 
 #logo img {
   height: 100%;
+  cursor: pointer;
 }
 
 .login-or-signup {
@@ -67,6 +67,10 @@
  background-color: orangered;
  text-decoration: none;
  font-weight: lighter;
+}
+
+.login-or-signup li {
+  list-style-type: none;
 }
 
 .login-or-signup a {
@@ -110,6 +114,7 @@
  border-radius: 5px;
  position: relative;
  background-color: white;
+ z-index: 4;
 }
 
 .submitForm ul:empty {

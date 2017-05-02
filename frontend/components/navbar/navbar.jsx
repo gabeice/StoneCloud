@@ -44,11 +44,11 @@ class Navbar extends Component {
             </div>
             <Search />
 
-            <div className="login-or-signup">
-              <span><Link to="/login" id="login-link">Sign In</Link></span>
-              <p>or</p>
-              <span id="signup-link"><Link to="/signup" id="signup-link-text">Create account</Link></span>
-            </div>
+            <ul className="login-or-signup">
+              <li><Link to="/login" id="login-link">Sign In</Link></li>
+              <li><p>or</p></li>
+              <li id="signup-link"><Link to="/signup" id="signup-link-text">Create account</Link></li>
+            </ul>
           </section>
           <div className="whitespace">
             <h1>SONGS ON THIS SITE SHOULD BE PLAYED LOUD</h1>

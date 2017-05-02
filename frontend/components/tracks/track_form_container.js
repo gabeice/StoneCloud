@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
       artist: "",
       songFile: "",
       imageFile: "",
-      imageUrl: "",
+      imageUrl: window.images.missing_artwork,
       user_id: ""
     }
   } else {
