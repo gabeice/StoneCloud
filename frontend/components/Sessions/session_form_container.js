@@ -1,4 +1,4 @@
-import { login, signup, guestLogin } from '../../actions/session_actions';
+import { login, signup, loginGuest } from '../../actions/session_actions';
 import { connect } from 'react-redux';
 import SessionForm from './session_form';
 
@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     processForm: ownProps.location.pathname.endsWith('n') ?
     (user) => dispatch(login(user)) :
     (user) => dispatch(signup(user)),
-    guestLogin: () => dispatch(guestLogin())
+    loginGuest: () => dispatch(loginGuest())
   };
 };
 

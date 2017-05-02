@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
-import { receiveErrors, loginGuest } from '../../actions/session_actions';
+import { receiveErrors } from '../../actions/session_actions';
 
 class SessionForm extends React.Component {
 	constructor(props) {
@@ -16,6 +16,7 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
 		this.showErrors = this.showErrors.bind(this);
     this.updateImage = this.updateImage.bind(this);
+		this.guestLogin = this.guestLogin.bind(this);
   }
 
  handleSubmit(e) {
