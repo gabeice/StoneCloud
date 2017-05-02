@@ -62,17 +62,14 @@
  font-weight: lighter;
 }
 
-#signup-link {
- background-color: orangered;
-}
-
 #signup-link-text {
  color: white;
+ background-color: orangered;
  text-decoration: none;
  font-weight: lighter;
 }
 
-.login-or-signup span {
+.login-or-signup a {
  border: 1px solid gray;
  margin: 10px;
  padding: 3px 10px;
