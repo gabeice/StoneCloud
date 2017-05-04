@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
-import { receiveErrors } from '../../actions/session_actions';
 
 class SessionForm extends React.Component {
 	constructor(props) {
@@ -66,7 +65,7 @@ class SessionForm extends React.Component {
 				profilePic: "",
 				profilePicUrl: "",
 			});
-			store.dispatch(receiveErrors({}));
+			this.props.receiveErrors({});
 		}
 	}
 
