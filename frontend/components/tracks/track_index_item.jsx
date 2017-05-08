@@ -9,6 +9,22 @@ class TrackIndexItem extends Component {
     this.addToUpNext = this.addToUpNext.bind(this);
   }
 
+  componentDidMount() {
+    var wavesurfer = WaveSurfer.create({
+        container: '#wave-' + this.props.track.id,
+        waveColor: '#c0c0c0',
+        progressColor: '#00ced1',
+        height: 50
+    });
+    wavesurfer.load(this.props.track.song_url);
+    const song = $('#song')[0];
+    wavesurfer.on("seek", (progress) => {
+      if(song.src === this.props.track.song_url) {
+        song.currentTime = progress * song.duration;
+      }
+    });
+  }
+
   addToUpNext(e) {
     e.preventDefault();
     if(!Object.values(this.props.playlist).map(song => song.id).includes(this.props.track.id)) {
@@ -47,15 +63,21 @@ class TrackIndexItem extends Component {
       <li>
         <section className="track-index-item">
           <img src={this.props.track.image_url}/>
-          <a href="#" className="track-play-button" onClick={this.togglePlay}>
-            <i id={"fa-" + this.props.track.id} className={initialState} aria-hidden="true"></i>
-          </a>
+          <div className="track-item-outer">
+            <div className="track-item-controls">
+              <a href="#" className="track-play-button" onClick={this.togglePlay}>
+                <i id={"fa-" + this.props.track.id} className={initialState} aria-hidden="true"></i>
+              </a>
 
-          <div className="track-item-info">
-            <Link to={`/users/${this.props.track.user_id}`}><p>{this.props.track.poster}</p></Link>
-            <Link to={`/tracks/${this.props.track.id}`} id="title-link">
-              {this.props.track.artist} - {this.props.track.title}
-            </Link>
+              <div className="track-item-info">
+                <Link to={`/users/${this.props.track.user_id}`}><p>{this.props.track.poster}</p></Link>
+                <Link to={`/tracks/${this.props.track.id}`} id="title-link">
+                  {this.props.track.artist} - {this.props.track.title}
+                </Link>
+              </div>
+            </div>
+
+            <div className="track-waveform" id={"wave-" + this.props.track.id}></div>
           </div>
         </section>
         <button className="next-button" onClick={this.addToUpNext}>Add to Up Next</button>

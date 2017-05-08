@@ -19,7 +19,7 @@ class TrackShow extends Component {
     this.props.fetchTrack(this.props.params.trackId)
       .then(() => {
         var wavesurfer = WaveSurfer.create({
-            container: '#waveform',
+            container: '.wave-form',
             waveColor: '#c0c0c0',
             progressColor: '#00ced1',
             height: 175
@@ -31,8 +31,6 @@ class TrackShow extends Component {
             song.currentTime = progress * song.duration;
           }
         });
-      }).then(() => {
-        $('wave')[0].firstChild.style.border = "none";
       });
   }
 
@@ -144,7 +142,7 @@ class TrackShow extends Component {
                   <p>{this.props.track.poster}</p>
                 </Link>
                 <h2>{this.props.track.artist} - {this.props.track.title}</h2>
-                <div id="waveform"></div>
+                <div id={"wave-" + this.props.track.id} className="wave-form"></div>
               </div>
 
               <button

@@ -13,7 +13,7 @@ class Playbar extends Component {
   checkTime() {
     const song = $('#song')[0];
     const timeElapsed = $('#time-elapsed')[0];
-    const waveForm = $('wave')[0];
+    const waveForm = $('#wave-' + this.props.nowPlaying.id)[0];
     const prog = $('#progress-bar')[0]
     const time = song.currentTime;
     this.setState({time, duration: song.duration});
@@ -21,9 +21,12 @@ class Playbar extends Component {
       timeElapsed.style.width = Math.floor(prog.offsetWidth/this.state.duration * this.state.time) + "px";
     }
     if(waveForm && $('#fa-' + this.props.nowPlaying.id)[0]) {
-      waveForm.firstChild.style.width = Math.floor(600/this.state.duration * this.state.time) + "px";
+      waveForm.firstChild.firstChild.style.width = Math.floor(600/this.state.duration * this.state.time) + "px";
     }
     if(song.ended) {
+      if(waveForm) {
+        waveForm.firstChild.firstChild.style.width = "0px";
+      }
       const playbar = $('#playbar')[0];
       const playButtonImage = $('#playbar-button-img')[0];
       const prevButton = $('#fa-' + this.props.nowPlaying.id)[0];
@@ -42,6 +45,7 @@ class Playbar extends Component {
   }
 
   componentDidMount() {
+    $('#time-elapsed')[0].style.width = "0px";
     this.interval = setInterval(this.checkTime.bind(this), 500);
   }
 

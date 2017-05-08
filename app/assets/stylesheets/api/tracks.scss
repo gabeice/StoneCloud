@@ -59,10 +59,11 @@
   color: white;
 }
 
-#waveform {
+.wave-form {
   width: 600px;
   height: 120px;
   margin: 20px;
+  cursor: pointer;
 }
 
 .track-show img {
@@ -88,6 +89,7 @@
   flex-direction: row;
   margin: 20px;
   padding: 20px;
+  width: 90%;
 }
 
 .track-index-item img {
@@ -161,6 +163,28 @@
   padding: 10px;
   background-color: white;
   cursor: pointer;
+}
+
+.track-item-outer {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.track-item-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.track-waveform {
+  margin-left: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+wave {
+  border-right: none !important;
 }
 
 .track-play-button .fa-play {
