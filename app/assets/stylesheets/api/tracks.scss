@@ -101,6 +101,7 @@
 .track-item-info p {
   color: gray;
   font-size: 12px;
+  margin: 0px;
 }
 
 #title-link {
@@ -128,8 +129,8 @@
   border-radius: 50%;
   background-color: orangered;
   color: white;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   justify-content: center;
 }
 
@@ -163,13 +164,13 @@
 }
 
 .track-play-button .fa-play {
-  font-size: 1em;
-  margin: 4px 8px;
+  font-size: 1.2em;
+  margin: 6px 9px;
 }
 
 .track-play-button .fa-pause {
-  font-size: 0.9em;
-  margin: 6px 6px;
+  font-size: 1.1em;
+  margin: 7px 7px;
 }
 
 .playbar-button .fa-play {
@@ -192,10 +193,12 @@
   margin-top: 75px;
   margin-bottom: -20px;
   margin-left: 30px;
+  border-bottom: 1px solid lightgray;
 }
 
 .search-results:empty {
   margin-bottom: 0px;
+  border-bottom: none;
 }
 
 .comments {
