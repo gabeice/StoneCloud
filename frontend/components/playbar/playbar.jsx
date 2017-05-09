@@ -21,7 +21,7 @@ class Playbar extends Component {
       timeElapsed.style.width = Math.floor(prog.offsetWidth/this.state.duration * this.state.time) + "px";
     }
     if(waveForm && $('#fa-' + this.props.nowPlaying.id)[0]) {
-      waveForm.firstChild.firstChild.style.width = Math.floor(600/this.state.duration * this.state.time) + "px";
+      waveForm.firstChild.firstChild.style.width = Math.floor(waveForm.offsetWidth/this.state.duration * this.state.time) + "px";
     }
     if(song.ended) {
       if(waveForm) {
