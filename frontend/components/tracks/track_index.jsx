@@ -88,7 +88,7 @@ class TrackIndex extends Component {
           </div>
 
           <div id="tracklist">
-            <u><h3>Tracklist</h3></u>
+            <h3>Tracklist</h3>
             <ol className="tracklist">
               {queue.map((song, idx) => this.renderNext(song, idx))}
             </ol>

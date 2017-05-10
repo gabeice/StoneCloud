@@ -354,10 +354,27 @@ wave {
 }
 
 #tracklist {
+  display: none;
+  flex-direction: column;
   position: fixed;
   margin-top: 85px;
-  width: 30%;
+  width: 350px;
   right: 0;
+  margin-right: 100px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: whitesmoke;
+  height: 400px;
+  z-index: 3
+}
+
+#tracklist h3 {
+  align-self: center;
+  font-weight: lighter;
+}
+
+.tracklist {
+  margin-left: 25px;
 }
 
 .tracklist-item {

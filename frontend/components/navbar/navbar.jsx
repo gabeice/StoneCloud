@@ -10,9 +10,22 @@ class Navbar extends Component {
 
   handleLogout(e) {
     e.preventDefault();
-    $('#song')[0].pause();
-    $('#playbar')[0].style.display = "none";
+    document.getElementById('song').pause();
+    document.getElementById('playbar').style.display = "none";
     this.props.logout();
+  }
+
+  toggleTracklist(e) {
+    e.preventDefault();
+    const tracklist = document.getElementById('tracklist');
+
+    if(tracklist.style.display !== "flex") {
+      tracklist.style.display = "flex";
+      e.target.style.color = "dodgerblue";
+    } else {
+      tracklist.style.display = "none";
+      e.target.style.color = "lightgray";
+    }
   }
 
   render() {
@@ -24,6 +37,9 @@ class Navbar extends Component {
           </div>
           <Search />
           <div id="athing">
+            <div id="tracklist-opener">
+              <i className="fa fa-list" aria-hidden="true" onClick={this.toggleTracklist}></i>
+            </div>
             <Link id="post-link" to="/post"><span id="post-button">Upload</span></Link>
             <div id="user-info">
               <img src={this.props.currentUser.profile_picture_url}/>

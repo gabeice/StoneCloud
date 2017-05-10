@@ -86,7 +86,7 @@
 }
 
 .search-bar {
- width: 50%;
+ width: 45%;
  display: flex;
  align-items: center;
 }
@@ -336,4 +336,17 @@
 
 #profile:empty {
   display: none;
+}
+
+#tracklist-opener {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#tracklist-opener i {
+  color: lightgray;
+  padding-right: 30px;
+  font-size: 1.5em;
+  cursor: pointer;
 }
