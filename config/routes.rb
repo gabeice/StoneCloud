@@ -8,5 +8,7 @@ Rails.application.routes.draw do
     resources :tracks, only: [:create, :show, :update, :destroy, :index]
     resources :comments, only: [:create, :destroy]
     resource :likes, only: [:create]
+    resources :playlists, only: [:create, :destroy, :show, :update]
+    resources :playlist_items, only: [:create, :destroy]
   end
 end
