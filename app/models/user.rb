@@ -39,6 +39,24 @@ class User < ApplicationRecord
     foreign_key: :playlist_id,
     class_name: 'Playlist'
 
+  has_many :follows,
+    primary_key: :id,
+    foreign_key: :follower_id,
+    class_name: 'FollowerItem'
+
+  has_many :followed_users,
+    through: :follows,
+    source: :followee
+
+  has_many :follow_items,
+    primary_key: :id,
+    foreign_key: :followee_id,
+    class_name: 'FollowerItem'
+
+  has_many :followers,
+    through: :follow_items,
+    source: :follower
+
   attr_reader :password
 
   def password=(password)
