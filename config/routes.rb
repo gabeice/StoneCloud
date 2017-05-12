@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     resource :likes, only: [:create]
     resources :playlists, only: [:create, :destroy, :show, :update]
     resources :playlist_items, only: [:create, :destroy]
+    resource :history_items, only: [:create]
   end
 end
