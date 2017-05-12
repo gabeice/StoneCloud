@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512212921) do
+ActiveRecord::Schema.define(version: 20170512214850) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 20170512212921) do
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
+  create_table "history_items", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "track_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["track_id"], name: "index_history_items_on_track_id", using: :btree
+    t.index ["user_id"], name: "index_history_items_on_user_id", using: :btree
+  end
+
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "track_id"
@@ -35,12 +44,20 @@ ActiveRecord::Schema.define(version: 20170512212921) do
   end
 
   create_table "playlist_items", force: :cascade do |t|
+    t.integer  "track_id",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "playlist_id"
+    t.index ["playlist_id"], name: "index_playlist_items_on_playlist_id", using: :btree
+    t.index ["track_id"], name: "index_playlist_items_on_track_id", using: :btree
+  end
+
+  create_table "playlists", force: :cascade do |t|
+    t.string   "name",       null: false
     t.integer  "user_id",    null: false
-    t.integer  "track_id",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["track_id"], name: "index_playlist_items_on_track_id", using: :btree
-    t.index ["user_id"], name: "index_playlist_items_on_user_id", using: :btree
+    t.index ["user_id"], name: "index_playlists_on_user_id", using: :btree
   end
 
   create_table "tracks", force: :cascade do |t|

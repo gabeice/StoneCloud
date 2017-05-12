@@ -34,6 +34,11 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: 'Comment'
 
+  has_many :playlists,
+    primary_key: :id,
+    foreign_key: :playlist_id,
+    class_name: 'Playlist'
+
   attr_reader :password
 
   def password=(password)
