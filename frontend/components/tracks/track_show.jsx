@@ -156,7 +156,7 @@ class TrackShow extends Component {
 
             <button
               className="next-button"
-              onClick={this.addToUpNext}>Add to Up Next</button>
+              onClick={this.addToUpNext}>Play Later</button>
 
             <img src={this.props.track.image_url}/>
           </section>

@@ -80,7 +80,7 @@ class TrackIndexItem extends Component {
             <div className="track-waveform" id={"wave-" + this.props.track.id}></div>
           </div>
         </section>
-        <button className="next-button" onClick={this.addToUpNext}>Add to Up Next</button>
+        <button className="next-button" onClick={this.addToUpNext}>Play Later</button>
       </li>
     );
   }
