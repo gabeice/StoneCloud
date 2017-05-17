@@ -22,7 +22,7 @@ class Track < ApplicationRecord
   validates :title, presence: true
   validates :artist, presence: true
 
-  has_attached_file :image, default_url: "default.png", styles: { original: { geometry: "2000x2000#"} }
+  has_attached_file :image, default_url: "default.png", styles: { original: { geometry: "2000x2000#"}, thumb: "300x300>" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   has_attached_file :song, default_url: "Rick.mp3"
