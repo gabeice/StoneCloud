@@ -6,6 +6,8 @@
 
 StoneCloud is a full-stack web application inspired by SoundCloud which allows users to upload, play, edit and comment on music files. It uses a PostgreSQL database, has a backend managed by Ruby on Rails and a Redux architectural framework for the frontend.
 
+![image of show page](app/assets/images/show-page.png)
+
 ## Features & Implementation
 
 ### Track Rendering, Playback and Editing
