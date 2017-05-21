@@ -2,6 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@keyframes dropdown {
+  from {
+    margin-top: -300px;
+  }
+
+  to {
+    margin-top: 100px;
+  }
+}
+
 .whitespace {
   position: fixed;
   top: 0;
@@ -111,11 +121,13 @@
  display: flex;
  flex-direction: column;
  align-items: center;
- margin-top: 100px;
  border-radius: 5px;
  position: relative;
  background-color: white;
  z-index: 4;
+ animation-name: dropdown;
+ animation-duration: 1s;
+ margin-top: 100px;
 }
 
 .submitForm ul:empty {

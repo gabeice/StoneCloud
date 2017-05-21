@@ -13,6 +13,13 @@ class TrackIndex extends Component {
     }
   }
 
+  hideTracklist() {
+    const tracklist = document.getElementById('tracklist');
+    const tracklistButton = document.getElementById('tracklist-opener');
+    tracklist.style.display = "none";
+    tracklistButton.firstChild.style.color = "lightgray";
+  }
+
   render() {
     if(this.props.tracks) {
       let searchResults;
@@ -29,7 +36,7 @@ class TrackIndex extends Component {
         <section id="index">
           <div>
             <h2 className="search-results">{searchResults}</h2>
-            <ul className="track-index">
+            <ul className="track-index" onClick={this.hideTracklist}>
               {this.props.tracks.sort((a, b) => Date.parse(b.updated_at) - Date.parse(a.updated_at))
                 .map(track => <TrackIndexItemContainer track={track} key={track.id}/>)}
             </ul>
