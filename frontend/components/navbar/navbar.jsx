@@ -69,8 +69,9 @@ class Navbar extends Component {
     const buttonImage = $('#fa-' + song.id)[0];
     const playButtonImage = $('#playbar-button-img')[0];
     const prevButton = $('#fa-' + this.props.nowPlaying.id)[0];
+    const prevWave = $('#wave-' + this.props.nowPlaying.id)[0];
     if(song.src != this.props.nowPlaying.song_url) {
-      startSong(playbar, buttonImage, playButtonImage, prevButton);
+      startSong(playbar, buttonImage, playButtonImage, prevButton, prevWave);
       this.props.playTrack(song, idx);
     }
   }

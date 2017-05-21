@@ -1,4 +1,4 @@
-export const startSong = (playbar, buttonImage, playButtonImage, prevButton) => {
+export const startSong = (playbar, buttonImage, playButtonImage, prevButton, prevWave) => {
   playbar.style.display = "flex";
   playButtonImage.className = "fa fa-pause";
   const prog = $('#outer-bar')[0];
@@ -13,6 +13,9 @@ export const startSong = (playbar, buttonImage, playButtonImage, prevButton) => 
   }
   if(prevButton) {
     prevButton.className = "fa fa-play";
+  }
+  if(prevWave) {
+    prevWave.firstChild.firstChild.style.width = "0px";
   }
 }
 

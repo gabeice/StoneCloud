@@ -81,9 +81,10 @@ class Playbar extends Component {
     const playbar = $('#playbar')[0];
     const playButtonImage = $('#playbar-button-img')[0];
     const prevButton = $('#fa-' + this.props.nowPlaying.id)[0];
+    const prevWave = $('#wave-' + this.props.nowPlaying.id)[0];
     if(this.props.lastSong) {
       const buttonImage = $('#fa-' + this.props.lastSong.id)[0];
-      startSong(playbar, buttonImage, playButtonImage, prevButton);
+      startSong(playbar, buttonImage, playButtonImage, prevButton, prevWave);
       this.props.playTrack(this.props.lastSong, this.props.nowPlaying.position - 1);
     } else {
       const buttonImage = $('#fa-' + this.props.nowPlaying.id)[0];
@@ -92,6 +93,9 @@ class Playbar extends Component {
       this.props.clearTrack();
       this.props.clearList();
       $('#playbar')[0].style.display = "none";
+      if(prevWave) {
+        prevWave.firstChild.firstChild.style.width = "0px";
+      }
     }
   }
 
@@ -100,9 +104,10 @@ class Playbar extends Component {
     const playbar = $('#playbar')[0];
     const playButtonImage = $('#playbar-button-img')[0];
     const prevButton = $('#fa-' + this.props.nowPlaying.id)[0];
+    const prevWave = $('#wave-' + this.props.nowPlaying.id)[0];
     if(this.props.upNext) {
       const buttonImage = $('#fa-' + this.props.upNext.id)[0];
-      startSong(playbar, buttonImage, playButtonImage, prevButton);
+      startSong(playbar, buttonImage, playButtonImage, prevButton, prevWave);
       this.props.playTrack(this.props.upNext, this.props.nowPlaying.position + 1);
     } else {
       $('#song')[0].pause();
@@ -111,6 +116,9 @@ class Playbar extends Component {
       this.props.clearTrack();
       this.props.clearList();
       $('#playbar')[0].style.display = "none";
+      if(prevWave) {
+        prevWave.firstChild.firstChild.style.width = "0px";
+      }
     }
   }
 
