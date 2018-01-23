@@ -1,3 +1,5 @@
+require('wavesurfer.js');
+
 import React, { Component } from 'react';
 import { Link, hashHistory } from 'react-router';
 import { startSong, playSong, pauseSong } from '../../util/play_functions';
