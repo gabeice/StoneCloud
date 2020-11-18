@@ -1,6 +1,6 @@
 # StoneCloud
 
-[StoneCloud live][stone-cloud]
+[StoneCloud live DEACTIVATED 11/18/20][stone-cloud]
 
 [stone-cloud]: https://stone-cloud.herokuapp.com/#/
 
