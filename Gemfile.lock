@@ -1152,6 +1152,8 @@ GEM
     nio4r (2.5.5)
     nokogiri (1.11.1-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.11.1-x86_64-linux)
+      racc (~> 1.4)
     paperclip (5.2.1)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
@@ -1167,7 +1169,8 @@ GEM
       method_source (~> 1.0)
     pry-rails (0.3.9)
       pry (>= 0.10.4)
-    puma (3.12.6)
+    puma (4.3.12)
+      nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -1245,6 +1248,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-19
+  x86_64-linux
 
 DEPENDENCIES
   annotate
@@ -1262,7 +1266,7 @@ DEPENDENCIES
   pg (~> 0.18)
   pg_search
   pry-rails
-  puma (~> 3.12)
+  puma (~> 4.3)
   rails (~> 5.2.4.5)
   rails_12factor
   sass-rails (~> 5.0)
