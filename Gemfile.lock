@@ -1152,6 +1152,8 @@ GEM
     nio4r (2.5.5)
     nokogiri (1.11.1-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.11.1-x86_64-linux)
+      racc (~> 1.4)
     paperclip (5.2.1)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
@@ -1169,7 +1171,7 @@ GEM
       pry (>= 0.10.4)
     puma (3.12.6)
     racc (1.5.2)
-    rack (2.2.3)
+    rack (2.2.6.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.4.5)
@@ -1245,6 +1247,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-19
+  x86_64-linux
 
 DEPENDENCIES
   annotate
